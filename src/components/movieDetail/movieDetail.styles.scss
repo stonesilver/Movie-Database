@@ -1,0 +1,50 @@
+.movie-details {
+  width: 100%;
+
+  .images-gallery {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.815);
+    z-index: 1000;
+  }
+
+  .movie-details-container {
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+    grid-template-areas: 'left-section right-section';
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 1rem;
+    padding: 1.5rem 3rem 0 3rem;
+    width: 100%;
+
+    @media all and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'left-section'
+        'right-section';
+      padding: 1.5rem 0.6rem 0 0.6rem;
+    }
+
+    .left-section {
+      grid-area: left-section;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .right-section {
+      grid-area: right-section;
+      color: #f3f1f1;
+      padding-left: 0.3rem;
+    }
+  }
+  .filter {
+    font-weight: 400;
+    opacity: 0.8;
+  }
+}
+
+hr {
+  background: #f3f1f1;
+  margin: 1.5rem 0;
+}

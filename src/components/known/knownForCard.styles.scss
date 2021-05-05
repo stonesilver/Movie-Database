@@ -1,0 +1,53 @@
+@import '../../assets/sass-variables';
+
+.known-for-card {
+  display: grid;
+  grid-template-rows: 1fr .2fr;
+  grid-template-columns: 1fr;
+  row-gap: 0;
+  overflow: hidden;
+  width: 10.2vw;
+  height: 100%;
+  margin: 0 0.6rem 0.6rem 0;
+  border: $shadowBoxBorder;
+  box-shadow: $shadowBox;
+  border-radius: 7px;
+
+  @media all and (max-width: 768px) {
+    width: 26vw;
+  }
+
+  @media all and (max-width: 540px) {
+    width: 30vw;
+  }
+
+  .known-for-card-img-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 30vh;
+    background: $blankImagecontainer;
+
+    @media all and (max-width: 768px) {
+      min-height: 30vh;
+    }
+
+    .known-for-card-img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .known-for-card-body {
+    display: flex;
+    justify-content: center;
+    color: #f3f1f1;
+
+    p {
+      font-size: 0.75rem;
+      margin: 0;
+      padding: .1rem .2rem;
+    }
+  }
+}

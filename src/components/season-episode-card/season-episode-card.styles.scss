@@ -1,0 +1,244 @@
+.episodes-card {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgb(76, 72, 72);
+  overflow: hidden;
+  margin: 0.5rem 0 1.3rem 0;
+
+  .image-and-details {
+    display: grid;
+    grid-template-columns: .25fr 1fr;
+    grid-gap: 1rem;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgb(76, 72, 72);
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .img-container {
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .episode-title-and-air-date {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+      padding: .5rem 1rem 0 0;
+      width: 100%;
+
+      @media screen and (max-width: 768px) {
+        padding: .5rem .5rem 0 .5rem;
+      }
+
+      .title {
+        display: flex;
+        justify-content: space-between;
+
+        .left {
+          display: flex;
+          padding: 0;
+          margin: 0;
+
+          span {
+            padding-right: 1rem;
+          }
+          .number-count {
+            font-weight: 500;
+          }
+          .icon-and-rating {
+            background: rgb(15, 14, 14);
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            padding: 0 0.3rem;
+            margin-right: 1rem;
+            border: 1px solid rgb(76, 72, 72);
+            outline: none;
+            border-radius: 10px;
+
+            .fas {
+              font-size: 0.6rem;
+              padding-right: 0.4rem;
+            }
+
+            .rating {
+              margin: 0;
+              padding: 0;
+              font-size: 0.8rem;
+              font-weight: 500;
+            }
+          }
+          .episode-title {
+            font-weight: 500;
+          }
+        }
+        .air-date {
+          margin: 0;
+          padding: 0;
+          font-size: 0.9rem;
+        }
+      }
+
+      .overview {
+        font-size: 0.85rem;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .expanded-view {
+    width: 100%;
+
+    .expanded-view-links {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.3rem 1rem;
+    }
+
+    .expanded-view-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+      padding: 0 1rem;
+      border-bottom: 1px solid rgb(76, 72, 72);
+
+      .crew {
+        width: 25vw;
+
+        .header {
+          margin-bottom: 0.8rem;
+
+          .crew-count {
+            opacity: 0.7;
+          }
+        }
+
+        p {
+          margin: 0;
+          padding: 0;
+          font-size: 0.85rem;
+        }
+      }
+
+      .guest-stars {
+        .header {
+          font-size: 0.9rem;
+
+          .header-text {
+            margin-right: 0.5rem;
+          }
+
+          .count {
+            opacity: 0.6;
+          }
+        }
+
+        .guest-stars-container {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(150px, 1fr));
+          grid-gap: 0 2rem;
+        }
+      }
+
+      .full-cast-and-crew {
+        p {
+          margin: 0;
+          padding: 0;
+          text-align: right;
+          font-size: 0.8rem;
+
+          &:hover {
+            color: rgb(231, 174, 16);
+          }
+        }
+      }
+    }
+
+    .episode-images {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgb(76, 72, 72);
+
+      .episode-images-headers {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          margin: 0;
+          padding: 0;
+        }
+
+        .episode-images-count {
+          font-weight: 500;
+          font-size: 0.95rem;
+
+          span {
+            opacity: 0.6;
+          }
+        }
+
+        .view-all-episode-images {
+          .view-all {
+            font-size: 0.75rem;
+
+            &:hover {
+              color: rgb(231, 174, 16);
+            }
+          }
+        }
+      }
+
+      .images-container {
+        width: 100%;
+        display: flex;
+        justify-content: stretch;
+        overflow: scroll hidden;
+        margin-top: 0.5rem;
+
+        .container {
+          margin: 0;
+          padding: 0.2rem 0.5rem 0.2rem 0;
+
+          img {
+            width: 180px;
+            height: 90px;
+          }
+        }
+      }
+    }
+  }
+
+  .expand {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: rgb(76, 72, 72);
+    padding: 0.25rem 0;
+    cursor: pointer;
+
+    &:hover {
+      background: rgb(114, 110, 110);
+    }
+
+    &:hover + .expanded-view {
+      display: block;
+    }
+
+    p {
+      margin: auto;
+      font-size: 0.9rem;
+
+      span {
+        margin-left: 0.3rem;
+      }
+    }
+  }
+}

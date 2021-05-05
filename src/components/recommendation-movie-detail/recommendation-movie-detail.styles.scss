@@ -1,0 +1,86 @@
+.recommendations {
+  width: 100%;
+  margin-top: 1rem;
+  color: #f3f1f1;
+
+  .header {
+    color: #f3f1f1;
+    font-weight: 600;
+  }
+
+  .recommendations-container-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+
+    .recommendation-card {
+      min-width: 20vw;
+      max-width: 20vw;
+      margin-right: 1.2rem;
+
+      @media screen  and (max-width: 768px) {
+        min-width: 40vw;
+        margin-right: .6rem;
+      }
+
+      .recommendations-card-img {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        min-height: 22vh;
+        height: 22vh;
+        border-radius: 10px;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+
+        @media screen  and (max-width: 768px) {
+          min-height: 17vh;
+          height: 17vh;
+          border-radius: 5px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .release-date {
+          position: absolute;
+          display: none;
+          bottom: 0px;
+          margin: 0;
+          padding: 0.3rem 0.5rem;
+          background: rgba(255, 255, 255, 0.705);
+          width: 100%;
+          color: #000000;
+          font-size: 0.9rem;
+
+          @media screen and (max-width: 768px) {
+            font-size: 0.75rem;
+            }
+
+          p {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        &:hover .release-date {
+          display: block;
+        }
+      }
+
+      .recommendations-card-body {
+        display: flex;
+        justify-content: space-between;
+        color: #f3f1f1;
+        font-size: 0.85rem;
+
+        @media screen and (max-width: 768px) {
+        font-size: 0.75rem;
+        }
+      }
+    }
+  }
+}

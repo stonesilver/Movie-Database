@@ -1,0 +1,66 @@
+// @import '../../assets/sass-variables';
+
+// .homepageCategory-container {
+//     margin-top: .2rem;
+//     padding: 1rem;
+//     min-height: 40vh;
+//     color: #fff;
+
+//     .homepageCategory-row {
+//         margin: 0;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+
+//         .homepageCategory-header {
+//             color: #ffc107;
+//             // margin-left: .5rem;
+//         }
+
+//         .homepageCategory-type {
+//             display: flex;
+//             padding: 0;
+//             border: $shadowBoxBorder;
+//             border-radius: 15px;
+
+//             .options {
+//                 padding: .3rem 1rem;
+//                 border-radius: inherit;
+//                 font-size: .95rem;
+
+//                 &:nth-child(3) {
+//                 background: rgb(182, 107, 107);
+//                 transition: all .5s ease-in;
+//                 }
+//             }
+
+//             .active {
+//                 background: rgb(182, 107, 107);
+//             }
+
+//             // .first-toggle {
+//             //     margin-right: .2rem;
+//             // }
+
+//             // .second-toggle {
+//             //     border-radius: 5px 5px 0 0;
+//             //     margin-right: .2rem;
+//             // }
+
+//             // .third-toggle {
+//             //     margin-right: .2rem;
+//             // }
+//         }
+//     }
+
+//     .main-row {
+//         display: grid;
+//         grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+//         grid-auto-flow: column;
+//         grid-auto-columns: minmax(130px,1fr);
+//         column-gap: .5rem;
+//         padding-bottom: 1rem;
+//         overflow-x: auto;
+//         margin-top: .5rem;
+//     }
+// }

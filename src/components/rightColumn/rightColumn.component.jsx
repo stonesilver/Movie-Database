@@ -1,0 +1,43 @@
+import React from 'react';
+import MovieCard from '../MovieCard/MovieCard';
+import ShowMore from '../showMore/show-more.component';
+import './rightColumn.styles.scss';
+
+const RightColumn = ({ movieData, showMorePage, isClicked, loading }) => (
+  <div className='display-body'>
+    <div className='page-row'>
+      {movieData.map(
+        ({
+          poster_path,
+          vote_average,
+          title,
+          name,
+          release_date,
+          first_air_date,
+          id,
+        }) => (
+          <MovieCard
+            src={
+              poster_path
+                ? `http://image.tmdb.org/t/p/w342${poster_path}`
+                : 'https://tjszkxabrz-flywheel.netdna-ssl.com/wp-content/uploads/2016/05/No-Image.jpg'
+            }
+            rating={vote_average}
+            movieTitle={title}
+            releaseDate={release_date}
+            firstAirDate={first_air_date}
+            tvTitle={name}
+            key={id}
+            width={200}
+            height={280}
+            id={id}
+            loading={loading}
+          />
+        )
+      )}
+    </div>
+    <ShowMore showMorePage={showMorePage} isClicked={isClicked} />
+  </div>
+);
+
+export default RightColumn;

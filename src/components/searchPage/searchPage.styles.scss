@@ -1,0 +1,110 @@
+@import '../../assets//sass-variables';
+
+.search-page {
+  width: 100%;
+
+  .search-page-container {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr 1fr 1fr;
+    grid-template-areas: 'left-column search-page-right-column search-page-right-column search-page-right-column';
+    grid-gap: 1rem;
+    width: 100%;
+    padding: 0 2.5rem;
+    margin-top: 1.5rem;
+
+    @media all and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'left-column'
+        'search-page-right-column';
+      padding: 0 1rem;
+    }
+
+    .search-page-left-column {
+      grid-area: left-column;
+      width: 100%;
+      height: max-content;
+      border-radius: 0.6rem;
+      overflow: hidden;
+      border: $shadowBoxBorder;
+      box-shadow: $shadowBox;
+
+      .search-page-left-column-container {
+        width: 100%;
+        height: 100%;
+
+        .header-and-icon {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 0.8rem;
+          font-size: 1.2rem;
+          font-weight: 800;
+          background: $primaryYellow;
+
+          .header {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        .search-language {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin: 0.2rem 0;
+
+          .language {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            padding: 0.5rem 0.8rem;
+            background: rgb(53, 51, 51);
+            color: #ffffff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: $shadowBoxBorder;
+            box-shadow: $shadowBox;
+
+            &:first-child {
+              background: $primaryYellow;
+            }
+
+            &:hover {
+              background: $primaryYellow;
+              opacity: 0.6;
+            }
+
+            .count {
+              background: #ffffff;
+              color: #000000;
+              font-weight: 500;
+              padding: 0 0.5rem;
+              border-radius: 4px;
+              height: max-content;
+            }
+          }
+        }
+      }
+    }
+
+    .search-page-right-column {
+      grid-area: search-page-right-column;
+      box-shadow: $shadowBox;
+      border: $shadowBoxBorder;
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-radius: 5px;
+      min-height: 100vh;
+    }
+
+    .no-search-found {
+      color: #ffffff;
+      font-size: 0.9rem;
+      padding: 0.5rem;
+    }
+  }
+}

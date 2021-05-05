@@ -1,0 +1,190 @@
+.person-detail {
+  width: 100%;
+
+  .person-detail-section {
+    display: grid;
+    grid-template-columns: 0.35fr 1fr;
+    grid-gap: 1rem;
+    min-height: 50vh;
+    padding: 1.5rem;
+
+    @media all and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .person-detail-left-section {
+      width: 100%;
+      overflow: hidden;
+      color: #fff;
+
+      .person-detail-left-section-img {
+        @media all and (max-width: 768px) {
+          display: grid;
+          grid-template-columns: 0.4fr;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .personal-info {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        color: #ffffff;
+
+        .person-detail-left-section-head {
+          display: none;
+        }
+
+        // .social-media-handles {
+        //   width: 100%;
+
+        //   a {
+        //     font-size: 1.5rem;
+        //     margin-right: 1rem;
+        //     text-decoration: none;
+        //   }
+
+        //   .fa-facebook-square {
+        //     color: rgb(74, 74, 221);
+        //   }
+        //   .fa-twitter {
+        //     color: rgb(99, 185, 211);
+        //   }
+        //   .fa-instagram {
+        //     color: rgb(221, 74, 214);
+        //   }
+        //   .fa-link {
+        //     color: rgb(47, 27, 158);
+        //     transform: rotate(45deg);
+        //   }
+        // }
+
+        .personal-info-header {
+          margin-top: 2rem;
+        }
+
+        @media all and (max-width: 768px) {
+          margin-top: 0.8rem;
+
+          .person-detail-left-section-head {
+            display: block;
+            text-align: center;
+
+            h1 {
+              font-size: 2rem;
+              font-weight: 900;
+              padding: 0;
+              margin: 0;
+            }
+          }
+
+          .person-detail-left-section-social-media {
+            margin-top: 0.2rem;
+            text-align: center;
+          }
+
+          .personal-info-header {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 1rem;
+          }
+        }
+
+        .info {
+          margin: 0.8rem 0;
+
+          @media all and (max-width: 768px) {
+            margin: 0.3rem 0;
+          }
+
+          .info-header {
+            font-weight: 500;
+            font-size: 1rem;
+
+            @media all and (max-width: 768px) {
+              font-size: .85rem;
+            }
+          }
+          p {
+            margin: 0;
+            font-size: 0.85rem;
+
+            @media all and (max-width: 768px) {
+              font-size: .75rem;
+            }
+          }
+
+          .also-known-as {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            div {
+              margin: 0.2rem 0;
+              font-size: 0.85rem;
+
+              @media all and (max-width: 768px) {
+                font-size: .75rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .person-detail-right-section {
+      width: 100%;
+
+      .right-container {
+        color: #f3f1f1;
+
+        .right-section-header {
+          padding: 0.5rem 0;
+          margin-bottom: 2rem;
+          font-weight: 900;
+
+          @media all and (max-width: 768px) {
+            display: none;
+          }
+        }
+
+        .biography {
+
+          .biography-text {
+            font-size: 0.92rem;
+            text-align: justify;
+
+            @media all and (max-width: 768px) {
+              font-size: .75rem;
+            }
+          }
+        }
+
+        .known-for-scroll {
+          display: grid;
+          width: 100%;
+          min-height: 40vh;
+          overflow: hidden;
+
+          .known-for-scroll-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+            padding-bottom: 1rem;
+          }
+        }
+
+        .person-credits {
+          display: flex;
+          flex-direction: column;
+          width: 98%;
+          padding: 0;
+          margin-top: 1.2rem;
+        }
+      }
+    }
+  }
+}

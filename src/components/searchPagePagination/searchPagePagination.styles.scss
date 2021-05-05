@@ -1,0 +1,36 @@
+@import '../../assets//sass-variables';
+
+.pagination {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  overflow: hidden;
+
+  .pagination-container, .longer-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    border: $shadowBoxBorder;
+    box-shadow: $shadowBox;
+
+    .pagination-span {
+      border-right: $shadowBoxBorder;
+      padding: 0.1rem 0.6rem;
+      display: block;
+      border-radius: 2px;
+      cursor: pointer;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    .pagination-span-active {
+      background: $lightBorderColor;
+    }
+  }
+}

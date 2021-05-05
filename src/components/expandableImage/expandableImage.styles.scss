@@ -1,0 +1,94 @@
+@import '../../assets/sass-variables';
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 15px;
+
+  @media all and (max-width: 768px) {
+    border-radius: 6px;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    min-width:25vw;
+    height: 70vh;
+    min-height: 70vh;
+    background:$blankImagecontainer;
+
+    @media all and (max-width: 768px) {
+      height: 35vh;
+      min-height: 35vh;
+    }
+
+    @media all and (max-width: 540px) {
+      height: 25vh;
+      min-height: 25vh;
+    }
+
+    .LazyLoad {
+      display: block;
+
+      .movie-image {
+        width: 100%;
+        height: 100%;
+        cursor: all-scroll;
+      }
+
+      &:hover ~ .expand {
+        display: block;
+        z-index: 500000000;
+      }
+    }
+
+    .expand {
+      display: none;
+      position: absolute;
+      top: 0;
+      background: rgba(75, 73, 73, 0.749);
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .expand-content {
+      position: absolute;
+      top: 45%;
+      width: 100%;
+
+      .expand-text {
+        color: #ffffff;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  .now-streaming {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #f3f1f1;
+    border-radius: 0 0 15px 15px;
+
+    @media all and (max-width: 768px) {
+      display: none;
+    }
+
+    .streaming-text {
+      padding: 10px;
+      margin: auto;
+      font-weight: 600;
+    }
+  }
+}

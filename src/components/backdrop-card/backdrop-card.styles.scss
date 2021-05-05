@@ -1,0 +1,70 @@
+@import '../../assets/sass-variables';
+
+.backdropcard-container {
+  height: max-content;
+  border-radius: 10px;
+  overflow: hidden;
+  border: $shadowBoxBorder;
+  box-shadow: $shadowBox;
+
+  .img-container {
+    width: 100%;
+    min-height: 25vh;
+    background: $blankImagecontainer;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .info-and-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $lightBorderColor;
+
+    span {
+        font-size: .7rem;
+        padding-right: .5rem;
+        padding: .8rem 0;
+    }
+  }
+
+  .backdropcard-category {
+    margin-bottom: 0.5rem;
+    padding: 0 0.5rem;
+
+    .title {
+      font-size: 0.85rem;
+    }
+
+    .text {
+      font-size: 0.7rem;
+
+      .fa-check {
+        margin-left: .5rem;
+      }
+    }
+
+    .language {
+      display: flex;
+      justify-content: space-between;
+      background: $mainColor;
+      padding: .3rem 0;
+
+      .text {
+        padding-left: .5rem;
+      }
+
+      span {
+        padding-right: .5rem;
+      }
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

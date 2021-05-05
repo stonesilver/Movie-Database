@@ -1,0 +1,46 @@
+@import '../../assets//sass-variables';
+
+.movie-tv-category {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3.5rem;
+  width: 100%;
+  min-height: 100vh;
+
+  @media all and (max-width: 768px) {
+    padding: 0 .6rem;
+  }
+
+  .movie-header {
+    margin-top: 0.5rem;
+    color: #ffffff;
+    font-size: 1.4rem;
+  }
+
+  .page-body {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    grid-template-areas: 'filter-body movie-tv-category-display-body';
+    grid-gap: 1rem;
+
+    @media all and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'filter-body'
+        'movie-tv-category-display-body';
+    }
+
+    .filter-body {
+      grid-area: filter-body;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .movie-tv-category-display-body {
+      grid-row: movie-tv-category-display-body;
+      box-shadow: $shadowBox;
+      border: $shadowBoxBorder;
+      border-radius: 5px;
+    }
+  }
+}

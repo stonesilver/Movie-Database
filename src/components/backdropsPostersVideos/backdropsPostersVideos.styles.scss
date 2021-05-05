@@ -1,0 +1,23 @@
+@import '../../assets/sass-variables';
+
+.season-backdrops {
+  width: 100%;
+
+  .season-backdrops-container {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr 1fr 1fr;
+    grid-template-areas: 'left-side right-side right-side right-side';
+    grid-gap: 1rem;
+    width: 100%;
+    padding: 0 2.5rem;
+    margin-top: 1.5rem;
+    
+    @media all and (max-width: 550px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'left-side'
+        'right-side';
+        padding: .25rem .5rem;
+    }
+  }
+}

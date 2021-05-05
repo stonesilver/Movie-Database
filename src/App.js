@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Switch } from 'react-router-dom';
+import NavigationBar from './components/Navbar/Navbar';
+import Homepage from './pages/homepage/homepage.component';
+import MoviePage from './pages/moviePage/moviePage.component';
+import TvShowPage from './pages/tvShowPage/tvShowPage.component';
+import PeoplePage from './pages/peoplePage/peoplePage.component';
+import PageNotFound from './components/404Page/404Page.component';
+import Footer from './components/Footer/Footer';
+import collectionDetails from './components/collection-page/collection-page.component';
+import MyComponent from './components/lazy-load/lazy-load.component';
+import MovieImagesCarousel from './components/movieImagesCarousel/movieImagesCarousel.component';
+import SearchPage from './components/searchPage/searchPage.component';
+import './App.scss';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // bg-dark bg-colour
+    <div className='App'>
+      <MovieImagesCarousel />
+      <NavigationBar />
+      <Switch>
+        <Route exact path='/' component={Homepage} />
+        <Route path='/movies' component={MoviePage} />
+        <Route path='/tv' component={TvShowPage} />
+        <Route path='/people' component={PeoplePage} />
+        <Route
+          exact
+          path='/collection/:collectionID'
+          component={collectionDetails}
+        />
+        <Route exact path={`/search`} component={SearchPage} />
+        <Route exact path='/lazy' component={MyComponent} />
+        <Route component={PageNotFound} />
+      </Switch>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

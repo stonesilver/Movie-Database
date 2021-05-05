@@ -1,0 +1,68 @@
+@import '../../assets//sass-variables';
+
+.left-side {
+    grid-area: left-side;
+    width: 100%;
+    height: max-content;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    border: $shadowBoxBorder;
+    box-shadow: $shadowBox;
+
+    .left-side-container {
+      width: 100%;
+      height: 100%;
+
+      .header-and-icon {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem 0.8rem;
+        font-size: 1.2rem;
+        font-weight: 800;
+        background: $primaryYellow;
+
+        .header {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .backdrop-language {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0.2rem 0;
+
+        .language {
+          display: flex;
+          justify-content: space-between;
+          margin: 0 0 0.2rem 0;
+          padding: 0.5rem 0.8rem;
+          background: rgb(53, 51, 51);
+          color: #ffffff;
+          font-size: 0.9rem;
+          cursor: pointer;
+          border: $shadowBoxBorder;
+          box-shadow: $shadowBox;
+
+          &:first-child {
+            background:  #ffc107;
+          }
+
+          &:hover {
+            background:  #ffc107;
+            opacity: .6;
+          }
+
+          .count {
+            background: #ffffff;
+            color: #000000;
+            padding: 0 0.5rem;
+            border-radius: 4px;
+            height: max-content;
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,38 @@
+.group-container {
+    margin-top: .2rem;
+    padding: 1rem;
+
+    .group-row {
+        margin: 0;
+
+        .group-header {
+            color: #ffc107;
+            margin-left: .5rem;
+        }
+
+        .group-col {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0;
+
+            .first-toggle {
+                margin-right: .2rem;
+            }
+
+            .second-toggle {
+                border-radius: 5px 5px 0 0;
+                margin-right: .2rem;
+            }
+
+            .third-toggle {
+                margin-right: .2rem;
+            }
+        }
+    }
+
+    .main-row {
+        margin: 0;
+        overflow: auto;
+        flex-wrap: nowrap;
+    }
+}

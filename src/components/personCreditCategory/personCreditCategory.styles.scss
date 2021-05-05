@@ -1,0 +1,111 @@
+.person-credits-container {
+  width: 100%;
+
+  .person-category {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.8rem;
+
+    .person-category-select {
+      display: flex;
+      justify-content: space-between;
+
+      .dropdown-title {
+        position: relative;
+        margin-right: 0.52rem;
+        min-width: 5vw;
+        cursor: pointer;
+
+        &:hover .dropdown {
+          display: flex;
+        }
+
+        .dropdown {
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          position: absolute;
+          margin-top: 0.5rem;
+          border: 1px solid black;
+          padding: 0.8rem 1.5rem 0.8rem 0.8rem;
+          p {
+            margin: 0;
+            padding: 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+
+            &:hover {
+              border-bottom: 1px solid black;
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sectional-year {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgb(18, 19, 18);
+    border-right: 1px solid rgb(18, 19, 18);
+    border-left: 1px solid rgb(18, 19, 18);
+    padding: 0 1.5rem;
+    box-shadow: 0 0 2px black;
+    margin-top: 0.8rem;
+
+    &:last-child {
+      border-bottom: 1px solid rgb(18, 19, 18);
+    }
+
+    .sectional-year-details {
+      display: grid;
+      grid-template-columns: 0.05fr 0.05fr 1fr;
+      column-gap: 1.5rem;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.9rem;
+      margin: 0;
+
+      @media all and (max-width: 768px) {
+        grid-template-columns: 0.05fr 1fr;
+        column-gap: 2.5rem;
+      }
+
+      &:last-child {
+        padding-bottom: 0.7rem;
+      }
+
+      .year {
+        text-align: center;
+
+        .year-content {
+          font-size: 0.85rem;
+        }
+      }
+
+      .movie-and-character {
+        .movie-and-character-content {
+          font-size: 0.85rem;
+        }
+
+        .movie-link {
+            &:hover {
+                color: rgb(192, 170, 44);
+            }
+        }
+
+        .character {
+          font-size: 0.8rem;
+          font-style: italic;
+          color: burlywood;
+        }
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.category {
+    border: 1px solid black;
+    padding: 0.2rem 0.7rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    font-weight: 500;
+    border-radius: 0.9rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-align: center;
+    background: #161616;
+
+    &:hover {
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ffffff;
+    }
+  }

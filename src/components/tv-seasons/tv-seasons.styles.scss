@@ -1,0 +1,9 @@
+.season-container {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0 2.5rem;
+    
+    @media screen and (max-width: 768px) {
+        padding: 0 0 0 .5rem;
+    }
+}

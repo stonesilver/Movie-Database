@@ -1,0 +1,20 @@
+.previous-next-episodes-link {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(76, 72, 72);
+    padding: 0 2.5rem;
+    color: #ffffff;
+
+    p {
+      margin: 0;
+      padding: 0.5rem 0;
+
+      .fa-arrow-left {
+        padding-right: 0.5rem;
+      }
+
+      .fa-arrow-right {
+        padding-left: 0.5rem;
+      }
+    }
+  }

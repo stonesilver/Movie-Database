@@ -1,0 +1,33 @@
+.featured-cast, .featured-crew {
+    padding: 2rem 2.5rem 1rem 2.5rem;
+
+    .header {
+        margin-bottom: 1rem;
+        color: #ffffff;
+    }
+
+    .cast-crew-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        justify-content: center;
+        align-items: center;
+        column-gap: 1rem;
+    }
+}
+
+.movies {
+    padding: 2rem 2.5rem 1rem 2.5rem;
+
+    .header {
+        margin-bottom: 1rem;
+        color: #ffffff;
+    }
+
+    .movie-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+}

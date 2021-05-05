@@ -1,0 +1,82 @@
+@import '../../assets/sass-variables';
+
+.right-section-container {
+  .right-section-details {
+    margin-top: 1rem;
+    .container {
+      margin-bottom: 1.8rem;
+      padding: 0;
+      .header {
+        margin: 0;
+        padding: 0;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      .value {
+        font-size: 0.85rem;
+      }
+    }
+
+    .keywords {
+      margin-bottom: 3rem;
+
+      .keyword-title {
+        p {
+          font-size: 0.85rem;
+          font-weight: 500;
+          margin: 0 0 0.5rem 0;
+          padding: 0;
+        }
+      }
+
+      .keywords-flexed {
+        display: flex;
+        flex-wrap: wrap;
+
+        .keyword {
+          background: rgb(24, 23, 23);
+          margin: 0 0.5rem 0.5rem 0;
+          padding: 0;
+          border: $shadowBoxBorder;
+          box-shadow: $shadowBox;
+          border-radius: 5px;
+
+          p {
+            margin: 0;
+            padding: 0.1rem 0.4rem;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  .content-score {
+    .content-score-title {
+      p {
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin: 0 0 0.5rem 0;
+        padding: 0;
+      }
+    }
+
+    .score {
+      .score-digit {
+        width: 100%;
+        background: rgb(20, 20, 20);
+        padding: 0.3rem 0.3rem;
+        border-radius: 5px;
+        font-size: 0.75rem;
+        border: $shadowBoxBorder;
+        box-shadow: $shadowBox;
+        margin: 0;
+      }
+
+      .score-text {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

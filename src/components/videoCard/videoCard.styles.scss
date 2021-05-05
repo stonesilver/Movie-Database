@@ -1,0 +1,138 @@
+@import '../../assets/sass-variables';
+
+.video-card {
+  width: 100%;
+  height: 33vh;
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'image-container video-details video-details';
+  margin-bottom: 2rem;
+  border: $shadowBoxBorder;
+  box-shadow: $shadowBox;
+
+  .image-container {
+    position: relative;
+    grid-area: image-container;
+    width: 100%;
+    height: inherit;
+
+    .play-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .play-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+        background: rgba(14, 13, 13, 0.836);
+        border-radius: 50%;
+
+        &:hover > .play {
+          transform: scale(0.5);
+          transform: translateX(5px);
+        }
+
+        @media all and (max-width: 768px) {
+          width: 50px;
+          height: 50px;
+        }
+
+        .play {
+          height: 20px;
+          width: 20px;
+          transform: translateX(4px);
+          border-width: 10px 0px 10px 20px;
+          border-style: solid;
+          border-color: transparent transparent transparent rgb(192, 76, 76);
+
+          @media all and (max-width: 768px) {
+            height: 20px;
+            width: 20px;
+            border-width: 12px 0px 12px 15px;
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+
+    .video-card-img {
+      position: relative;
+      width: 100%;
+      height: inherit;
+    }
+  }
+
+  .video-details {
+    grid-area: video-details;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+
+    .top {
+      padding-left: 0.7rem;
+      margin-top: 0.5rem;
+
+      p {
+        margin: 0;
+      }
+
+      .video-title {
+        font-weight: 500;
+
+        &:hover {
+          color: $primaryYellow;
+          cursor: pointer;
+        }
+      }
+
+      .details {
+        font-size: 0.82rem;
+
+        span {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    .bottom {
+      border: $shadowBoxBorder;
+      border-right: none;
+      border-left: none;
+      padding: 0.5rem 0.5rem 0.5rem 0.7rem;
+
+      .details {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+
+        span {
+          margin-right: 0.5rem;
+        }
+
+        .fa-youtube {
+          color: rgb(228, 44, 44);
+          font-size: 1.3rem;
+        }
+
+        .fa-check-circle {
+          color: rgb(24, 104, 64);
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}

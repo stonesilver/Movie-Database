@@ -1,0 +1,67 @@
+@import '../../assets/sass-variables';
+
+.movie-and-tv-card {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border-radius: 7px;
+  border: $shadowBoxBorder;
+  box-shadow: $shadowBox;
+  color: $fontColor;
+
+  .movie-and-tv-card-link {
+    display: block;
+    width: 100%;
+    height: 80%;
+    background: $blankImagecontainer;
+
+    .movie-and-tv-card-img-container {
+      width: 100%;
+      height: 100%;
+
+      .movie-and-tv-card-image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .circular-progressbar {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    right: 0.2rem;
+    top: 0.2rem;
+    font-weight: 500;
+  }
+  .movie-and-tv-card-body {
+    padding: 0.5rem 0.1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 20%;
+
+    .movie-and-tv-card-title {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0;
+      text-align: center;
+    }
+
+    .movie-and-tv-card-text {
+      padding: 0rem;
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+    }
+  }
+}
+
+

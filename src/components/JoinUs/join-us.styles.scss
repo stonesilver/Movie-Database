@@ -1,0 +1,21 @@
+.join-us {
+    background: linear-gradient(rgba(6, 6, 14, 0.8), rgba(9, 9, 22, 1)),
+      url("https://image.tmdb.org/t/p/w1280/ruxOWt2iCPM4tV2PY3OuYJHt4Do.jpg")
+        no-repeat center center;
+    background-size: cover;
+    color: azure;
+    padding: 1rem;
+
+    .join-details {
+        font-size: .95rem;
+
+        .custom-span {
+            font-style: italic;
+            opacity: .8;
+        }
+
+        li {
+            list-style-type: square;
+        }
+    }
+  }

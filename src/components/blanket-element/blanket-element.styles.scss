@@ -26,7 +26,6 @@ $size: 78px;
     align-items: center;
     justify-content: center;
     color: #ccc;
-    cursor: pointer;
     transition: 0.3s linear;
 
     @media all and (max-width: 768px) {
@@ -37,26 +36,58 @@ $size: 78px;
     }
 
     .loader {
-      width: $size;
-      height: $size;
-      border: 3px solid $lite;
-      border-radius: 50%;
+      width: $size / 6;
+      height: 40px;
+      border-radius: 4px;
       display: inline-block;
       position: relative;
-      animation: rotation 1s linear infinite;
-      &:after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: $size - 8px;
-        height: $size - 8px;
-        border-radius: 50%;
-        border: 3px solid;
-        border-color: $brand transparent;
+      background: currentColor;
+      color: $lite;
+      animation: animloader61 0.3s 0.3s linear infinite alternate;
+      &::after , &::before {
+          content: '';
+          width: $size / 6;
+          height: 40px;
+          border-radius: 4px;
+          background: currentColor;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 20px;
+          animation: animloader61 0.3s  0.45s  linear infinite alternate;
+      }
+      &::before {
+          left: -20px;
+          animation-delay: 0s;
+      }
+
+      @keyframes animloader61 {
+        0% { height: $size;}
+        100% { height: $size / 10;}
       }
     }
+
+    // .loader {
+    //   width: $size;
+    //   height: $size;
+    //   border: 3px solid $lite;
+    //   border-radius: 50%;
+    //   display: inline-block;
+    //   position: relative;
+    //   animation: rotation 1s linear infinite;
+    //   &:after {
+    //     content: '';
+    //     position: absolute;
+    //     left: 50%;
+    //     top: 50%;
+    //     transform: translate(-50%, -50%);
+    //     width: $size - 8px;
+    //     height: $size - 8px;
+    //     border-radius: 50%;
+    //     border: 3px solid;
+    //     border-color: $brand transparent;
+    //   }
+    // }
   }
 
   div {

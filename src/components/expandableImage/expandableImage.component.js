@@ -36,7 +36,7 @@ const ExpandableImage = ({
           await fetchImages(url);
         }}
       >
-        <LazyLoad height={'100%'} offset={700} className='image-container2'>
+        <LazyLoad height={'100%'} offset={120} className='image-container2'>
           <img
             src={
               posterPath

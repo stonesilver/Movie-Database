@@ -103,7 +103,7 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
           </ul>
         </div>
         {videos.length || backdrops.length || posters.length ? (
-          <LazyLoad height={'100%'} offset={700}>
+          <LazyLoad height={'100%'} offset={120}>
             <div className='tab-content'>
               <div
                 id='most-popular'
@@ -122,7 +122,7 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                       }`}
                     >
                       <div className='official-trailer container'>
-                        <LazyLoad height={'100%'} offset={700}>
+                        <LazyLoad height={'100%'} offset={120}>
                           <img
                             src={
                               videos[0]
@@ -140,7 +140,7 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                   )}
 
                   <div className='official-poster container'>
-                    <LazyLoad height={'100%'} offset={700}>
+                    <LazyLoad height={'100%'} offset={120}>
                       <img
                         src={
                           backdrops[0]
@@ -155,7 +155,7 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
 
                   {posters.length ? (
                     <div className='small-poster'>
-                      <LazyLoad height={'100%'} offset={700}>
+                      <LazyLoad height={'100%'} offset={120}>
                         <img
                           src={`https://image.tmdb.org/t/p/w342${posters[0].file_path}`}
                           alt='small poster'
@@ -184,7 +184,7 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                       key={id}
                     >
                       <div className='official-trailer container'>
-                        <LazyLoad height={'100%'} offset={700}>
+                        <LazyLoad height={'100%'} offset={120}>
                           <img
                             src={`https://i.ytimg.com/vi/${key}/0.jpg`}
                             alt='official trailer'
@@ -206,7 +206,7 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                 <div className='scroll-container '>
                   {filteredBackdrops.map(({ file_path }, index) => (
                     <div className='official-poster container' key={index}>
-                      <LazyLoad height={'100%'} offset={700}>
+                      <LazyLoad height={'100%'} offset={120}>
                         <img
                           src={`https://image.tmdb.org/t/p/w500${file_path}`}
                           alt={`official poster ${index + 1}`}
@@ -227,7 +227,7 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                 <div className='scroll-container '>
                   {filteredPosters.map(({ file_path }, index) => (
                     <div className='small-poster' key={index}>
-                      <LazyLoad height={'100%'} offset={700}>
+                      <LazyLoad height={'100%'} offset={120}>
                         <img
                           src={`https://image.tmdb.org/t/p/w342${file_path}`}
                           alt={`small poster ${index}`}

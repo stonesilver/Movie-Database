@@ -10,7 +10,7 @@ const TrailerCard = ({ src, title, overview, getMouseEvent }) => {
         <div className='img-container'>
           <LazyLoad
             height={'100%'}
-            offset={700}
+            offset={120}
             className='trailer-card-img-lazy'
           >
             <Card.Img

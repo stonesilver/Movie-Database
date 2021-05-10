@@ -35,21 +35,23 @@ a {
   width: 100%;
   background: $blankImagecontainer;
   border-radius: 5px;
-  animation: background 2s linear infinite;
+  animation: background 6s cubic-bezier(0.77, 0.02, 0.05, .05) infinite;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)
 }
 
 .image-background {
   border-radius: inherit;
-  animation: background 2s linear infinite;
+  animation: background 6s cubic-bezier(0.77, 0.02, 0.05, .05) infinite;
   transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)
 }
 
 @keyframes background {
   0% {
-    background: $blankImagecontainer;
+    // background: $blankImagecontainer;
+    opacity: .4;
   }
   100% {
-    background: rgb(51, 50, 50);
+    // background: rgb(51, 50, 50);
+    opacity: 1;
   }
 }

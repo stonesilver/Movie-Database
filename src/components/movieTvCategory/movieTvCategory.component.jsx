@@ -260,9 +260,10 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
   const showMorePage = () => {
     if (currentPage >= totalPage) {
       return;
-    } else {
-      setCurrentPage(currentPage + 1);
-    }
+    } 
+    // else {
+    //   setCurrentPage(currentPage + 1);
+    // }
     const filtered = pageIsFiltered
       ? `https://api.themoviedb.org/3/discover/${movieType}?api_key=${
           process.env.REACT_APP_API_URL
@@ -285,13 +286,14 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
           setTotalPage(data.total_pages);
           setMovieData([...movieData, ...data.results]);
           setIsClicked(false);
+          setCurrentPage(currentPage + 1);
         })
         .catch((err) => {
           console.log(err);
           setIsClicked(false);
-          if (currentPage > 0) {
-            setCurrentPage(currentPage - 1);
-          }
+          // if (currentPage > 0) {
+            setCurrentPage(currentPage);
+          // }
         });
     }
   };

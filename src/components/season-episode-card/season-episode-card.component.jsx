@@ -39,7 +39,7 @@ const SeasonEpisodeCard = ({
     <div className='episodes-card'>
       <div className='image-and-details'>
         <div className='img-container'>
-          <LazyLoad height={'100%'} offset={700}>
+          <LazyLoad height={'100%'} offset={120}>
             <img
               src={
                 still_path
@@ -54,7 +54,7 @@ const SeasonEpisodeCard = ({
         <div className='episode-title-and-air-date'>
           <div className='title'>
             <div className='left'>
-              <span className='number-count'>{episode_number}</span>
+              <span className='number-count'>{episode_number}.</span>
               <div className='icon-and-rating'>
                 <i className='fas fa-star'></i>
                 <span className='rating'>{vote_average}</span>
@@ -71,20 +71,22 @@ const SeasonEpisodeCard = ({
         style={{ display: expand ? 'block' : 'none' }}
       >
         <div className='expanded-view-links'>
-          <div className='videos'>
-            <Link to={`${url}/episode/${episode_number}/videos`}>
-              <p>Videos</p>
-            </Link>
-          </div>
-          <div className='Images'>
-            <Link to={`${url}/episode/${episode_number}/images/backdrops`}>
-              <p>Images</p>
-            </Link>
-          </div>
-          <div className='Changes'>
+          <Link
+            to={`${url}/episode/${episode_number}/videos`}
+            className='videos view-links'
+          >
+            <p>Videos</p>
+          </Link>
+          <Link
+            to={`${url}/episode/${episode_number}/images/backdrops`}
+            className='Images view-links'
+          >
+            <p>Images</p>
+          </Link>
+          <div className='Changes view-links'>
             <p>Changes</p>
           </div>
-          <div className='Report'>
+          <div className='Report view-links'>
             <p>Report</p>
           </div>
         </div>
@@ -150,14 +152,12 @@ const SeasonEpisodeCard = ({
           </div>
           <div className='images-container'>
             {episodeImages.map(({ file_path }, index) => (
-              <div className='container' key={index}>
-                <LazyLoad height={100} offset={700}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w300${file_path}`}
-                    alt={`${index + 1}`}
-                  />
-                </LazyLoad>
-              </div>
+              <LazyLoad offset={70} className='container' key={index}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w300${file_path}`}
+                  alt={`${index + 1}`}
+                />
+              </LazyLoad>
             ))}
           </div>
         </div>

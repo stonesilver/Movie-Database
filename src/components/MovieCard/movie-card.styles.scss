@@ -7,7 +7,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
   overflow: hidden;
   border-radius: 7px;
   border: $shadowBoxBorder;
@@ -16,8 +15,10 @@
 
   .movie-and-tv-card-link {
     display: block;
+    position: relative;
     width: 100%;
     height: 80%;
+    min-height: 80%;
     background: $blankImagecontainer;
 
     .movie-and-tv-card-img-container {
@@ -29,16 +30,22 @@
         height: 100%;
       }
     }
+
+    .circular-progressbar {
+      width: 2rem;
+      height: 2rem;
+      position: absolute;
+      right: 0.2rem;
+      top: 0.2rem;
+      font-weight: 500;
+    }
   }
 
-  .circular-progressbar {
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    right: 0.2rem;
-    top: 0.2rem;
-    font-weight: 500;
+  .movie-and-tv-card-link-homepage {
+    height: 33vh;
+    min-height: 33vh;
   }
+
   .movie-and-tv-card-body {
     padding: 0.5rem 0.1rem;
     margin: 0;
@@ -46,7 +53,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    position: relative;
     height: 20%;
 
     .movie-and-tv-card-title {
@@ -61,7 +67,89 @@
       margin-top: 0.5rem;
       font-size: 0.7rem;
     }
+
+    .movie-and-tv-card-overview {
+      display: none;
+    }
+  }
+
+  .movie-and-tv-card-body-homepage {
+    height: 100%;
   }
 }
 
+.mobile-for-tv-movies-category {
+  @media screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 0.35fr 1fr;
+    grid-gap: .2rem;
+    height: 25vh;
 
+    .movie-and-tv-card-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      background: $blankImagecontainer;
+
+      .movie-and-tv-card-img-container {
+        width: 100%;
+        height: 100%;
+
+        .movie-and-tv-card-image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .circular-progressbar {
+        display: none;
+      }
+    }
+
+    .movie-and-tv-card-body {
+      padding: 0.5rem 0.1rem;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+
+      .movie-and-tv-card-title {
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 0;
+        text-align: left;
+      }
+
+      .movie-and-tv-card-text {
+        padding: 0rem;
+        margin-top: 0.1rem;
+        font-size: 0.7rem;
+      }
+
+      .movie-and-tv-card-overview {
+        display: block;
+        height: 2rem;
+        position: relative;
+        margin-top: 1rem;
+        font-size: 0.75rem;
+        overflow: hidden;
+        padding-right: .2rem;
+
+        &::after {
+          content: '.......';
+          letter-spacing: 2px;
+          position: absolute;
+          width: max-content;
+          height: .8rem;
+          bottom: 0px;
+          right: 0px;
+          text-align: right;
+          background: rgb(27, 27, 27);
+        }
+      }
+    }
+  }
+}

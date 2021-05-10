@@ -121,6 +121,10 @@
                 box-shadow: 0 0 4px #000000;
                 text-align: center;
 
+                @media screen and (max-width: 768px) {
+                  display: none;
+                }
+
                 .fas {
                   padding-right: 0.3rem;
                   font-size: 0.8rem;

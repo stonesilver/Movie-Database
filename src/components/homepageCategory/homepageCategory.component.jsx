@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './homepageCategory.styles.scss';
+import HomepageCategoryLink from '../homepageCategoryLinks/homepageCategoryLinks.component';
 import MovieCard from '../MovieCard/MovieCard';
 
 const HomepageCategory = ({
@@ -21,7 +22,8 @@ const HomepageCategory = ({
     return setHomepageCategoryData([]);
   }, [apiLink]);
 
-  const handleStreamChange = (url) => {
+  const handleStreamChange = (url, name) => {
+    setSide({ [categoryName]: name });
     fetch(url)
       .then((res) => res.json())
       .then((data) => setHomepageCategoryData(data.results))
@@ -31,7 +33,14 @@ const HomepageCategory = ({
 
   return (
     <div className='homepageCategory-container'>
-      <div className='homepageCategory-row'>
+      <HomepageCategoryLink
+          categoryArray={categoryArray}
+          side={side}
+          setSide={setSide}
+          categoryName={categoryName}
+          handleStreamChange={handleStreamChange}
+        />
+      {/* <div className='homepageCategory-row'>
         <div sm=''>
           <h4 className='homepageCategory-header'>{categoryName}</h4>
         </div>
@@ -43,18 +52,14 @@ const HomepageCategory = ({
                 side[categoryName] === name ? 'active' : ''
               }`}
               onClick={() => {
-                setSide((prevState) => ({
-                  ...prevState,
-                  [categoryName]: name,
-                }));
-                handleStreamChange(categoryLink);
+                handleStreamChange(categoryLink, name);
               }}
             >
               {name}
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       <div className='main-row'>
         {homepageCategoryData.length
           ? homepageCategoryData.map(

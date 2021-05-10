@@ -16,7 +16,7 @@ const TopBilledCast = ({ cast, type, match }) => {
       </div>
       {cast.length ? (
         <div>
-          <LazyLoad height={'100%'} offset={700}>
+          <LazyLoad height={'100%'} offset={120}>
             <div className='cast-card-scroll'>
               {filteredCast.map(
                 ({
@@ -35,7 +35,7 @@ const TopBilledCast = ({ cast, type, match }) => {
                     className='cast-card'
                   >
                       <div className='cast-card-img'>
-                        <LazyLoad height={'100%'} offset={700}>
+                        <LazyLoad height={'100%'} offset={120}>
                           <img
                             src={
                               profile_path

@@ -68,8 +68,7 @@
       .movie-collection-card {
         display: grid;
         width: 100%;
-        grid-template-columns: repeat(9, 1fr);
-        grid-template-areas: 'collection-card-img collection-card-body collection-card-body collection-card-body collection-card-body collection-card-body collection-card-body collection-card-body collection-card-body';
+        grid-template-columns: 0.13fr 1fr;
         height: 100%;
         border-radius: 5px;
         box-shadow: 1px 1px 3px rgb(12, 12, 12);
@@ -77,19 +76,17 @@
         overflow: hidden;
 
         @media all and (max-width: 768px) {
-          grid-template-columns: repeat(6, 1fr);
-          grid-template-areas: 'collection-card-img collection-card-body collection-card-body collection-card-body collection-card-body collection-card-body';
+          grid-template-columns: 0.35fr 1fr;
         }
 
         .collection-card-img {
-          grid-area: collection-card-img;
           width: 100%;
           height: 100%;
           background: $blankImagecontainer;
+          min-height: 22vh;
 
           img {
             width: 100%;
-            min-height: 22vh;
             height: 100%;
 
             @media all and (max-width: 768px) {
@@ -99,7 +96,6 @@
         }
 
         .collection-card-body {
-          grid-area: collection-card-body;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -112,6 +108,7 @@
           .movie-name {
             font-weight: 900;
             font-size: 0.9rem;
+            width: max-content;
 
             &:hover {
               color: rgb(245, 222, 179);
@@ -128,9 +125,6 @@
             margin-top: 1rem;
             font-size: 0.82rem;
             text-align: justify;
-            // overflow: hidden;
-            // text-overflow: ellipsis;
-            // white-space: nowrap;
 
             @media all and (max-width: 768px) {
               font-size: 0.7rem;

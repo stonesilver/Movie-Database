@@ -13,9 +13,11 @@ const MovieCard = ({
   tvTitle,
   releaseDate,
   firstAirDate,
+  overview,
   id,
   loading,
   homepage,
+  movieTv,
 }) => {
   const progress = rating * 10;
   let date =
@@ -43,17 +45,17 @@ const MovieCard = ({
       transitionEnter={false}
       transitionLeave={false}
     >
-      <div className='movie-and-tv-card'>
+      <div className={`movie-and-tv-card ${movieTv ? 'mobile-for-tv-movies-category' : ''}`}>
         <Link
           to={`/${
             tvTitle ? 'tv' : 'movies'
           }/${id}-${formattedTitle.toLowerCase()}`}
           className={`movie-and-tv-card-link ${
             loading ? 'image-background' : ''
-          }`}
+          } ${homepage ? 'movie-and-tv-card-link-homepage' : ''}`}
         >
           {!loading ? (
-            <LazyLoad className='movie-and-tv-card-img-container' offset={5}>
+            <LazyLoad className='movie-and-tv-card-img-container' offset={120}>
               <img
                 src={src}
                 className='movie-and-tv-card-image'
@@ -63,28 +65,37 @@ const MovieCard = ({
           ) : (
             ''
           )}
+
+          <div className='circular-progressbar'>
+            <CircularProgressbar
+              value={progress ? progress : 0}
+              text={progress ? progress : 'NR'}
+              background={true}
+              styles={buildStyles({
+                pathColor: progress >= 70 ? 'green' : 'yellow',
+                strokeLinecap: 'butt',
+                textSize: progress > 1 ? '50px' : '40px',
+                textColor: 'white',
+                backgroundColor: 'black',
+              })}
+            />
+          </div>
         </Link>
-        <div className='circular-progressbar'>
-          <CircularProgressbar
-            value={progress ? progress : 0}
-            text={progress ? progress : 'NR'}
-            background={true}
-            styles={buildStyles({
-              pathColor: progress >= 70 ? 'green' : 'yellow',
-              strokeLinecap: 'butt',
-              textSize: progress > 1 ? '50px' : '40px',
-              textColor: 'white',
-              backgroundColor: 'black',
-            })}
-          />
-        </div>
-        <div className='movie-and-tv-card-body'>
+
+        <div
+          className={`movie-and-tv-card-body ${
+            homepage ? 'movie-and-tv-card-body-homepage' : ''
+          }`}
+        >
           <div
             className={`movie-and-tv-card-title ${loading ? 'loading' : ''}`}
-          >{`${movieType ? movieType : ''}`}</div>
+          >
+            {`${movieType ? movieType : ''}`}
+          </div>
           <div className={`movie-and-tv-card-text ${loading ? 'loading' : ''}`}>
             {date ? date : ''}
           </div>
+          <div className={`movie-and-tv-card-overview ${loading ? 'loading' : ''}`}>{overview}</div>
         </div>
       </div>
     </CSSTransitionGroup>

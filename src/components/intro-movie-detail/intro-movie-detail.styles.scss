@@ -16,7 +16,8 @@
     grid-template-areas:
       'left'
       'right';
-    padding: 0 0.5rem;
+    padding: 0;
+    background: none !important;
   }
 
   .left {
@@ -82,8 +83,6 @@
     .release-detail {
       display: flex;
       width: 100%;
-      // align-self: flex-start;
-      // align-items: center;
       margin: 0;
       padding: 0;
       color: #ffffff;
@@ -163,22 +162,10 @@
 
       @media all and (max-width: 768px) {
         grid-area: movie-rating;
-        // display: grid;
-        // grid-template-columns: 1fr 1fr;
-        // justify-content: space-evenly;
         align-items: center;
         height: 2rem;
         position: relative;
         margin: 1.2rem 0;
-
-        // &::after {
-        //   content: '';
-        //   position: absolute;
-        //   border-left: 1px solid rgb(105, 102, 102);
-        //   top: 0;
-        //   right: 50%;
-        //   height: 30px;
-        // }
       }
 
       .movie-score {
@@ -291,6 +278,10 @@
       margin-top: 1rem;
       font-size: 0.88rem;
 
+      @media screen and (max-width: 768px) {
+        padding: 0 .5rem;
+      }
+
       .tagline-text {
         color: #ffffff;
         font-style: italic;
@@ -301,7 +292,7 @@
       padding-right: 2rem;
 
       @media all and (max-width: 768px) {
-        padding-right: 0;
+        padding: 0 .5rem;
       }
 
       .overview-header {
@@ -330,6 +321,10 @@
     .mini-cast {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+
+      @media all and (max-width: 768px) {
+        padding: 0 .5rem;
+      }
 
       .name {
         font-weight: 600;

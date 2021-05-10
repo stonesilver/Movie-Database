@@ -6,127 +6,138 @@
   justify-content: center;
   width: 100%;
   color: #ffffff;
-  padding: 0.5rem 1rem 0.5rem 0;
+  padding: 0.5rem 0;
 
-  .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 1rem;
-    border: 1px solid rgb(29, 29, 29);
+  .left-column-form {
+    padding: 0.4rem;
+    border: $shadowBoxBorder;
+    box-shadow: $shadowBox;
     border-radius: 5px;
-    padding: 0.8rem;
-    box-shadow: 1px 1px 5px rgb(29, 28, 28);
 
-    .header {
+    .main {
       display: flex;
-      justify-content: space-between;
-      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      padding: 0.8rem;
+      border: $shadowBoxBorder;
+      box-shadow: $shadowBox;
 
-      p {
-        margin-bottom: 0;
-      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
 
-      .text {
-        font-size: 1rem;
-        font-weight: 500;
-      }
-    }
-
-    .hidden-content {
-
-      .popularity-sort {
-        label {
-          font-size: 0.8rem;
-          margin-top: 0.8rem;
-          margin-left: 0;
+        p {
+          margin-bottom: 0;
         }
 
-        #popularity {
-          width: 100%;
-          font-size: 0.9rem;
-          border-radius: 5px;
-          padding: 0.4rem;
-          outline: none;
-          color: #ffffff;
-          background: rgb(39, 38, 38);
-          border: 1px solid rgb(39, 38, 38);
-          cursor: pointer;
+        .text {
+          font-size: 1rem;
+          font-weight: 500;
+        }
 
-          option {
+        .icon {
+          transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+      }
+
+      .hidden-content {
+
+        .popularity-sort {
+          label {
             font-size: 0.8rem;
+            margin-top: 0.8rem;
+            margin-left: 0;
           }
-        }
-      }
 
-      .sub-header {
-        font-size: 0.8rem;
-        margin: 0.8rem 0 0 0;
-        padding: 0;
-      }
-
-      label {
-        font-size: 0.8rem;
-        margin-left: 0.5rem;
-      }
-
-      .release-dates {
-        .release-date-from,
-        .release-date-to {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(70px, auto));
-          width: 100%;
-          margin-bottom: 0.5rem;
-
-          input {
-            font-size: 0.8rem;
+          #popularity {
+            width: 100%;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            padding: 0.4rem;
             outline: none;
+            color: #ffffff;
+            background: rgb(39, 38, 38);
+            border: 1px solid rgb(39, 38, 38);
+            cursor: pointer;
 
-            &::-webkit-calendar-picker-indicator {
-              outline: none;
+            option {
+              font-size: 0.8rem;
             }
           }
         }
-      }
 
-      .genre-certification {
-        .container {
-          display: flex;
-          flex-wrap: wrap;
-          width: 100%;
+        .sub-header {
+          font-size: 0.8rem;
+          margin: 0.8rem 0 0 0;
           padding: 0;
+        }
 
-          // .category {
-          //   border: 1px solid black;
-          //   padding: 0.2rem 0.7rem;
-          //   margin: 0.5rem 0.5rem 0.5rem 0;
-          //   font-weight: 500;
-          //   border-radius: 0.9rem;
-          //   font-size: 0.75rem;
-          //   cursor: pointer;
-          //   text-align: center;
+        label {
+          font-size: 0.8rem;
+          margin-left: 0.5rem;
+        }
 
-          //   &:hover {
-          //     background: #ffffff;
-          //     color: #000000;
-          //     border: 1px solid #ffffff;
-          //   }
-          // }
+        .release-dates {
+          .release-date-from,
+          .release-date-to {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(70px, auto));
+            width: 100%;
+            margin-bottom: 0.5rem;
+
+            input {
+              font-size: 0.8rem;
+              outline: none;
+
+              &::-webkit-calendar-picker-indicator {
+                outline: none;
+              }
+            }
+          }
+        }
+
+        .genre-certification {
+          .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 0;
+
+            // .category {
+            //   border: 1px solid black;
+            //   padding: 0.2rem 0.7rem;
+            //   margin: 0.5rem 0.5rem 0.5rem 0;
+            //   font-weight: 500;
+            //   border-radius: 0.9rem;
+            //   font-size: 0.75rem;
+            //   cursor: pointer;
+            //   text-align: center;
+
+            //   &:hover {
+            //     background: #ffffff;
+            //     color: #000000;
+            //     border: 1px solid #ffffff;
+            //   }
+            // }
+          }
         }
       }
     }
-  }
 
-  .search-button {
-    input {
-      width: 100%;
-      background: rgb(172, 133, 7);
-      color: #ffffff;
-      text-align: center;
-      padding: 0.5rem;
-      border-radius: 5px;
-      border: none;
-      outline: none;
+    .search-button {
+      input {
+        width: 100%;
+        background: rgb(172, 133, 7);
+        color: #ffffff;
+        text-align: center;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+      }
     }
   }
 }

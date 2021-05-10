@@ -12,10 +12,11 @@ const RightColumn = ({ movieData, showMorePage, isClicked, loading }) => (
           vote_average,
           title,
           name,
+          overview,
           release_date,
           first_air_date,
           id,
-        }) => (
+        }, index) => (
           <MovieCard
             src={
               poster_path
@@ -27,11 +28,11 @@ const RightColumn = ({ movieData, showMorePage, isClicked, loading }) => (
             releaseDate={release_date}
             firstAirDate={first_air_date}
             tvTitle={name}
-            key={id}
-            width={200}
-            height={280}
+            overview={overview}
+            key={id || index}
             id={id}
             loading={loading}
+            movieTv={true}
           />
         )
       )}

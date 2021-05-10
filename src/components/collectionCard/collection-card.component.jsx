@@ -42,7 +42,7 @@ const CollectionCard = ({
           >
             <div className='featured-collection-card'>
               <div className='collection-card-img'>
-                <LazyLoad height={'100%'} offset={700}>
+                <LazyLoad height={'100%'} offset={120}>
                   <img
                     src={
                       posterPath
@@ -72,18 +72,7 @@ const CollectionCard = ({
           </Link>
         ) : (
           <div className='movie-collection-container'>
-            <div
-              to={`/${name ? 'tv' : 'movies'}/${id}-${
-                title
-                  ? title
-                      .match(/\w|\s/g)
-                      .join('')
-                      .replace(/\s/g, '-')
-                      .toLowerCase()
-                  : ''
-              }`}
-              className='movie-collection-container-link'
-            >
+            <div className='movie-collection-container-link'>
               <div className='movie-collection-card'>
                 <div className='collection-card-img'>
                   <LazyLoad height={'100%'} offset={70}>

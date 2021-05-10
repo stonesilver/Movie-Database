@@ -13,15 +13,15 @@ const LeftColumn = ({
   onSubmit,
   onChange,
   genreCertificationOnClick,
-  movieType
+  movieType,
 }) => {
   const { popularitySelectValue, isRelease, fromDate, toDate } = formState;
-  const genreType = movieType === 'movie' ? movieGenreArray : tvGenreArray
+  const genreType = movieType === 'movie' ? movieGenreArray : tvGenreArray;
   return (
     <div className='left-column'>
-      <form onSubmit={onSubmit}>
+      <form className='left-column-form' onSubmit={onSubmit}>
         <div className='sort main'>
-          <div className='header' onClick={() => onClickHandler('sort')}>
+          <div className='header' onClick={() => onClickHandler(true)}>
             <p className='text'>Sort</p>
             <p
               className='icon'
@@ -31,8 +31,10 @@ const LeftColumn = ({
             </p>
           </div>
           <div
-            className='hidden-content'
-            style={{ display: sortTab ? 'block' : 'none' }}
+            className='hidden-content hidden-content-sort'
+            style={{
+              display: sortTab ? 'block' : 'none',
+            }}
           >
             <div className='popularity-sort'>
               <label htmlFor='popularity'>Sort Result By</label>
@@ -57,7 +59,7 @@ const LeftColumn = ({
           </div>
         </div>
         <div className='filters main'>
-          <div className='header' onClick={() => onClickHandler()}>
+          <div className='header' onClick={() => onClickHandler(false)}>
             <p className='text'>Filters</p>
             <p
               className='icon'
@@ -69,8 +71,10 @@ const LeftColumn = ({
             </p>
           </div>
           <div
-            className='hidden-content'
-            style={{ display: filterTab ? 'block' : 'none' }}
+            className='hidden-content hidden-content-filter'
+            style={{
+              display: filterTab ? 'block' : 'none',
+            }}
           >
             <div className='release-dates'>
               <p className='sub-header'>Release Dates</p>

@@ -1,24 +1,32 @@
+@import '../../assets/sass-variables';
+
 .episodes-card {
   width: 100%;
   border-radius: 8px;
-  border: 1px solid rgb(76, 72, 72);
+  border: $shadowBoxBorder;
+  box-shadow: $shadowBox;
   overflow: hidden;
   margin: 0.5rem 0 1.3rem 0;
 
   .image-and-details {
     display: grid;
-    grid-template-columns: .25fr 1fr;
+    grid-template-columns: 0.25fr 1fr;
     grid-gap: 1rem;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid rgb(76, 72, 72);
+    border-bottom: 1px solid rgb(15, 15, 15);
 
     @media screen and (max-width: 768px) {
       grid-template-columns: 1fr;
     }
 
     .img-container {
+      min-height: 20vh;
       overflow: hidden;
+
+      @media screen and (max-width: 768px) {
+        min-height: 34.5vh;
+      }
 
       img {
         width: 100%;
@@ -27,30 +35,48 @@
     }
 
     .episode-title-and-air-date {
-      display: flex;
-      flex-direction: column;
       margin: auto 0;
-      padding: .5rem 1rem 0 0;
+      padding: 0.5rem 1rem 0 0;
       width: 100%;
 
       @media screen and (max-width: 768px) {
-        padding: .5rem .5rem 0 .5rem;
+        padding: 0rem 0rem 0 0.5rem;
       }
 
       .title {
         display: flex;
         justify-content: space-between;
 
+        @media screen and (max-width: 768px) {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-areas: 'air-date'
+          'left-title';
+
+          .left {
+            grid-area: left-title;
+          }
+
+          .air-date {
+            grid-area: air-date;
+          }
+        }
+
         .left {
           display: flex;
           padding: 0;
           margin: 0;
+
+          @media screen and (max-width: 768px) {
+            margin-top: .2rem;
+          }
 
           span {
             padding-right: 1rem;
           }
           .number-count {
             font-weight: 500;
+            color: rgb(231, 174, 16)
           }
           .icon-and-rating {
             background: rgb(15, 14, 14);
@@ -58,11 +84,16 @@
             align-items: center;
             margin: 0;
             padding: 0;
-            padding: 0 0.3rem;
+            padding: 0 0.5rem;
             margin-right: 1rem;
-            border: 1px solid rgb(76, 72, 72);
+            border: $shadowBoxBorder;
+            box-shadow: $shadowBox;
             outline: none;
             border-radius: 10px;
+
+            @media screen and (max-width: 768px) {
+              display: none;
+            }
 
             .fas {
               font-size: 0.6rem;
@@ -84,6 +115,10 @@
           margin: 0;
           padding: 0;
           font-size: 0.9rem;
+
+          @media screen and (max-width: 768px) {
+            font-size: .8rem;
+          }
         }
       }
 
@@ -102,6 +137,13 @@
       justify-content: space-between;
       width: 100%;
       padding: 0.3rem 1rem;
+
+      .view-links {
+        &:hover {
+          color: rgb(231, 174, 16);
+          cursor: pointer;
+        }
+      }
     }
 
     .expanded-view-container {
@@ -204,12 +246,14 @@
         margin-top: 0.5rem;
 
         .container {
-          margin: 0;
-          padding: 0.2rem 0.5rem 0.2rem 0;
+          min-width: 200px;
+          min-height: 90px;
+          margin-right: 0.5rem;
+          padding: 0;
 
           img {
-            width: 180px;
-            height: 90px;
+            width: 100%;
+            height: 100%;
           }
         }
       }
@@ -220,12 +264,12 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background: rgb(76, 72, 72);
+    background: rgb(31, 30, 30);
     padding: 0.25rem 0;
     cursor: pointer;
 
     &:hover {
-      background: rgb(114, 110, 110);
+      background: rgb(43, 42, 42);
     }
 
     &:hover + .expanded-view {

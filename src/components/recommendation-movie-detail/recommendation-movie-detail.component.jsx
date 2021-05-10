@@ -46,7 +46,7 @@ const Recommendation = ({ recommendations }) => {
                 >
                   <div className='recommendation-card'>
                     <div className='recommendations-card-img'>
-                      <LazyLoad height={'100%'} offset={700}>
+                      <LazyLoad height={'100%'} offset={120}>
                         <img
                           src={
                             backdrop_path

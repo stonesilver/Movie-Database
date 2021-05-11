@@ -20,6 +20,7 @@ const MovieCard = ({
   movieTv,
 }) => {
   const progress = rating * 10;
+  const movieOverview = overview ? overview  : ''
   let date =
     releaseDate || firstAirDate
       ? new Date(
@@ -45,7 +46,11 @@ const MovieCard = ({
       transitionEnter={false}
       transitionLeave={false}
     >
-      <div className={`movie-and-tv-card ${movieTv ? 'mobile-for-tv-movies-category' : ''}`}>
+      <div
+        className={`movie-and-tv-card ${
+          movieTv ? 'mobile-for-tv-movies-category' : ''
+        }`}
+      >
         <Link
           to={`/${
             tvTitle ? 'tv' : 'movies'
@@ -95,7 +100,11 @@ const MovieCard = ({
           <div className={`movie-and-tv-card-text ${loading ? 'loading' : ''}`}>
             {date ? date : ''}
           </div>
-          <div className={`movie-and-tv-card-overview ${loading ? 'loading' : ''}`}>{overview}</div>
+          <div
+            className={`movie-and-tv-card-overview ${loading ? 'loading' : ''}`}
+          >
+            {movieOverview.length > 120 ? `${movieOverview.slice(0, 115)}...` : movieOverview}
+          </div>
         </div>
       </div>
     </CSSTransitionGroup>

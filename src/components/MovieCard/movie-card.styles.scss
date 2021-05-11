@@ -82,7 +82,7 @@
   @media screen and (max-width: 768px) {
     display: grid;
     grid-template-columns: 0.35fr 1fr;
-    grid-gap: .2rem;
+    grid-gap: 0.2rem;
     height: 25vh;
 
     .movie-and-tv-card-link {
@@ -131,24 +131,12 @@
 
       .movie-and-tv-card-overview {
         display: block;
-        height: 2rem;
+        height: 2.2rem;
         position: relative;
         margin-top: 1rem;
         font-size: 0.75rem;
         overflow: hidden;
-        padding-right: .2rem;
-
-        &::after {
-          content: '.......';
-          letter-spacing: 2px;
-          position: absolute;
-          width: max-content;
-          height: .8rem;
-          bottom: 0px;
-          right: 0px;
-          text-align: right;
-          background: rgb(27, 27, 27);
-        }
+        padding-right: 0.2rem;
       }
     }
   }

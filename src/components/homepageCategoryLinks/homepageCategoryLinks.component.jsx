@@ -22,7 +22,6 @@ const HomepageCategoryLink = ({
               }`}
               onClick={() => {
                 handleStreamChange(categoryLink, name);
-                console.log(side);
               }}
             >
               {name}

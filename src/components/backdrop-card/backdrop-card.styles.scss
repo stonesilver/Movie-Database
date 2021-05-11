@@ -18,6 +18,11 @@
     }
   }
 
+  .poster-size {
+    height: 65vh;
+    width: auto;
+  }
+
   .info-and-icon {
     display: flex;
     justify-content: space-between;
@@ -25,9 +30,9 @@
     border-bottom: 1px solid $lightBorderColor;
 
     span {
-        font-size: .7rem;
-        padding-right: .5rem;
-        padding: .8rem 0;
+      font-size: 0.7rem;
+      padding-right: 0.5rem;
+      padding: 0.8rem 0;
     }
   }
 
@@ -43,7 +48,7 @@
       font-size: 0.7rem;
 
       .fa-check {
-        margin-left: .5rem;
+        margin-left: 0.5rem;
       }
     }
 
@@ -51,14 +56,14 @@
       display: flex;
       justify-content: space-between;
       background: $mainColor;
-      padding: .3rem 0;
+      padding: 0.3rem 0;
 
       .text {
-        padding-left: .5rem;
+        padding-left: 0.5rem;
       }
 
       span {
-        padding-right: .5rem;
+        padding-right: 0.5rem;
       }
     }
 

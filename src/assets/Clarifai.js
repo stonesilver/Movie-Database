@@ -21,7 +21,7 @@ export const getImageColors = (imgURL) => {
     })
     .catch((err) => {
       console.log(err)
-      // return ['#cae0e0', '#0edfe3', '#f0ec0c']
-      return ['Failed Request', 'Failed Request'];
+      return ['#212121e7', '#212121', 'gray']
+      // return ['Failed Request', 'Failed Request'];
     });
 };

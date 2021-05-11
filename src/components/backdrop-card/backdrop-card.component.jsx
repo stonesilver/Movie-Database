@@ -1,12 +1,14 @@
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
+import { useParams } from 'react-router-dom';
 import './backdrop-card.styles.scss';
 
 const BackdropCard = ({ file_path, width, height, iso_639_1 }) => {
+  const { imageType } = useParams();
   const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
   return (
     <div className='backdropcard-container'>
-      <div className='img-container'>
+      <div className={`img-container ${imageType === 'posters' ? 'poster-size' : ''}`}>
         <LazyLoad height={'100%'} offset={200}>
           <img src={`https://image.tmdb.org/t/p/w300${file_path}`} alt='card' />
         </LazyLoad>

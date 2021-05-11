@@ -33,6 +33,14 @@
         flex-direction: column;
         width: 100%;
         margin: 0.2rem 0;
+        overflow: hidden;
+
+        @media screen and (max-width: "768px") {
+          flex-direction: row;
+          flex-wrap: nowrap;
+          overflow-x: scroll;
+          grid-gap: .5rem;
+        }
 
         .language {
           display: flex;
@@ -45,6 +53,12 @@
           cursor: pointer;
           border: $shadowBoxBorder;
           box-shadow: $shadowBox;
+
+          @media screen and (max-width: "768px") {
+            border-radius: 5px;
+            padding: 0.3rem;
+            margin: 0 0 0.4rem 0;
+          }
 
           &:first-child {
             background:  #ffc107;
@@ -61,6 +75,7 @@
             padding: 0 0.5rem;
             border-radius: 4px;
             height: max-content;
+            margin-left: 1.2rem;
           }
         }
       }

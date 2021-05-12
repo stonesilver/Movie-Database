@@ -61,7 +61,7 @@ const Checkbox = ({
             </Link>
             <span className='checkbox-movie-detail-rating'>
               <span className='score'>
-                {vote_average > 0 ? vote_average : 0.0}
+                {vote_average !== 0 ? vote_average : '0.0'}
               </span>
               <span className='fas fa-star'></span>
             </span>

@@ -165,7 +165,7 @@ const CollectionDetails = ({ match }) => {
         <h4 className='header'>{collectionData.parts.length} movies</h4>
         <div className='movie-container'>
           {collectionPart
-            .sort((a, b) => parseInt(a.release_date) - parseInt(b.release_date))
+            .sort((a, b) => parseInt(a.release_date  || 0) - parseInt(b.release_date  || 0))
             .map(({ id, title, overview, poster_path, release_date }) => (
               <CollectionCard
                 key={id}

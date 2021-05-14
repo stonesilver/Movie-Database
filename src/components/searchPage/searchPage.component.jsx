@@ -41,7 +41,7 @@ const SearchPage = () => {
         `https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_API_URL}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
       ),
       fetch(
-        `https://api.themoviedb.org/3/search/people?api_key=${process.env.REACT_APP_API_URL}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
+        `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_URL}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
       ),
       fetch(
         `https://api.themoviedb.org/3/search/company?api_key=${process.env.REACT_APP_API_URL}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
@@ -194,16 +194,20 @@ const SearchPage = () => {
                   name,
                   overview,
                   poster_path,
+                  profile_path,
                   first_air_date,
                   release_date,
+                  known_for_department,
                 }) => (
                   <CollectionCard
                     key={id}
+                    type={known_for_department ? true : false}
                     title={title || name}
                     name={name}
                     id={id}
+                    known_for_department={known_for_department}
                     overview={overview}
-                    posterPath={poster_path}
+                    posterPath={poster_path || profile_path}
                     releaseDate={release_date || first_air_date}
                   />
                 )

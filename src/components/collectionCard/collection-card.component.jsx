@@ -11,14 +11,17 @@ const CollectionCard = ({
   releaseDate,
   overview,
   posterPath,
+  profile_path,
   name,
   characterName,
   department,
   gender,
   id,
   totalEpisodeCount,
+  known_for_department,
 }) => {
   const [year, month, day] = releaseDate ? airDateFormat(releaseDate) : '';
+  const titleOrName = title ? title : name
   return (
     <CSSTransitionGroup
       transitionName='fade'
@@ -45,7 +48,7 @@ const CollectionCard = ({
                 <LazyLoad height={'100%'} offset={120}>
                   <img
                     src={
-                      posterPath
+                      posterPath  || profile_path
                         ? `https://image.tmdb.org/t/p/w154${posterPath}`
                         : gender === 1
                         ? `https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_960_720.png`
@@ -60,7 +63,7 @@ const CollectionCard = ({
               <div className='collection-card-body'>
                 <p className='name'>{name}</p>
                 <p className='character-name'>
-                  {`${characterName ? characterName : department}`}
+                  {`${characterName ? characterName : department ? department : known_for_department}`}
                   {totalEpisodeCount ? (
                     <span className='episodes'>{`(${totalEpisodeCount} Episodes)`}</span>
                   ) : (
@@ -78,8 +81,8 @@ const CollectionCard = ({
                   <LazyLoad height={'100%'} offset={70}>
                     <Link
                       to={`/${name ? 'tv' : 'movies'}/${id}-${
-                        title
-                          ? title
+                        titleOrName.match(/\w|\s/g)
+                          ? titleOrName
                               .match(/\w|\s/g)
                               .join('')
                               .replace(/\s/g, '-')
@@ -101,8 +104,8 @@ const CollectionCard = ({
                 <div className='collection-card-body'>
                   <Link
                     to={`/${name ? 'tv' : 'movies'}/${id}-${
-                      title
-                        ? title
+                      titleOrName.match(/\w|\s/g)
+                        ? titleOrName
                             .match(/\w|\s/g)
                             .join('')
                             .replace(/\s/g, '-')

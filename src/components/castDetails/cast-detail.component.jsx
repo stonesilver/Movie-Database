@@ -94,7 +94,7 @@ const CastDetail = ({ match: { params, url } }) => {
               }) => (
                 <CollectionCard
                   key={id}
-                  type='feature'
+                  type={true}
                   id={id}
                   name={name}
                   gender={gender}
@@ -130,7 +130,7 @@ const CastDetail = ({ match: { params, url } }) => {
                   ) => (
                     <CollectionCard
                       key={id + index}
-                      type='feature'
+                      type={true}
                       id={id}
                       name={name}
                       gender={gender}

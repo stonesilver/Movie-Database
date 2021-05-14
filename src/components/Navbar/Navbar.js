@@ -42,16 +42,15 @@ const NavigationBar = () => {
       e.preventDefault();
       // history.push(`/search?query=${searchValue}`);
       appendQuery(key, value)
-      setSearchValue('');
+      // setSearchValue('');
     }
   };
 
   const onFormSubmit = (e, key, value) => {
     e.preventDefault();
     if (!searchValue) return;
-    // history.push(`/search?query=${searchValue}`);
     appendQuery(key, value)
-    setSearchValue('');
+    // setSearchValue('');
   };
 
 

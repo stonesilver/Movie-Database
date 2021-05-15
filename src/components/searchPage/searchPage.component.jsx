@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import CollectionCard from '../collectionCard/collection-card.component';
+import CompanyCard from '../companyCard/companyCard.component';
+import KeywordCard from '../keywordCard/keywordCard.component';
 import SearchPageLeftColumn from '../searchPageLeftColumn/searchPageLeftColumn.component';
 import SearchPagePagination from '../searchPagePagination/searchPagePagination.component';
 import BlanketElement from '../blanket-element/blanket-element.component';
@@ -193,24 +195,36 @@ const SearchPage = () => {
                   title,
                   name,
                   overview,
+                  logo_path,
                   poster_path,
                   profile_path,
                   first_air_date,
                   release_date,
+                  origin_country,
                   known_for_department,
-                }) => (
-                  <CollectionCard
-                    key={id}
-                    type={known_for_department ? true : false}
-                    title={title || name}
-                    name={name}
-                    id={id}
-                    known_for_department={known_for_department}
-                    overview={overview}
-                    posterPath={poster_path || profile_path}
-                    releaseDate={release_date || first_air_date}
-                  />
-                )
+                }) =>
+                  tabSelected === 'company' || tabSelected === 'network' ? (
+                    <CompanyCard
+                      key={id}
+                      name={name}
+                      logo_path={logo_path}
+                      origin_country={origin_country}
+                    />
+                  ) : tabSelected === 'keyword' ? (
+                    <KeywordCard key={id} keyword={name} />
+                  ) : (
+                    <CollectionCard
+                      key={id}
+                      type={known_for_department ? true : false}
+                      title={title || name}
+                      name={name}
+                      id={id}
+                      known_for_department={known_for_department}
+                      overview={overview}
+                      posterPath={poster_path || profile_path}
+                      releaseDate={release_date || first_air_date}
+                    />
+                  )
               )
             ) : (
               <div className='no-search-found'>

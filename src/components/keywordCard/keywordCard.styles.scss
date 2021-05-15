@@ -1,0 +1,8 @@
+@import '../../assets/sass-variables';
+
+.keyword-card {
+  border: $shadowBoxBorder;
+  box-shadow: $shadowBox;
+  color: #fff;
+  padding: 0.3rem 0.2rem;
+}

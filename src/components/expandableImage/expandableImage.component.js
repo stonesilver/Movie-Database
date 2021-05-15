@@ -26,7 +26,7 @@ const ExpandableImage = ({
       : 'movie'
   }/${location.pathname
     .match(/\d{1,}/)
-    .join('')}/images?api_key=ffefcdcfad7ef5063184883831d5c9f2`;
+    .join('')}/images?api_key=${process.env.REACT_APP_API_URL}`;
   return (
     <div className='left-container'>
       <div

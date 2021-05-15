@@ -19,7 +19,7 @@ const SeasonCast = ({ match: { params } }) => {
         /\d{1,}/
       )}/season/${params.seasonNumber}/episode/${
         params.episodeNumber
-      }?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US&append_to_response=credits`
+      }?api_key=${process.env.REACT_APP_API_URL}&language=en-US&append_to_response=credits`
     )
       .then((res) => res.json())
       .then((data) => {

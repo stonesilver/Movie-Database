@@ -25,7 +25,7 @@ const SeasonEpisodeCard = ({
         /\d{1,}/
       )}/season/${
         params.seasonNumber
-      }/episode/${episode_number}/images?api_key=ffefcdcfad7ef5063184883831d5c9f2`
+      }/episode/${episode_number}/images?api_key=${process.env.REACT_APP_API_URL}`
     )
       .then((res) => res.json())
       .then((data) => setEpisodeImages(data.stills))

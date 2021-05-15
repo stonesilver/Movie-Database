@@ -25,12 +25,12 @@ const SeasonsEpisodes = ({ match: { params } }) => {
           /\d{1,}/
         )}/season/${
           params.seasonNumber
-        }?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US`
+        }?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
       ),
       fetch(
         `https://api.themoviedb.org/3/tv/${params.movieDetail.match(
           /\d{1,}/
-        )}?api_key=ffefcdcfad7ef5063184883831d5c9f2`
+        )}?api_key=${process.env.REACT_APP_API_URL}`
       ),
     ])
       .then(([episodeData, seasons]) =>

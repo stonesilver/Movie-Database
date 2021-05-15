@@ -8,7 +8,7 @@ const CarouselDisplay = () => {
   const [posterPath, setPosterPath] = useState([]);
   useEffect(() => {
     fetch(
-      'https://api.themoviedb.org/3/discover/movie?api_key=ffefcdcfad7ef5063184883831d5c9f2&region=US&page=1&primary_release_date.gte=2021-01-01&primary_release_date.lte=2021-05-01'
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_URL}&region=US&page=1&primary_release_date.gte=2021-01-01&primary_release_date.lte=2021-05-01`
     )
       .then((res) => res.json())
       .then((data) => setPosterPath(data.results))

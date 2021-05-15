@@ -15,7 +15,7 @@ const CollectionDetails = ({ match }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     fetch(
-      `https://api.themoviedb.org/3/collection/${match.params.collectionID}?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US`
+      `https://api.themoviedb.org/3/collection/${match.params.collectionID}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -25,7 +25,7 @@ const CollectionDetails = ({ match }) => {
             await Promise.all(
               data.parts.map((item) =>
                 fetch(
-                  `https://api.themoviedb.org/3/movie/${item.id}?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US`
+                  `https://api.themoviedb.org/3/movie/${item.id}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
                 )
                   .then((res) => res.json())
                   .then((data) => data)
@@ -40,7 +40,7 @@ const CollectionDetails = ({ match }) => {
             await Promise.all(
               data.parts.map((item) =>
                 fetch(
-                  `https://api.themoviedb.org/3/movie/${item.id}/credits?api_key=ffefcdcfad7ef5063184883831d5c9f2`
+                  `https://api.themoviedb.org/3/movie/${item.id}/credits?api_key=${process.env.REACT_APP_API_URL}`
                 )
                   .then((res) => res.json())
                   .then((data) => data)

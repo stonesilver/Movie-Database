@@ -171,7 +171,7 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/${movieType}/${movieCategory}?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US&page=1`
+      `https://api.themoviedb.org/3/${movieType}/${movieCategory}?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=1`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -276,7 +276,7 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
             ? `&certification_country=US&certification=${certification}`
             : ''
         }&page=${currentPage}`
-      : `https://api.themoviedb.org/3/${movieType}/${movieCategory}?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US&page=${currentPage}`;
+      : `https://api.themoviedb.org/3/${movieType}/${movieCategory}?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=${currentPage}`;
 
     setIsClicked(true);
     if (totalPage >= currentPage) {

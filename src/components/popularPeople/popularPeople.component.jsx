@@ -32,7 +32,7 @@ const PopularPeople = () => {
       isClicked: true,
     }));
     fetch(
-      `https://api.themoviedb.org/3/person/popular?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US&page=${pageData.currentPage}`
+      `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=${pageData.currentPage}`
     )
       .then((response) => response.json())
       .then((data) => {

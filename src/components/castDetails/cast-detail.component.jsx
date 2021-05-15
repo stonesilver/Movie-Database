@@ -27,12 +27,12 @@ const CastDetail = ({ match: { params, url } }) => {
           /\d{1,}/
         )}/${
           type === 'tv' ? 'aggregate_credits' : 'credits'
-        }?api_key=ffefcdcfad7ef5063184883831d5c9f2`
+        }?api_key=${process.env.REACT_APP_API_URL}`
       ),
       fetch(
         `https://api.themoviedb.org/3/${type}/${params.movieDetail.match(
           /\d{1,}/
-        )}?api_key=ffefcdcfad7ef5063184883831d5c9f2`
+        )}?api_key=${process.env.REACT_APP_API_URL}`
       ),
     ])
       .then(([list, movieData]) => Promise.all([list.json(), movieData.json()]))

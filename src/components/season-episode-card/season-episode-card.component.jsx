@@ -156,6 +156,7 @@ const SeasonEpisodeCard = ({
                 <img
                   src={`https://image.tmdb.org/t/p/w300${file_path}`}
                   alt={`${index + 1}`}
+                  className='images-container-img'
                 />
               </LazyLoad>
             ))}

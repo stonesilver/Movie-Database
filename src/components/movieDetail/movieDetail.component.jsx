@@ -39,52 +39,52 @@ const MovieDetails = () => {
         fetch(
           `https://api.themoviedb.org/3/${moviePath}/${movieDetail
             .match(/\d{2,}/)
-            .join('')}?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US`
+            .join('')}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
         ),
         fetch(
           `https://api.themoviedb.org/3/${moviePath}/${movieDetail
             .match(/\d{2,}/)
             .join('')}/${
             moviePath === 'tv' ? 'aggregate_credits' : 'credits'
-          }?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US`
+          }?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
         ),
         fetch(
           `https://api.themoviedb.org/3/${moviePath}/${movieDetail
             .match(/\d{2,}/)
-            .join('')}/keywords?api_key=ffefcdcfad7ef5063184883831d5c9f2`
-        ),
-        fetch(
-          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
-            .match(/\d{2,}/)
-            .join(
-              ''
-            )}/videos?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US`
+            .join('')}/keywords?api_key=${process.env.REACT_APP_API_URL}`
         ),
         fetch(
           `https://api.themoviedb.org/3/${moviePath}/${movieDetail
             .match(/\d{2,}/)
             .join(
               ''
-            )}/images?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US&include_image_language=null`
+            )}/videos?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
         ),
         fetch(
           `https://api.themoviedb.org/3/${moviePath}/${movieDetail
             .match(/\d{2,}/)
             .join(
               ''
-            )}/recommendations?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US&page=1`
+            )}/images?api_key=${process.env.REACT_APP_API_URL}&language=en-US&include_image_language=null`
         ),
         fetch(
           `https://api.themoviedb.org/3/${moviePath}/${movieDetail
             .match(/\d{2,}/)
             .join(
               ''
-            )}/reviews?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US&page=1`
+            )}/recommendations?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=1`
         ),
         fetch(
           `https://api.themoviedb.org/3/${moviePath}/${movieDetail
             .match(/\d{2,}/)
-            .join('')}/external_ids?api_key=ffefcdcfad7ef5063184883831d5c9f2`
+            .join(
+              ''
+            )}/reviews?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=1`
+        ),
+        fetch(
+          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
+            .match(/\d{2,}/)
+            .join('')}/external_ids?api_key=${process.env.REACT_APP_API_URL}`
         ),
       ])
         .then(

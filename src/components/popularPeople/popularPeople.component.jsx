@@ -3,6 +3,7 @@ import PeopleCard from '../peopleCard/peopleCard.component';
 import BlanketElement from '../../components/blanket-element/blanket-element.component';
 import ShowMore from '../showMore/show-more.component';
 import './popularPeople.styles.scss';
+
 const PopularPeople = () => {
   const [pageData, setPagedata] = useState({
     people: null,
@@ -13,7 +14,7 @@ const PopularPeople = () => {
 
   useEffect(() => {
     fetch(
-      'https://api.themoviedb.org/3/person/popular?api_key=ffefcdcfad7ef5063184883831d5c9f2&language=en-US&page=1'
+      `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=1`
     )
       .then((response) => response.json())
       .then((data) =>

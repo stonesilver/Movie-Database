@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import HomepageCategoryLink from '../homepageCategoryLinks/homepageCategoryLinks.component';
 import TrailerCard from '../TrailerCard/TrailerCard';
+import './LatestTrailer.styles.scss';
 
 const LatestTrailer = () => {
   const [trailers, setTrailers] = useState([]);

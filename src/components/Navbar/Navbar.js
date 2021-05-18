@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 import {
   Navbar,
   Nav,
@@ -9,7 +10,6 @@ import {
   NavDropdown,
 } from 'react-bootstrap';
 import './navbar.styles.scss';
-import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -30,9 +30,9 @@ const NavigationBar = () => {
     searchParams.set(key, value);
     history.push({
       pathname: pathname,
-      search: searchParams.toString()
+      search: searchParams.toString(),
     });
-  }
+  };
 
   const onEnterKeyDown = (e, key, value) => {
     if (e.keyCode === 13) {
@@ -40,8 +40,7 @@ const NavigationBar = () => {
     }
     if (e.keyCode === 13 && searchValue) {
       e.preventDefault();
-      // history.push(`/search?query=${searchValue}`);
-      appendQuery(key, value)
+      appendQuery(key, value);
       // setSearchValue('');
     }
   };
@@ -49,49 +48,58 @@ const NavigationBar = () => {
   const onFormSubmit = (e, key, value) => {
     e.preventDefault();
     if (!searchValue) return;
-    appendQuery(key, value)
+    appendQuery(key, value);
     // setSearchValue('');
   };
 
-
   return (
     // bg='dark' variant='dark'
-    <Navbar collapseOnSelect expand='md' variant='dark' className='bg-colour'>
-      <Link to='/'>
+    <Navbar collapseOnSelect expand='lg' variant='dark' className='bg-colour'>
+      <LinkContainer to='/'>
         <Navbar.Brand className='text-warning font-weight-bold'>
           Movie Database
         </Navbar.Brand>
-      </Link>
+      </LinkContainer>
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />
       <Navbar.Collapse id='responsive-navbar-nav'>
         <Nav className='mr-auto ml-auto'>
           <NavDropdown title='Movies' id='collasible-nav-dropdown'>
-            <NavDropdown.Item href='/movies'>Popular</NavDropdown.Item>
-            <NavDropdown.Item href='/movies/upcoming'>
-              Upcoming
-            </NavDropdown.Item>
-            <NavDropdown.Item href='/movies/now-playing'>
-              Now Playing
-            </NavDropdown.Item>
-            <NavDropdown.Item href='/movies/top-rated'>
-              Top Rated
-            </NavDropdown.Item>
+            <LinkContainer to='/movies'>
+              <NavDropdown.Item href='#action/3.1'>Popular</NavDropdown.Item>
+            </LinkContainer>
+            <LinkContainer to='/movies/upcoming'>
+              <NavDropdown.Item href='#action/3.2'>Upcoming</NavDropdown.Item>
+            </LinkContainer>
+            <LinkContainer to='/movies/now-playing'>
+              <NavDropdown.Item href='#action/3.3'>Now Playing</NavDropdown.Item>
+            </LinkContainer>
+            <LinkContainer to='/movies/top-rated'>
+              <NavDropdown.Item href='#action/3.4'>Top Rated</NavDropdown.Item>
+            </LinkContainer>
           </NavDropdown>
           <NavDropdown title='Tv Shows' id='collasible-nav-dropdown'>
-            <NavDropdown.Item href='/tv'>Popular</NavDropdown.Item>
-            <NavDropdown.Item href='/tv/airing-today'>
-              Airing Today
-            </NavDropdown.Item>
-            <NavDropdown.Item href='/tv/on-tv'>On TV</NavDropdown.Item>
-            <NavDropdown.Item href='/tv/top-rated'>Top Rated</NavDropdown.Item>
+            <LinkContainer to='/tv'>
+              <NavDropdown.Item href='#action/3.1'>Popular</NavDropdown.Item>
+            </LinkContainer>
+            <LinkContainer to='/tv/airing-today'>
+              <NavDropdown.Item href='#action/3.2'>Airing Today</NavDropdown.Item>
+            </LinkContainer>
+            <LinkContainer to='/tv/on-tv'>
+              <NavDropdown.Item href='#action/3.3'>On TV</NavDropdown.Item>
+            </LinkContainer>
+            <LinkContainer to='/tv/top-rated'>
+              <NavDropdown.Item href='#action/3.4'>Top Rated</NavDropdown.Item>
+            </LinkContainer>
           </NavDropdown>
           <NavDropdown title='People' id='collasible-nav-dropdown'>
-            <NavDropdown.Item href='/people'>Popular People</NavDropdown.Item>
+            <LinkContainer to='/people'>
+              <NavDropdown.Item href='#action/3.1'>Popular People</NavDropdown.Item>
+            </LinkContainer>
           </NavDropdown>
           <NavDropdown title='More' id='collasible-nav-dropdown'>
-            <NavDropdown.Item href='action-10'>Discussions</NavDropdown.Item>
-            <NavDropdown.Item href='action-11'>Leaderboard</NavDropdown.Item>
-            <NavDropdown.Item href='action-12'>Support</NavDropdown.Item>
+            <NavDropdown.Item href='#'>Discussions</NavDropdown.Item>
+            <NavDropdown.Item href='#'>Leaderboard</NavDropdown.Item>
+            <NavDropdown.Item href='#'>Support</NavDropdown.Item>
           </NavDropdown>
         </Nav>
         <Form inline>
@@ -103,7 +111,10 @@ const NavigationBar = () => {
             onChange={onSearchChange}
             onKeyDown={(e) => onEnterKeyDown(e, 'page', 1)}
           />
-          <Button variant='outline-light' onClick={(e) => onFormSubmit(e, 'page', 1)}>
+          <Button
+            variant='outline-light'
+            onClick={(e) => onFormSubmit(e, 'page', 1)}
+          >
             Search
           </Button>
         </Form>

@@ -40,57 +40,58 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
             <li className='media'>Media</li>
             <div className='media-category-container'>
               <div className='media-category'>
-              <li
-                style={{
-                  borderBottom:
-                    media === 'most popular' ? '1px solid transparent' : '',
-                  borderRight:
-                    media === 'most popular' ? '1px solid transparent' : '',
-                }}
-                onClick={() => mostPopularOnClick()}
-                className='most-popular'
-              >
-                Most Popular
-              </li>
-              <li
-                style={{
-                  borderBottom:
-                    media === 'videos' ? '1px solid transparent' : '',
-                  borderLeft: media === 'videos' ? '1px solid transparent' : '',
-                  borderRight:
-                    media === 'videos' ? '1px solid transparent' : '',
-                }}
-                onClick={() => videosOnClick()}
-                className='video'
-              >
-                Videos <span>{videos.length}</span>
-              </li>
-              <li
-                style={{
-                  borderBottom:
-                    media === 'backdrops' ? '1px solid transparent' : '',
-                  borderLeft:
-                    media === 'backdrops' ? '1px solid transparent' : '',
-                  borderRight:
-                    media === 'backdrops' ? '1px solid transparent' : '',
-                }}
-                onClick={() => backDropsOnClick()}
-                className='backdrop'
-              >
-                Backdrops <span>{backdrops.length}</span>
-              </li>
-              <li
-                style={{
-                  borderBottom:
-                    media === 'posters' ? '1px solid transparent' : '',
-                  borderLeft:
-                    media === 'posters' ? '1px solid transparent' : '',
-                }}
-                onClick={() => postersOnClick()}
-                className='poster'
-              >
-                Posters <span>{posters.length}</span>
-              </li>
+                <li
+                  style={{
+                    borderBottom:
+                      media === 'most popular' ? '1px solid transparent' : '',
+                    borderRight:
+                      media === 'most popular' ? '1px solid transparent' : '',
+                  }}
+                  onClick={() => mostPopularOnClick()}
+                  className='most-popular'
+                >
+                  Most Popular
+                </li>
+                <li
+                  style={{
+                    borderBottom:
+                      media === 'videos' ? '1px solid transparent' : '',
+                    borderLeft:
+                      media === 'videos' ? '1px solid transparent' : '',
+                    borderRight:
+                      media === 'videos' ? '1px solid transparent' : '',
+                  }}
+                  onClick={() => videosOnClick()}
+                  className='video'
+                >
+                  Videos <span>{videos.length}</span>
+                </li>
+                <li
+                  style={{
+                    borderBottom:
+                      media === 'backdrops' ? '1px solid transparent' : '',
+                    borderLeft:
+                      media === 'backdrops' ? '1px solid transparent' : '',
+                    borderRight:
+                      media === 'backdrops' ? '1px solid transparent' : '',
+                  }}
+                  onClick={() => backDropsOnClick()}
+                  className='backdrop'
+                >
+                  Backdrops <span>{backdrops.length}</span>
+                </li>
+                <li
+                  style={{
+                    borderBottom:
+                      media === 'posters' ? '1px solid transparent' : '',
+                    borderLeft:
+                      media === 'posters' ? '1px solid transparent' : '',
+                  }}
+                  onClick={() => postersOnClick()}
+                  className='poster'
+                >
+                  Posters <span>{posters.length}</span>
+                </li>
               </div>
               {viewAll ? (
                 <Link to={`${url}/images/${viewAll}`} className='see-more'>
@@ -103,143 +104,141 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
           </ul>
         </div>
         {videos.length || backdrops.length || posters.length ? (
-          <LazyLoad height={'100%'} offset={120}>
-            <div className='tab-content'>
-              <div
-                id='most-popular'
-                className='content-container'
-                style={{
-                  display: `${media === 'most popular' ? 'block' : 'none'}`,
-                }}
-              >
-                <div className='scroll-container '>
-                  {videos.length ? (
-                    <Link
-                      to={`${url}${
-                        videos[0].key[0] === '/'
-                          ? `/play${videos[0].key}`
-                          : `/play/${videos[0].key}`
-                      }`}
-                    >
-                      <div className='official-trailer container'>
-                        <LazyLoad height={'100%'} offset={120}>
-                          <img
-                            src={
-                              videos[0]
-                                ? `https://i.ytimg.com/vi/${videos[0].key}/0.jpg`
-                                : ''
-                            }
-                            alt='official trailer'
-                            className='most-popular-img'
-                          />
-                        </LazyLoad>
-                      </div>
-                    </Link>
-                  ) : (
-                    ''
-                  )}
+          <div className='tab-content'>
+            <div
+              id='most-popular'
+              className='content-container'
+              style={{
+                display: `${media === 'most popular' ? 'block' : 'none'}`,
+              }}
+            >
+              <div className='scroll-container '>
+                {videos.length ? (
+                  <Link
+                    to={`${url}${
+                      videos[0].key[0] === '/'
+                        ? `/play${videos[0].key}`
+                        : `/play/${videos[0].key}`
+                    }`}
+                  >
+                    <div className='official-trailer container'>
+                      <LazyLoad height={'100%'} offset={120}>
+                        <img
+                          src={
+                            videos[0]
+                              ? `https://i.ytimg.com/vi/${videos[0].key}/0.jpg`
+                              : ''
+                          }
+                          alt='official trailer'
+                          className='most-popular-img'
+                        />
+                      </LazyLoad>
+                    </div>
+                  </Link>
+                ) : (
+                  ''
+                )}
 
-                  <div className='official-poster container'>
+                <div className='official-poster container'>
+                  <LazyLoad height={'100%'} offset={120}>
+                    <img
+                      src={
+                        backdrops[0]
+                          ? `https://image.tmdb.org/t/p/w500${backdrops[0].file_path}`
+                          : ''
+                      }
+                      alt='official poster'
+                      className='most-popular-img'
+                    />
+                  </LazyLoad>
+                </div>
+
+                {posters.length ? (
+                  <div className='small-poster'>
                     <LazyLoad height={'100%'} offset={120}>
                       <img
-                        src={
-                          backdrops[0]
-                            ? `https://image.tmdb.org/t/p/w500${backdrops[0].file_path}`
-                            : ''
-                        }
-                        alt='official poster'
+                        src={`https://image.tmdb.org/t/p/w342${posters[0].file_path}`}
+                        alt='small poster'
                         className='most-popular-img'
                       />
                     </LazyLoad>
                   </div>
-
-                  {posters.length ? (
-                    <div className='small-poster'>
-                      <LazyLoad height={'100%'} offset={120}>
-                        <img
-                          src={`https://image.tmdb.org/t/p/w342${posters[0].file_path}`}
-                          alt='small poster'
-                          className='most-popular-img'
-                        />
-                      </LazyLoad>
-                    </div>
-                  ) : (
-                    ''
-                  )}
-                </div>
-              </div>
-              <div
-                id='videos'
-                className='content-container'
-                style={{
-                  display: `${media === 'videos' ? 'block' : 'none'}`,
-                }}
-              >
-                <div className='scroll-container '>
-                  {filteredVideos.map(({ key, id }) => (
-                    <Link
-                      to={`${url}${
-                        key[0] === '/' ? `/play${key}` : `/play/${key}`
-                      }`}
-                      key={id}
-                    >
-                      <div className='official-trailer container'>
-                        <LazyLoad height={'100%'} offset={120}>
-                          <img
-                            src={`https://i.ytimg.com/vi/${key}/0.jpg`}
-                            alt='official trailer'
-                            className='most-popular-img'
-                          />
-                        </LazyLoad>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <div
-                id='back-drops'
-                className='content-container'
-                style={{
-                  display: `${media === 'backdrops' ? 'block' : 'none'}`,
-                }}
-              >
-                <div className='scroll-container '>
-                  {filteredBackdrops.map(({ file_path }, index) => (
-                    <div className='official-poster container' key={index}>
-                      <LazyLoad height={'100%'} offset={120}>
-                        <img
-                          src={`https://image.tmdb.org/t/p/w500${file_path}`}
-                          alt={`official poster ${index + 1}`}
-                          className='most-popular-img'
-                        />
-                      </LazyLoad>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div
-                id='posters'
-                className='content-container'
-                style={{
-                  display: `${media === 'posters' ? 'block' : 'none'}`,
-                }}
-              >
-                <div className='scroll-container '>
-                  {filteredPosters.map(({ file_path }, index) => (
-                    <div className='small-poster' key={index}>
-                      <LazyLoad height={'100%'} offset={120}>
-                        <img
-                          src={`https://image.tmdb.org/t/p/w342${file_path}`}
-                          alt={`small poster ${index}`}
-                          className='most-popular-img'
-                        />
-                      </LazyLoad>
-                    </div>
-                  ))}
-                </div>
+                ) : (
+                  ''
+                )}
               </div>
             </div>
-          </LazyLoad>
+            <div
+              id='videos'
+              className='content-container'
+              style={{
+                display: `${media === 'videos' ? 'block' : 'none'}`,
+              }}
+            >
+              <div className='scroll-container '>
+                {filteredVideos.map(({ key, id }) => (
+                  <Link
+                    to={`${url}${
+                      key[0] === '/' ? `/play${key}` : `/play/${key}`
+                    }`}
+                    key={id}
+                  >
+                    <div className='official-trailer container'>
+                      <LazyLoad height={'100%'} offset={120}>
+                        <img
+                          src={`https://i.ytimg.com/vi/${key}/0.jpg`}
+                          alt='official trailer'
+                          className='most-popular-img'
+                        />
+                      </LazyLoad>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div
+              id='back-drops'
+              className='content-container'
+              style={{
+                display: `${media === 'backdrops' ? 'block' : 'none'}`,
+              }}
+            >
+              <div className='scroll-container '>
+                {filteredBackdrops.map(({ file_path }, index) => (
+                  <div className='official-poster container' key={index}>
+                    <LazyLoad height={'100%'} offset={120}>
+                      <img
+                        src={`https://image.tmdb.org/t/p/w500${file_path}`}
+                        alt={`official poster ${index + 1}`}
+                        className='most-popular-img'
+                      />
+                    </LazyLoad>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div
+              id='posters'
+              className='content-container'
+              style={{
+                display: `${media === 'posters' ? 'block' : 'none'}`,
+              }}
+            >
+              <div className='scroll-container '>
+                {filteredPosters.map(({ file_path }, index) => (
+                  <div className='small-poster' key={index}>
+                    <LazyLoad height={'100%'} offset={120}>
+                      <img
+                        src={`https://image.tmdb.org/t/p/w342${file_path}`}
+                        alt={`small poster ${index}`}
+                        className='most-popular-img'
+                      />
+                    </LazyLoad>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         ) : (
           <div>No videos, backdrops or posters have been added</div>
         )}

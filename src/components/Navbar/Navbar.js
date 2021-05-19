@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import {
   Navbar,
@@ -64,37 +64,37 @@ const NavigationBar = () => {
       <Navbar.Collapse id='responsive-navbar-nav'>
         <Nav className='mr-auto ml-auto'>
           <NavDropdown title='Movies' id='collasible-nav-dropdown'>
-            <LinkContainer to='/movies'>
-              <NavDropdown.Item href='#action/3.1'>Popular</NavDropdown.Item>
-            </LinkContainer>
-            <LinkContainer to='/movies/upcoming'>
-              <NavDropdown.Item href='#action/3.2'>Upcoming</NavDropdown.Item>
-            </LinkContainer>
-            <LinkContainer to='/movies/now-playing'>
-              <NavDropdown.Item href='#action/3.3'>Now Playing</NavDropdown.Item>
-            </LinkContainer>
-            <LinkContainer to='/movies/top-rated'>
-              <NavDropdown.Item href='#action/3.4'>Top Rated</NavDropdown.Item>
-            </LinkContainer>
+            <NavDropdown.Item as={Link} to='/movies'>
+              Popular
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to='/movies/upcoming'>
+              Upcoming
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to='/movies/now-playing'>
+              Now Playing
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to='/movies/top-rated'>
+              Top Rated
+            </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title='Tv Shows' id='collasible-nav-dropdown'>
-            <LinkContainer to='/tv'>
-              <NavDropdown.Item href='#action/3.1'>Popular</NavDropdown.Item>
-            </LinkContainer>
-            <LinkContainer to='/tv/airing-today'>
-              <NavDropdown.Item href='#action/3.2'>Airing Today</NavDropdown.Item>
-            </LinkContainer>
-            <LinkContainer to='/tv/on-tv'>
-              <NavDropdown.Item href='#action/3.3'>On TV</NavDropdown.Item>
-            </LinkContainer>
-            <LinkContainer to='/tv/top-rated'>
-              <NavDropdown.Item href='#action/3.4'>Top Rated</NavDropdown.Item>
-            </LinkContainer>
+            <NavDropdown.Item as={Link} to='/tv'>
+              Popular
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to='/tv/airing-today'>
+              Airing Today
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to='/tv/on-tv'>
+              On TV
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to='/tv/top-rated'>
+              Top Rated
+            </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title='People' id='collasible-nav-dropdown'>
-            <LinkContainer to='/people'>
-              <NavDropdown.Item href='#action/3.1'>Popular People</NavDropdown.Item>
-            </LinkContainer>
+            <NavDropdown.Item as={Link} to='/people'>
+              Popular People
+            </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title='More' id='collasible-nav-dropdown'>
             <NavDropdown.Item href='#'>Discussions</NavDropdown.Item>

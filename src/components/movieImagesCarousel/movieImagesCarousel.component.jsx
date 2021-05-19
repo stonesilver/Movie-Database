@@ -86,7 +86,9 @@ const MovieImagesCarousel = ({
             <div className='size movie-images-category'>
               <p className='header'>Size</p>
               <p className='text'>
-                <span>{images.length ? images[currentImage].width : ''}</span>x
+                <span>
+                  {images.length ? `${images[currentImage].width} x` : ''}
+                </span>
                 <span>{images.length ? images[currentImage].height : ''}</span>
               </p>
             </div>

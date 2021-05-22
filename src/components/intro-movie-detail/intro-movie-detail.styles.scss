@@ -279,7 +279,7 @@
       font-size: 0.88rem;
 
       @media screen and (max-width: 768px) {
-        padding: 0 .5rem;
+        padding: 0 0.5rem;
       }
 
       .tagline-text {
@@ -292,7 +292,7 @@
       padding-right: 2rem;
 
       @media all and (max-width: 768px) {
-        padding: 0 .5rem;
+        padding: 0 0.5rem;
       }
 
       .overview-header {
@@ -323,7 +323,7 @@
       grid-template-columns: repeat(3, 1fr);
 
       @media all and (max-width: 768px) {
-        padding: 0 .5rem;
+        padding: 0 0.5rem;
       }
 
       .name {
@@ -352,6 +352,10 @@
     .number-of-movies {
       color: #f3f1f1;
 
+      @media screen and (max-width: 768px) {
+        padding: 0 0.5rem;
+      }
+
       h6,
       p {
         margin: 0;
@@ -360,6 +364,7 @@
 
       .movie-revenue {
         font-size: 0.9rem;
+        margin-top: .4rem;
       }
     }
   }

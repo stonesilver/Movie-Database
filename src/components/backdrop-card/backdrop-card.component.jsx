@@ -10,7 +10,7 @@ const BackdropCard = ({ file_path, width, height, iso_639_1 }) => {
     <div className='backdropcard-container'>
       <div className={`img-container ${imageType === 'posters' ? 'poster-size' : ''}`}>
         <LazyLoad height={'100%'} offset={200}>
-          <img src={`https://image.tmdb.org/t/p/w300${file_path}`} alt='card' />
+          <img src={`https://image.tmdb.org/t/p/original${file_path}`} alt='card' />
         </LazyLoad>
       </div>
       <div className='info-and-icon backdropcard-category'>

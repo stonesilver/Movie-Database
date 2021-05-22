@@ -80,7 +80,7 @@ const CollectionCard = ({
                 <div className='collection-card-img'>
                   <LazyLoad height={'100%'} offset={70}>
                     <Link
-                      to={`/${name ? 'tv' : 'movies'}/${id}-${
+                      to={`/${name||title.includes('Collection') ? 'collection' : name ? 'tv' : 'movies'}/${id}-${
                         titleOrName.match(/\w|\s/g)
                           ? titleOrName
                               .match(/\w|\s/g)

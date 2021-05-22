@@ -10,7 +10,7 @@ class MyComponent extends React.Component {
         'http://apod.nasa.gov/apod/image/1502/HDR_MVMQ20Feb2015ouellet1024.jpg',
         'http://apod.nasa.gov/apod/image/1502/2015_02_20_conj_bourque1024.jpg',
         'http://apod.nasa.gov/apod/image/1502/MarsPlume_jaeschke_480.gif',
-        'http://apod.nasa.gov/apod/image/1502/ToadSky_Lane_1080_annotated.jpg'
+        'http://apod.nasa.gov/apod/image/1502/ToadSky_Lane_1080_annotated.jpg',
       ],
     };
   }
@@ -30,7 +30,7 @@ class MyComponent extends React.Component {
       <div>
         Scroll to load images.
         {this.state.imageURL.map((img, index) => (
-          <this.Images images={img} key={index}/>
+          <this.Images images={img} key={index} />
         ))}
         {/* <div className='filler' />
         <LazyLoad height={762} offsetVertical={300}>

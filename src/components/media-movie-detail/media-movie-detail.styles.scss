@@ -119,6 +119,7 @@
 
           .official-trailer {
             cursor: pointer;
+            transition: transform 1s cubic-bezier(0.845, 0.55, 0.55, 0.95);
 
             &:hover {
               opacity: 0.9;

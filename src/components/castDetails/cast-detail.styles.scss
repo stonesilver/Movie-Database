@@ -1,3 +1,9 @@
+@mixin gridGap {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
 .display-cast-and-crew {
   width: 100%;
   height: 100%;
@@ -6,20 +12,34 @@
   .display-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 10rem;
+    grid-gap: 4rem 10rem;
     justify-content: center;
     padding: 0 2.5rem;
 
-    .section-header {
-      color: #f0efaa;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      margin-top: 2rem;
+    @media screen and (max-width: 768px) {
+      padding: 0 1rem;
+    }
+
+    .cast {
+      @include gridGap;
+    }
+
+    .crew {
+      .crew-section {
+        @include gridGap;
+
+        .crew-section-header {
+          color: #f0efaa;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          margin-top: 2rem;
+        }
+      }
     }
 
     .header {
-      color: #ffffff;
-      font-size: 1.15rem;
+      color: #ddc80f;
+      font-size: 1.25rem;
       font-weight: 500;
       margin-bottom: 0.6rem;
 

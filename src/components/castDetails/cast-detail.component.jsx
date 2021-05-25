@@ -111,8 +111,8 @@ const CastDetail = ({ match: { params, url } }) => {
               <span>{`(${crew.length})`}</span>
             </div>
             {filteredCrew.map((item, index) => (
-              <div className='section' key={index}>
-                <div className='section-header' key={index}>
+              <div className='crew-section' key={index}>
+                <div className='crew-section-header' key={index}>
                   {item[0].department}
                 </div>
                 {item.map(

@@ -6,6 +6,11 @@
     justify-content: space-between;
     margin-top: 0.8rem;
 
+    .person-category-header {
+      margin: 0;
+      padding: 0;
+    }
+
     .person-category-select {
       display: flex;
       justify-content: space-between;

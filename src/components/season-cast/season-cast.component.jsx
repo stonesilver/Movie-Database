@@ -74,7 +74,7 @@ const SeasonCast = ({ match: { params } }) => {
             }) => (
               <CollectionCard
                 key={id}
-                type='feature'
+                type={true}
                 id={id}
                 name={name}
                 gender={gender}
@@ -100,7 +100,7 @@ const SeasonCast = ({ match: { params } }) => {
               }) => (
                 <CollectionCard
                   key={id}
-                  type='feature'
+                  type={true}
                   id={id}
                   name={name}
                   gender={gender}
@@ -114,8 +114,8 @@ const SeasonCast = ({ match: { params } }) => {
           <div className='crew'>
             <p className='header'>Crew</p>
             {filteredCrew.map((item, index) => (
-              <div className='section' key={index}>
-                <div className='section-header' key={index}>
+              <div className='crew-section' key={index}>
+                <div className='crew-section-header' key={index}>
                   {item[0].department}
                 </div>
                 {item.map(
@@ -133,7 +133,7 @@ const SeasonCast = ({ match: { params } }) => {
                   ) => (
                     <CollectionCard
                       key={id + index}
-                      type='feature'
+                      type={true}
                       id={id}
                       name={name}
                       gender={gender}

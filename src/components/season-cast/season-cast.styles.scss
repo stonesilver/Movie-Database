@@ -1,17 +1,50 @@
-.season-cast-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  row-gap: 1.5rem;
-  padding: 0 2.5rem;
-  color: #ffffff;
+@mixin gridGap {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
 
-  @media all and (max-width: 768px) {
-    padding: .25rem .8rem;
-  }
+.season-cast {
+  margin-bottom: 1rem;
 
-  .header {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-top: .5rem;
+  .season-cast-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1.5rem;
+    padding: 0 2.5rem;
+    color: #ffffff;
+
+    @media all and (max-width: 768px) {
+      padding: 0.25rem 0.8rem;
+    }
+
+    .season-cast-left-side {
+      @include gridGap;
+    }
+
+    .season-cast-right-side {
+      .guest-stars {
+        @include gridGap;
+      }
+      .crew {
+        .header {
+          margin: 1.5rem 0;
+        }
+        .crew-section {
+          @include gridGap;
+
+          .crew-section-header {
+            margin-top: 1.5rem;
+          }
+        }
+      }
+    }
+
+    .header {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      color: rgb(255, 217, 0);
+    }
   }
 }

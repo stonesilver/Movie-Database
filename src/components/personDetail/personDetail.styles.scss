@@ -170,9 +170,10 @@
           overflow: hidden;
 
           .known-for-scroll-container {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: scroll;
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(auto, 1fr);
+            overflow: scroll hidden;
             padding-bottom: 1rem;
           }
         }

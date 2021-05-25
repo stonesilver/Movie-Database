@@ -65,7 +65,7 @@ const MovieDetails = () => {
             .match(/\d{2,}/)
             .join(
               ''
-            )}/images?api_key=${process.env.REACT_APP_API_URL}&language=en-US&include_image_language=null`
+            )}/images?api_key=${process.env.REACT_APP_API_URL}`
         ),
         fetch(
           `https://api.themoviedb.org/3/${moviePath}/${movieDetail

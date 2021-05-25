@@ -53,8 +53,7 @@ const SeasonsEpisodes = ({ match: { params } }) => {
   const onHoverLeave = () => {
     setHover(false);
   };
-  console.log(episodes);
-  console.log('seasons', seasons);
+  console.log({episodes, seasons});
   return episodes.id ? (
     <div className='season-episodes'>
       <DetailNav />

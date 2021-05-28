@@ -8,11 +8,17 @@ const BackdropCard = ({ file_path, width, height, iso_639_1 }) => {
   const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
   return (
     <div className='backdropcard-container'>
-      <div className={`img-container ${imageType === 'posters' ? 'poster-size' : ''}`}>
-        <LazyLoad height={'100%'} offset={200}>
-          <img src={`https://image.tmdb.org/t/p/original${file_path}`} alt='card' />
-        </LazyLoad>
-      </div>
+      <LazyLoad
+        className={`img-container ${
+          imageType === 'posters' ? 'poster-size' : ''
+        }`}
+        offset={200}
+      >
+        <img
+          src={`https://image.tmdb.org/t/p/w342${file_path}`}
+          alt='card'
+        />
+      </LazyLoad>
       <div className='info-and-icon backdropcard-category'>
         <p className='title'>Info</p>
         <span className='fa fa-lock'></span>

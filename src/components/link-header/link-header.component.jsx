@@ -22,7 +22,7 @@ const LinkHeader = ({
   useEffect(() => {
     (async () => {
       return setBackgroundColor(
-        await getImageColors(`https://image.tmdb.org/t/p/w1280${path}`)
+        await getImageColors(`https://image.tmdb.org/t/p/w342${path}`)
       );
     })();
   }, [path]);

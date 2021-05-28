@@ -20,7 +20,7 @@ const IntroDetail = ({
     (async () => {
       return setBackgroundColor(
         await getImageColors(
-          `https://image.tmdb.org/t/p/w1280${movieData.backdrop_path}`
+          `https://image.tmdb.org/t/p/w342${movieData.backdrop_path}`
         )
       );
     })();

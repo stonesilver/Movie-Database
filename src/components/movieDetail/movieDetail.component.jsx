@@ -146,7 +146,7 @@ const MovieDetails = () => {
         });
 
       getImageColors(
-        `https://image.tmdb.org/t/p/w1280${movieDetailsData.movieData.backdrop_path}`
+        `https://image.tmdb.org/t/p/w342${movieDetailsData.movieData.backdrop_path}`
       ).then((colors) => 
         setMovieDetailsData((prevState) => ({
           ...prevState,

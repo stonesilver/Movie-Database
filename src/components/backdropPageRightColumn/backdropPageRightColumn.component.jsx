@@ -8,7 +8,7 @@ const BackdropPageRightColumn = ({mediaToDisplay, currentTab, data}) => {
     const {imageType, episodeVideos} = useParams()
     return (
         <div
-          className='right-side'
+          className={`right-side ${imageType === 'posters' ? 'poster-grid' : ''}`}
           style={{
             display: imageType === 'videos' || episodeVideos ? 'block' : 'grid',
           }}

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import LeftColumn from '../leftColumn/leftColumn.component';
 import RightColumn from '../rightColumn/rightColumn.component';
+import BlanketElement from '../blanket-element/blanket-element.component';
 import { Container } from 'react-bootstrap';
 import './movieTvCategory.styles.scss';
 
@@ -12,6 +13,8 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
   const [sortTab, setSortTab] = useState(true);
   const [filterTab, setFilterTab] = useState(false);
   const [pageIsFiltered, setPageIsFiltered] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [formState, setFormState] = useState({
     popularitySelectValue: 'popularity.desc',
     isRelease: true,
@@ -169,7 +172,8 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
 
   const certificationArray = ['NR', 'G', 'PG', 'PG-13', 'R', 'NC-17'];
 
-  useEffect(() => {
+  const fetchData = useCallback(() => {
+    setIsLoading(true);
     fetch(
       `https://api.themoviedb.org/3/${movieType}/${movieCategory}?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=1`
     )
@@ -178,11 +182,18 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
         setMovieData(data.results);
         setTotalPage(data.total_pages);
       })
-      .catch((err) => console.log(err));
-
-      return setMovieData([])
-
+      .catch((err) => {
+        setIsLoading(false);
+        setError(true);
+        console.log(err);
+      });
   }, [movieType, movieCategory]);
+
+  useEffect(() => {
+    fetchData();
+
+    return setMovieData([]);
+  }, [fetchData]);
 
   const {
     popularitySelectValue,
@@ -221,7 +232,7 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
         console.log(err);
       });
 
-      return setMovieData([])
+    return setMovieData([]);
   };
 
   const onChange = async (e) => {
@@ -260,7 +271,7 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
   const showMorePage = () => {
     if (currentPage >= totalPage) {
       return;
-    } 
+    }
     // else {
     //   setCurrentPage(currentPage + 1);
     // }
@@ -292,11 +303,13 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
           console.log(err);
           setIsClicked(false);
           // if (currentPage > 0) {
-            setCurrentPage(currentPage);
+          setCurrentPage(currentPage);
           // }
         });
     }
   };
+
+  console.log({ error });
 
   return (
     <Container fluid className='movie-tv-category'>
@@ -318,23 +331,27 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
           />
         </div>
         <div className='movie-tv-category-display-body'>
-          {movieData.length ? (
-            <RightColumn
-              movieData={movieData}
-              showMorePage={showMorePage}
-              isClicked={isClicked}
-              loading={false}
-            />
-          ) : 
-          <RightColumn
-          movieData={[...Array(19).keys()]}
-          showMorePage={showMorePage}
-          isClicked={isClicked}
-          loading={true}
-        />
-          // (
-          //   <BlanketElement isLoading={isLoading} />
-          // )
+          {
+            movieData.length ? (
+              <RightColumn
+                movieData={movieData}
+                showMorePage={showMorePage}
+                isClicked={isClicked}
+                loading={false}
+              />
+            ) : error ? (
+              <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+            ) : (
+              <RightColumn
+                movieData={[...Array(19).keys()]}
+                showMorePage={showMorePage}
+                isClicked={isClicked}
+                loading={true}
+              />
+            )
+            // (
+            //   <BlanketElement isLoading={isLoading} />
+            // )
           }
         </div>
       </div>

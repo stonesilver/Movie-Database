@@ -19,15 +19,13 @@ const SeasonsCard = ({
   return (
     <div className='season-details'>
       <div className='season-card'>
-        <div className='image-container'>
-          <Link to={`${url}/${season_number}`}>
-            <img
-              src={`https://image.tmdb.org/t/p/w154${poster_path}`}
-              alt={name}
-              className='img'
-            />
-          </Link>
-        </div>
+        <Link to={`${url}/${season_number}`} className='image-container'>
+          <img
+            src={`https://image.tmdb.org/t/p/w154${poster_path}`}
+            alt={name}
+            className='img'
+          />
+        </Link>
         <div className='season-body'>
           <div className='title'>
             <Link to={`${url}/${season_number}`}>

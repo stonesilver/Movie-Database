@@ -67,7 +67,7 @@ const TopBilledCast = ({ cast, type, match }) => {
                   </Link>
                 )
               )}
-              {cast.length > 8 ? (
+              {filteredCast.length > 8 ? (
                 <div className='view-more'>
                   <Link to={`${match.url}/cast`}>
                     <p className='view-more-text'>

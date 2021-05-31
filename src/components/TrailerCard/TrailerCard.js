@@ -8,17 +8,17 @@ const TrailerCard = ({ src, title, overview, getMouseEvent }) => {
     <Col className='trailer-col'>
       <Card className='trailer-card'>
         <div className='img-container'>
-          <LazyLoad
-            height={'100%'}
-            offset={120}
-            className='trailer-card-img-lazy'
-          >
-            <Card.Img
-              className='trailer-card-img'
-              variant='top'
-              src={src}
-              onMouseOver={getMouseEvent}
-            />
+          <LazyLoad offset={120} className='trailer-card-img-lazy'>
+            {src ? (
+              <Card.Img
+                className='trailer-card-img'
+                variant='top'
+                src={src}
+                onMouseOver={getMouseEvent}
+              />
+            ) : (
+              ''
+            )}
           </LazyLoad>
           <div className='play'></div>
         </div>

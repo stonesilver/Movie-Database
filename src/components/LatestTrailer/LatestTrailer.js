@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import HomepageCategoryLink from '../homepageCategoryLinks/homepageCategoryLinks.component';
 import TrailerCard from '../TrailerCard/TrailerCard';
 import './LatestTrailer.styles.scss';
@@ -53,6 +53,8 @@ const LatestTrailer = () => {
   const getMouse = (backDropPath) => {
     setTrailerBackgroundUrl(backDropPath);
   };
+
+  const trailersToDisplay = trailers.length ? trailers : [...Array(15).keys()];
   return (
     <Container
       fluid
@@ -100,8 +102,8 @@ const LatestTrailer = () => {
           </ButtonGroup>
         </Col>
       </Row> */}
-      <Row className='mx-0 overflow-auto flex-row flex-nowrap'>
-        {trailers.map(({ backdrop_path, id, name }) => (
+      <div className='trailer-row'>
+        {trailersToDisplay.map(({ backdrop_path, id, name }) => (
           <TrailerCard
             src={`https://image.tmdb.org/t/p/w780${backdrop_path}`}
             title={name}
@@ -110,7 +112,7 @@ const LatestTrailer = () => {
             getMouseEvent={() => getMouse(backdrop_path)}
           />
         ))}
-      </Row>
+      </div>
     </Container>
   );
 };

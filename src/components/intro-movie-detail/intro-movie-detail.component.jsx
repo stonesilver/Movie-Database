@@ -72,6 +72,7 @@ const IntroDetail = ({
           posterPath={poster_path}
           stream={streamTunneled}
           backgroundColor={backgroundColor[2]}
+          title={title||name}
         />
       </div>
       <div className='right'>

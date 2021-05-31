@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import IntroDetail from '../intro-movie-detail/intro-movie-detail.component';
 import DetailNav from '../detail-nav/detail-nav.component';
 import TopBilledCast from '../top-billed-cast/top-billed-cast.component';
@@ -30,140 +30,141 @@ const MovieDetails = () => {
 
   const { path } = useRouteMatch();
   const { movieDetail } = useParams();
-
-  useEffect(() => {
+  let fetchData = useCallback(() => {
     const moviePath = path.match(/tv/) ? 'tv' : 'movie';
-    window.scrollTo(0, 0);
-    let fetchData = () => {
-      Promise.all([
-        fetch(
-          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
-            .match(/\d{2,}/)
-            .join('')}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
-        ),
-        fetch(
-          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
-            .match(/\d{2,}/)
-            .join('')}/${
-            moviePath === 'tv' ? 'aggregate_credits' : 'credits'
-          }?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
-        ),
-        fetch(
-          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
-            .match(/\d{2,}/)
-            .join('')}/keywords?api_key=${process.env.REACT_APP_API_URL}`
-        ),
-        fetch(
-          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
-            .match(/\d{2,}/)
-            .join(
-              ''
-            )}/videos?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
-        ),
-        fetch(
-          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
-            .match(/\d{2,}/)
-            .join(
-              ''
-            )}/images?api_key=${process.env.REACT_APP_API_URL}`
-        ),
-        fetch(
-          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
-            .match(/\d{2,}/)
-            .join(
-              ''
-            )}/recommendations?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=1`
-        ),
-        fetch(
-          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
-            .match(/\d{2,}/)
-            .join(
-              ''
-            )}/reviews?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=1`
-        ),
-        fetch(
-          `https://api.themoviedb.org/3/${moviePath}/${movieDetail
-            .match(/\d{2,}/)
-            .join('')}/external_ids?api_key=${process.env.REACT_APP_API_URL}`
-        ),
-      ])
-        .then(
-          ([
-            movieData,
-            credits,
-            keywords,
-            videos,
-            images,
-            recommendations,
-            reviews,
-            externalID,
-          ]) =>
-            Promise.all([
-              movieData.json(),
-              credits.json(),
-              keywords.json(),
-              videos.json(),
-              images.json(),
-              recommendations.json(),
-              reviews.json(),
-              externalID.json(),
-            ])
-        )
-        .then(
-          ([
-            movieData,
-            credits,
-            keywords,
-            videos,
-            images,
-            recommendations,
-            reviews,
-            externalID,
-          ]) => {
-            setMovieDetailsData((prevState) => ({
-              ...prevState,
-              movieData,
-              credits,
-              keywords: keywords.keywords || keywords.results,
-              videos: videos.results,
-              images,
-              recommendations: recommendations.results,
-              reviews: reviews.results,
-              externalID,
-            }));
-          }
-        )
-        .catch((err) => {
-          console.log(err);
+    setMovieDetailsData((prevState) => ({
+      ...prevState,
+      isLoading: true,
+    }));
+    Promise.all([
+      fetch(
+        `https://api.themoviedb.org/3/${moviePath}/${movieDetail
+          .match(/\d{2,}/)
+          .join('')}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
+      ),
+      fetch(
+        `https://api.themoviedb.org/3/${moviePath}/${movieDetail
+          .match(/\d{2,}/)
+          .join('')}/${
+          moviePath === 'tv' ? 'aggregate_credits' : 'credits'
+        }?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
+      ),
+      fetch(
+        `https://api.themoviedb.org/3/${moviePath}/${movieDetail
+          .match(/\d{2,}/)
+          .join('')}/keywords?api_key=${process.env.REACT_APP_API_URL}`
+      ),
+      fetch(
+        `https://api.themoviedb.org/3/${moviePath}/${movieDetail
+          .match(/\d{2,}/)
+          .join('')}/videos?api_key=${
+          process.env.REACT_APP_API_URL
+        }&language=en-US`
+      ),
+      fetch(
+        `https://api.themoviedb.org/3/${moviePath}/${movieDetail
+          .match(/\d{2,}/)
+          .join('')}/images?api_key=${process.env.REACT_APP_API_URL}`
+      ),
+      fetch(
+        `https://api.themoviedb.org/3/${moviePath}/${movieDetail
+          .match(/\d{2,}/)
+          .join('')}/recommendations?api_key=${
+          process.env.REACT_APP_API_URL
+        }&language=en-US&page=1`
+      ),
+      fetch(
+        `https://api.themoviedb.org/3/${moviePath}/${movieDetail
+          .match(/\d{2,}/)
+          .join('')}/reviews?api_key=${
+          process.env.REACT_APP_API_URL
+        }&language=en-US&page=1`
+      ),
+      fetch(
+        `https://api.themoviedb.org/3/${moviePath}/${movieDetail
+          .match(/\d{2,}/)
+          .join('')}/external_ids?api_key=${process.env.REACT_APP_API_URL}`
+      ),
+    ])
+      .then(
+        ([
+          movieData,
+          credits,
+          keywords,
+          videos,
+          images,
+          recommendations,
+          reviews,
+          externalID,
+        ]) =>
+          Promise.all([
+            movieData.json(),
+            credits.json(),
+            keywords.json(),
+            videos.json(),
+            images.json(),
+            recommendations.json(),
+            reviews.json(),
+            externalID.json(),
+          ])
+      )
+      .then(
+        ([
+          movieData,
+          credits,
+          keywords,
+          videos,
+          images,
+          recommendations,
+          reviews,
+          externalID,
+        ]) => {
           setMovieDetailsData((prevState) => ({
             ...prevState,
-            movieData: err,
+            movieData,
+            credits,
+            keywords: keywords.keywords || keywords.results,
+            videos: videos.results,
+            images,
+            recommendations: recommendations.results,
+            reviews: reviews.results,
+            externalID,
           }));
-          setMovieDetailsData((prevState) => ({
-            ...prevState,
-            isLoading: false,
-          }));
-        });
-
-      getImageColors(
-        `https://image.tmdb.org/t/p/w342${movieDetailsData.movieData.backdrop_path}`
-      ).then((colors) => 
+        }
+      )
+      .catch((err) => {
+        console.log(err);
         setMovieDetailsData((prevState) => ({
           ...prevState,
-          backgroundColor: colors,
-        }))
-      );
-    };
+          movieData: err,
+        }));
+        setMovieDetailsData((prevState) => ({
+          ...prevState,
+          isLoading: false,
+        }));
+      });
 
+    getImageColors(
+      `https://image.tmdb.org/t/p/w342${movieDetailsData.movieData.backdrop_path}`
+    ).then((colors) =>
+      setMovieDetailsData((prevState) => ({
+        ...prevState,
+        backgroundColor: colors,
+      }))
+    );
+  }, [movieDetail, path, movieDetailsData.movieData.backdrop_path]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
     fetchData();
 
     return setMovieDetailsData((prevState) => ({
       ...prevState,
       backgroundColor: [],
     }));
-  }, [movieDetail, path, movieDetailsData.movieData.backdrop_path]);
+  }, [fetchData]);
 
-  console.log('movieDetailsData', movieDetailsData);
+  console.log({ movieDetailsData });
   const {
     movieData,
     credits,
@@ -176,8 +177,8 @@ const MovieDetails = () => {
     backgroundColor,
     externalID,
   } = movieDetailsData;
-  console.log('recommendations', recommendations);
-  console.log('credits', credits);
+  console.log({ recommendations });
+  console.log({ credits });
   return movieData.status_code ? (
     <Redirect to='/404_page_not_found' />
   ) : movieData.id && backgroundColor.length ? (
@@ -224,7 +225,7 @@ const MovieDetails = () => {
       </section>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} />
+    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

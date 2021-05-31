@@ -1,3 +1,12 @@
 .latest-trailer {
-    min-height: 35vh;
+  min-height: 35vh;
+  overflow: hidden;
+
+  .trailer-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    grid-gap: .8rem;
+    overflow-x: scroll;
+  }
 }

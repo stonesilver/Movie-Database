@@ -3,7 +3,6 @@ import DetailNav from '../detail-nav/detail-nav.component';
 import BlanketElement from '../blanket-element/blanket-element.component';
 import ExpandableImage from '../expandableImage/expandableImage.component';
 import { Redirect } from 'react-router-dom';
-// import LazyLoad from 'react-lazy-load';
 import PersonCreditCategory from '../personCreditCategory/personCreditCategory.component';
 import KnownForCard from '../known/knownForCard.component';
 import SocialMediaHandles from '../socialMediaHandles/socialMediaHandles.component';

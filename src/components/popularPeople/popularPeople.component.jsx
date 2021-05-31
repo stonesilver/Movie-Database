@@ -12,7 +12,8 @@ const PopularPeople = () => {
     isClicked: false,
   });
 
-  useEffect(() => {
+  const fetchData = () => {
+    setPagedata((prevState) => ({ ...prevState, isLoading: true }));
     fetch(
       `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_URL}&language=en-US&page=1`
     )
@@ -23,6 +24,10 @@ const PopularPeople = () => {
       .catch((err) =>
         setPagedata((prevState) => ({ ...prevState, isLoading: false }))
       );
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   const showMorePage = async () => {
@@ -76,7 +81,7 @@ const PopularPeople = () => {
       <ShowMore showMorePage={showMorePage} isClicked={isClicked} />
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} />
+    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

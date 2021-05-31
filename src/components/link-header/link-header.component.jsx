@@ -32,7 +32,7 @@ const LinkHeader = ({
     <div
       className='cast-header'
       style={{
-        background: `linear-gradient(${backgroundColor[1]}, ${backgroundColor[1]})`,
+        background: `linear-gradient(75deg, ${backgroundColor[1]}, ${backgroundColor[2]})`,
       }}
     >
       <div className='container'>

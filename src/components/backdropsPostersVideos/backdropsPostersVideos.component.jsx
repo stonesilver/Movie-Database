@@ -29,6 +29,7 @@ const BackdropsPostersVideos = ({
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = useCallback(() => {
+    setIsLoading(true);
     if (seasonNumber) {
       fetch(
         `https://api.themoviedb.org/3/tv/${movieDetail.match(

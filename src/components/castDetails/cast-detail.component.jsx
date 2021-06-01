@@ -1,36 +1,30 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useCallback } from 'react';
 import DetailNav from '../detail-nav/detail-nav.component';
-
 import CollectionCard from '../collectionCard/collection-card.component';
-
 import { withRouter, Redirect } from 'react-router-dom';
-
 import BlanketElement from '../blanket-element/blanket-element.component';
-
 import LinkHeader from '../link-header/link-header.component';
-
 import './cast-detail.styles.scss';
 
-const CastDetail = ({ match: { params, url } }) => {
+const CastDetail = ({ match: { params: {movieDetail}, url } }) => {
   const [cast, setCast] = useState([]);
   const [crew, setCrew] = useState([]);
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  const fetchData = useCallback(() => {
     let type = url.includes('movies') ? 'movie' : 'tv';
+    setIsLoading(true);
     Promise.all([
       fetch(
-        `https://api.themoviedb.org/3/${type}/${params.movieDetail.match(
+        `https://api.themoviedb.org/3/${type}/${movieDetail.match(
           /\d{1,}/
         )}/${
           type === 'tv' ? 'aggregate_credits' : 'credits'
         }?api_key=${process.env.REACT_APP_API_URL}`
       ),
       fetch(
-        `https://api.themoviedb.org/3/${type}/${params.movieDetail.match(
+        `https://api.themoviedb.org/3/${type}/${movieDetail.match(
           /\d{1,}/
         )}?api_key=${process.env.REACT_APP_API_URL}`
       ),
@@ -46,7 +40,12 @@ const CastDetail = ({ match: { params, url } }) => {
         setMovieData(err);
         console.log(err);
       });
-  }, [params.movieDetail, url]);
+  }, [movieDetail, url])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchData()
+  }, [fetchData]);
 
   let filteredCrew = [];
   let filteredCrewList = [];
@@ -64,10 +63,7 @@ const CastDetail = ({ match: { params, url } }) => {
     );
   }
 
-  console.log('cast', cast);
-  console.log('crew', crew);
-  console.log('filteredCrew', filteredCrew);
-  console.log('movieData', movieData);
+  console.log({cast, crew, filteredCrew, movieData});
 
   return movieData.status_code ? (
     <Redirect to='/404_page_not_found' />
@@ -147,7 +143,7 @@ const CastDetail = ({ match: { params, url } }) => {
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} />
+    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

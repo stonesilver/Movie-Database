@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import DetailNav from '../detail-nav/detail-nav.component';
 import LinkHeader from '../link-header/link-header.component';
@@ -28,8 +28,7 @@ const BackdropsPostersVideos = ({
   const [currentTab, setCurrentTab] = useState('Videos');
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  const fetchData = useCallback(() => {
     if (seasonNumber) {
       fetch(
         `https://api.themoviedb.org/3/tv/${movieDetail.match(
@@ -94,6 +93,11 @@ const BackdropsPostersVideos = ({
     imageType,
     movieDetail,
   ]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchData();
+  }, [fetchData]);
 
   const filteredLanguageList = [];
   const filteredLanguage = [];
@@ -172,7 +176,7 @@ const BackdropsPostersVideos = ({
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} />
+    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

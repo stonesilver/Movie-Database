@@ -309,8 +309,6 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
     }
   };
 
-  console.log({ error });
-
   return (
     <Container fluid className='movie-tv-category'>
       <h3 className='movie-header'>{title}</h3>
@@ -349,9 +347,6 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
                 loading={true}
               />
             )
-            // (
-            //   <BlanketElement isLoading={isLoading} />
-            // )
           }
         </div>
       </div>

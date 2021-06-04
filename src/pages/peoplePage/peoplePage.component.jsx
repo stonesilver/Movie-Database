@@ -12,7 +12,7 @@ const PeoplePage = ({ match }) => {
   return (
     <Switch>
       <Route exact path={match.path} component={PopularPeople} />
-      <Route exact path={`${match.path}/:personDetail`} component={PersonDetail} />
+      <Route exact path={`${match.path}/:person`} component={PersonDetail} />
     </Switch>
   );
 };

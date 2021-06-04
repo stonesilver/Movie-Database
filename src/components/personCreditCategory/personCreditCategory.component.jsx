@@ -85,17 +85,15 @@ const PersonCreditCategory = ({
                   <p className='movie-and-character-content'>
                     <Link
                       to={`${name ? '/tv' : '/movies'}/${id}-${
-                        title
-                          ? title
-                              .match(/\w|\s/g)
-                              .join('')
-                              .replace(/\s/g, '-')
-                              .toLowerCase()
-                          : name
-                              .match(/\w|\s/g)
-                              .join('')
-                              .replace(/\s/g, '-')
-                              .toLowerCase()
+                        title || name
+                          ? (title || name).match(/\w|\s/g)
+                            ? (title || name)
+                                .match(/\w|\s/g)
+                                .join('')
+                                .replace(/\s/g, '-')
+                                .toLowerCase()
+                            : name || title
+                          : name || title
                       }`}
                       key={id}
                       className='movie-link'
@@ -103,7 +101,11 @@ const PersonCreditCategory = ({
                       {title ? title : name}
                     </Link>
                     <span className='character'>
-                      {character ? ` as ${character}` : job ? `  ...${job}` : ''}
+                      {character
+                        ? ` as ${character}`
+                        : job
+                        ? `  ...${job}`
+                        : ''}
                     </span>
                   </p>
                 </div>

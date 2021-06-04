@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import CollectionCard from '../collectionCard/collection-card.component';
 import CompanyCard from '../companyCard/companyCard.component';
@@ -34,7 +34,8 @@ const SearchPage = () => {
     return obj;
   };
 
-  useEffect(() => {
+  const fetchData = useCallback(() => {
+    setIsLoading(true);
     Promise.all([
       fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_URL}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
@@ -105,11 +106,15 @@ const SearchPage = () => {
         console.log(err);
         setIsLoading(false);
       });
+  }, [searchQuery]);
+
+  useEffect(() => {
+    fetchData();
     return setSearchData((prevState) => ({
       ...prevState,
       dataFetched: false,
     }));
-  }, [searchQuery]);
+  }, [fetchData]);
   const {
     dataFetched,
     movie,
@@ -232,7 +237,7 @@ const SearchPage = () => {
               </div>
             )
           ) : (
-            <BlanketElement isLoading={isLoading} />
+            <BlanketElement isLoading={isLoading} refetchData={fetchData} />
           )}
           <SearchPagePagination
             totalPages={

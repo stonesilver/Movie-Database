@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import DetailNav from '../detail-nav/detail-nav.component';
 import LinkHeader from '../link-header/link-header.component';
@@ -13,7 +13,9 @@ const SeasonCast = ({ match: { params } }) => {
   const [crew, setCrew] = useState([]);
   const [guestStars, setGuestStars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
+
+  const fetchData = useCallback(() => {
+    setIsLoading(true)
     fetch(
       `https://api.themoviedb.org/3/tv/${params.movieDetail.match(
         /\d{1,}/
@@ -31,7 +33,11 @@ const SeasonCast = ({ match: { params } }) => {
         console.log(err)
         setIsLoading(false)
       })
-  }, [params.movieDetail, params.seasonNumber, params.episodeNumber]);
+  }, [params.movieDetail, params.seasonNumber, params.episodeNumber])
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   let filteredCrew = [];
   let filteredCrewList = [];
@@ -49,7 +55,7 @@ const SeasonCast = ({ match: { params } }) => {
     );
   }
 
-  console.log('filteredCrew', filteredCrew);
+  console.log({filteredCrew});
   return data.id ? (
     <div className='season-cast'>
       <DetailNav />
@@ -150,7 +156,7 @@ const SeasonCast = ({ match: { params } }) => {
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} />
+    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import LinkHeader from '../../components/link-header/link-header.component';
 import DetailNav from '../../components/detail-nav/detail-nav.component';
@@ -13,8 +13,9 @@ const SeasonsEpisodes = ({ match: { params } }) => {
   const [pageMounted, setPageMounted] = useState(false);
   const [hover, setHover] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    window.scrollTo(0, 0);
+
+  const fetchData = useCallback(() => {
+    setIsLoading(true);
     if (pageMounted) {
       window.location.reload();
     }
@@ -44,8 +45,13 @@ const SeasonsEpisodes = ({ match: { params } }) => {
         setIsLoading(false);
         console.log(err);
       });
+  }, [params.movieDetail, params.seasonNumber])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchData();
     return setPageMounted(true);
-  }, [params.movieDetail, params.seasonNumber]);
+  }, [fetchData]);
 
   const onHover = () => {
     setHover(true);
@@ -132,7 +138,7 @@ const SeasonsEpisodes = ({ match: { params } }) => {
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} />
+    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

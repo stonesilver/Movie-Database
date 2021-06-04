@@ -228,6 +228,7 @@ const SearchPage = () => {
                       overview={overview}
                       posterPath={poster_path || profile_path}
                       releaseDate={release_date || first_air_date}
+                      tabSelected={tabSelected}
                     />
                   )
               )

@@ -5,10 +5,7 @@ import './personCreditCategory.styles.scss';
 
 const PersonCreditCategory = ({
   year,
-  checkboxPending,
   checkboxOnClick,
-  checkboxDisplay,
-  checkboxData,
   stateId,
   dropdwon,
   category,

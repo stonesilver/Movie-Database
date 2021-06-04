@@ -18,10 +18,7 @@ const PersonDetail = () => {
     combinedCredits: [],
     externalID: {},
     isLoading: true,
-    checkboxDisplay: false,
     id: 0,
-    checkboxData: {},
-    checkboxPending: false,
     showLabel: { title: '', character: '' },
   });
 
@@ -42,7 +39,7 @@ const PersonDetail = () => {
     externalID,
     combinedCredits,
     isLoading,
-    checkboxData,
+    
   } = personData;
 
   const { cast, crew } = personData.combinedCredits;
@@ -135,7 +132,7 @@ const PersonDetail = () => {
     crew,
     personDetail,
     externalID,
-    checkboxData,
+    
   });
 
   console.log({ formattedData });

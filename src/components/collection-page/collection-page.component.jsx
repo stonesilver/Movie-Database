@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import DetailNav from '../detail-nav/detail-nav.component';
 import IntroDetail from '../intro-movie-detail/intro-movie-detail.component';
 import BlanketElement from '../blanket-element/blanket-element.component';
@@ -12,8 +12,8 @@ const CollectionDetails = ({ match }) => {
   const [collectionPart, setCollectionPart] = useState([]);
   const [isLoading, setisLoading] = useState(true);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  const fetchData = useCallback(() => {
+    setisLoading(true)
     fetch(
       `https://api.themoviedb.org/3/collection/${match.params.collectionID}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
     )
@@ -57,6 +57,11 @@ const CollectionDetails = ({ match }) => {
         console.log(err);
       });
   }, [match.params.collectionID]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchData();
+  }, [fetchData]);
 
   let userScore = [];
   if (collectionData.parts) {
@@ -103,17 +108,21 @@ const CollectionDetails = ({ match }) => {
           : false
       );
   }
-  let revenue = 0
+  let revenue = 0;
   if (collectionPart.length) {
-    revenue = collectionPart.reduce((acc, rev) => acc + rev.revenue, 0).toLocaleString();
+    revenue = collectionPart
+      .reduce((acc, rev) => acc + rev.revenue, 0)
+      .toLocaleString();
   }
 
-  console.log('collectionData', collectionData);
-  console.log('collectionCast', collectionCast);
-  console.log('collectionPart', collectionPart);
-  console.log('cast', cast);
-  console.log('crew', crew);
-  console.log('revenue', revenue);
+  console.log({
+    collectionData,
+    collectionCast,
+    collectionPart,
+    cast,
+    crew,
+    revenue,
+  });
 
   return collectionData.id ? (
     <div className='collection-page'>
@@ -165,7 +174,10 @@ const CollectionDetails = ({ match }) => {
         <h4 className='header'>{collectionData.parts.length} movies</h4>
         <div className='movie-container'>
           {collectionPart
-            .sort((a, b) => parseInt(a.release_date  || 0) - parseInt(b.release_date  || 0))
+            .sort(
+              (a, b) =>
+                parseInt(a.release_date || 0) - parseInt(b.release_date || 0)
+            )
             .map(({ id, title, overview, poster_path, release_date }) => (
               <CollectionCard
                 key={id}
@@ -180,7 +192,7 @@ const CollectionDetails = ({ match }) => {
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} />
+    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

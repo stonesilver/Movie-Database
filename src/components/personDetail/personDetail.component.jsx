@@ -25,20 +25,6 @@ const PersonDetail = () => {
     showLabel: { title: '', character: '' },
   });
 
-  const sortedCast = [],
-    sortedYear = [],
-    moviesKnownFor = [],
-    productionList = [],
-    sortedCastYear = [],
-    productionListYear = [],
-    crewListYear = [],
-    directingListYear = [],
-    productionYear = [],
-    crewList = [],
-    crewYear = [],
-    directingList = [],
-    directingYear = [];
-
   const {
     birthday,
     known_for_department,
@@ -114,7 +100,6 @@ const PersonDetail = () => {
             directingListYear: productionCrewDirecting(combinedCredits.crew, 'Directing'),
           }))
         }
-        // this.setState({ personDetail, combinedCredits, externalID })
       )
       .catch((err) => {
         setPersondata((prevState) => ({
@@ -122,7 +107,6 @@ const PersonDetail = () => {
           isLoading: false,
           personDetail: err,
         }));
-        // this.setState({ isLoading: false });
         console.log(err);
       });
   }, [personData.personID]);
@@ -131,28 +115,6 @@ const PersonDetail = () => {
     window.scrollTo(0, 0);
     fetchData();
   }, [fetchData]);
-
-  // personDataFormatted(
-  //   cast,
-  //   sortedYear,
-  //   sortedCast,
-  //   moviesKnownFor,
-  //   crew,
-  //   productionYear,
-  //   productionList,
-  //   crewYear,
-  //   crewList,
-  //   directingList,
-  //   directingYear,
-  //   sortedCastYear,
-  //   productionListYear,
-  //   crewListYear,
-  //   directingListYear,
-  //   formattedData,
-  //   setFormattedData,
-  //   formattedData,
-  //   setFormattedData
-  // );
 
   const checkboxOnClick = (event) => {
     const { value } = event.target;
@@ -165,12 +127,6 @@ const PersonDetail = () => {
         character: parseInt(formattedValue[1]),
       },
     }));
-    // this.setState({
-    // showLabel: {
-    //   title: formattedValue[0],
-    //   character: parseInt(formattedValue[1]),
-    //   },
-    // });
   };
 
   console.log({
@@ -179,10 +135,6 @@ const PersonDetail = () => {
     crew,
     personDetail,
     externalID,
-    sortedCast,
-    productionList,
-    crewList,
-    directingList,
     checkboxData,
   });
 

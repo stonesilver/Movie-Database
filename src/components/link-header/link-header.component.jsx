@@ -26,8 +26,7 @@ const LinkHeader = ({
       );
     })();
   }, [path]);
-  console.log('backgroundColor', backgroundColor);
-  console.log('kjkjkjkjkjkjkjkjkjkjkj', backLink);
+  console.log({backgroundColor, backLink});
   return (
     <div
       className='cast-header'

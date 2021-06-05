@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { Link, withRouter } from 'react-router-dom';
-import { getImageColors } from '../../assets/Clarifai';
 import ExpandableImage from '../expandableImage/expandableImage.component';
 import './intro-movie-detail.styles.scss';
 
@@ -14,20 +13,9 @@ const IntroDetail = ({
   UserProgress,
   revenue,
   streamTunneled,
+  mediaQuery,
+  backgroundColor,
 }) => {
-  const [backgroundColor, setBackgroundColor] = useState([]);
-  useEffect(() => {
-    (async () => {
-      return setBackgroundColor(
-        await getImageColors(
-          `https://image.tmdb.org/t/p/w342${movieData.backdrop_path}`
-        )
-      );
-    })();
-  }, [movieData.backdrop_path]);
-
-  console.log('backgroundColor', backgroundColor);
-
   const {
     title,
     name,
@@ -52,8 +40,6 @@ const IntroDetail = ({
           crewMember.job === 'Story'
       )
     : '';
-
-  console.log(movieData);
   const progress = UserProgress ? UserProgress : Math.round(vote_average) * 10;
   return (
     <div
@@ -67,16 +53,19 @@ const IntroDetail = ({
         url(${Image})`,
       }}
     >
-      <div className='left'>
+      <div
+        className='left'
+        style={{ background: mediaQuery ? backgroundColor[0] : 'transparent' }}
+      >
         <ExpandableImage
           posterPath={poster_path}
           stream={streamTunneled}
           backgroundColor={backgroundColor[2]}
-          title={title||name}
+          title={title || name}
         />
       </div>
       <div className='right'>
-        <div className='title'>
+        <div className='title' style={{ background: mediaQuery ? backgroundColor[0] : 'transparent' }}>
           <h2 className='movie-name'>
             {title ? title : name}{' '}
             {release_date || first_air_date ? (
@@ -90,7 +79,7 @@ const IntroDetail = ({
             )}
           </h2>
         </div>
-        <div className='release-detail'>
+        <div className='release-detail' style={{ background: mediaQuery ? backgroundColor[0] : 'transparent' }}>
           {showRating ? <p className='rating padded filter'>R</p> : ''}
           {release_date || first_air_date ? (
             <p className='release-date padded'>
@@ -132,7 +121,7 @@ const IntroDetail = ({
             )}
           </ul>
         </div>
-        <div className='movie-rating'>
+        <div className='movie-rating' style={{ background: mediaQuery ? backgroundColor[0] : 'transparent' }}>
           <div className='movie-score'>
             <div className='circular-progressbar'>
               <CircularProgressbar
@@ -183,9 +172,9 @@ const IntroDetail = ({
               }`}
               className='play-trailer'
             >
-                <p className='play'>
-                  <i className='fas fa-play'></i> Play Trailer
-                </p>
+              <p className='play'>
+                <i className='fas fa-play'></i> Play Trailer
+              </p>
             </Link>
           ) : (
             ''

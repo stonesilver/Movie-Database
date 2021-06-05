@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import LinkHeader from '../../components/link-header/link-header.component';
 import DetailNav from '../../components/detail-nav/detail-nav.component';
@@ -9,10 +9,10 @@ import './tv-seasons.styles.scss';
 const TvSeasons = ({ match: { params } }) => {
   const [movieData, setMovieData] = useState({});
   const [season, setseason] = useState([]);
-  const [isLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  const fetchData = useCallback(() => {
+    setIsLoading(true);
     fetch(
       `https://api.themoviedb.org/3/tv/${params.movieDetail.match(
         /\d{1,}/
@@ -26,15 +26,28 @@ const TvSeasons = ({ match: { params } }) => {
       .catch((err) => console.log(err));
   }, [params.movieDetail]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchData();
+  }, [fetchData]);
+
   console.log(movieData);
   return movieData.id ? (
     <div className='tv-seasons'>
-    {window.scrollTo(0, 0)}
+      {window.scrollTo(0, 0)}
       <DetailNav />
-      <LinkHeader movieData={movieData} backLink={'/seasons'} linkText={'main'} />
+      <LinkHeader
+        movieData={movieData}
+        backLink={'/seasons'}
+        linkText={'main'}
+      />
       <div className='season-container'>
         {season.map((item) => (
-          <SeasonsCard seasonDetail={item} originalName={movieData.name} key={item.id} />
+          <SeasonsCard
+            seasonDetail={item}
+            originalName={movieData.name}
+            key={item.id}
+          />
         ))}
       </div>
     </div>

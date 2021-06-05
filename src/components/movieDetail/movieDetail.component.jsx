@@ -15,7 +15,7 @@ import { getImageColors } from '../../assets/Clarifai';
 import './movieDetail.styles.scss';
 
 const MovieDetails = () => {
-  const [movieDetailsData, setMovieDetailsData] = useState({
+  const initialState = {
     movieData: {},
     credits: null,
     keywords: null,
@@ -26,10 +26,12 @@ const MovieDetails = () => {
     externalID: {},
     isLoading: true,
     backgroundColor: [],
-  });
-
+    mediaQuery: window.matchMedia("(max-width: 768px)").matches
+  }
+  const [movieDetailsData, setMovieDetailsData] = useState(initialState);
   const { path } = useRouteMatch();
   const { movieDetail } = useParams();
+
   let fetchData = useCallback(() => {
     const moviePath = path.match(/tv/) ? 'tv' : 'movie';
     setMovieDetailsData((prevState) => ({
@@ -144,23 +146,21 @@ const MovieDetails = () => {
         }));
       });
 
-    getImageColors(
-      `https://image.tmdb.org/t/p/w342${movieDetailsData.movieData.backdrop_path}`
-    ).then((colors) =>
+    getImageColors(movieDetailsData.movieData.poster_path).then((colors) =>
       setMovieDetailsData((prevState) => ({
         ...prevState,
         backgroundColor: colors,
       }))
     );
-  }, [movieDetail, path, movieDetailsData.movieData.backdrop_path]);
+  }, [movieDetail, path, movieDetailsData.movieData.poster_path]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchData();
 
-    return setMovieDetailsData((prevState) => ({
+    return setMovieDetailsData(prevState => ({
       ...prevState,
-      backgroundColor: [],
+      backgroundColor: []
     }));
   }, [fetchData]);
 
@@ -176,9 +176,9 @@ const MovieDetails = () => {
     reviews,
     backgroundColor,
     externalID,
+    mediaQuery,
   } = movieDetailsData;
-  console.log({ recommendations });
-  console.log({ credits });
+  
   return movieData.status_code ? (
     <Redirect to='/404_page_not_found' />
   ) : movieData.id && backgroundColor.length ? (
@@ -191,6 +191,7 @@ const MovieDetails = () => {
         showRating={true}
         streamTunneled={true}
         backgroundColor={backgroundColor}
+        mediaQuery={mediaQuery}
       />
       <section className='movie-details-container'>
         <div className='left-section'>

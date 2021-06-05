@@ -5,9 +5,8 @@ const app = new Clarifai.App({
 });
 
 export const getImageColors = (imgURL) => {
-  console.log('imgURL', imgURL)
   return app.models
-    .predict(Clarifai.COLOR_MODEL, imgURL)
+    .predict(Clarifai.COLOR_MODEL, `https://image.tmdb.org/t/p/w342${imgURL}`)
     .then((response) => {
       let color = response.outputs[0].data.colors.sort(
         (a, b) => a.value - b.value

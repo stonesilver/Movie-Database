@@ -146,13 +146,13 @@ const MovieDetails = () => {
         }));
       });
 
-    getImageColors(movieDetailsData.movieData.poster_path).then((colors) =>
+    getImageColors(movieDetailsData.movieData.backdrop_path).then((colors) =>
       setMovieDetailsData((prevState) => ({
         ...prevState,
         backgroundColor: colors,
       }))
     );
-  }, [movieDetail, path, movieDetailsData.movieData.poster_path]);
+  }, [movieDetail, path, movieDetailsData.movieData.backdrop_path]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -178,7 +178,7 @@ const MovieDetails = () => {
     externalID,
     mediaQuery,
   } = movieDetailsData;
-  
+
   return movieData.status_code ? (
     <Redirect to='/404_page_not_found' />
   ) : movieData.id && backgroundColor.length ? (

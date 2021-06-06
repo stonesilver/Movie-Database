@@ -50,7 +50,7 @@ const CollectionCard = ({
                   <img
                     src={
                       posterPath || profile_path
-                        ? `https://image.tmdb.org/t/p/w154${posterPath}`
+                        ? `https://image.tmdb.org/t/p/w185${posterPath}`
                         : gender === 1
                         ? `https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_960_720.png`
                         : gender === 0

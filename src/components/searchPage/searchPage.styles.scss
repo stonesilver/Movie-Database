@@ -91,14 +91,15 @@
 
     .search-page-right-column {
       grid-area: search-page-right-column;
-      // box-shadow: $shadowBox;
-      // border: $shadowBoxBorder;
+      box-shadow: $shadowBox;
+      border: $shadowBoxBorder;
       display: flex;
       flex-direction: column;
       row-gap: 1rem;
       padding-bottom: 1.5rem;
       border-radius: 5px;
-      min-height: 100vh;
+      min-height: 70vh;
+      padding: .2rem;
     }
 
     .no-search-found {

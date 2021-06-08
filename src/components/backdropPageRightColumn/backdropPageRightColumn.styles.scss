@@ -1,6 +1,9 @@
+@import '../../assets/sass-variables';
+
 .right-side {
+  display: grid;
   grid-area: right-side;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
   width: 100%;
   color: #ffffff;
@@ -12,9 +15,9 @@
 
   .empty-media {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-column: 1/4;
+    border: $shadowBoxBorder;
+    box-shadow: $shadowBox;
     padding: 0.5rem;
   }
 }
@@ -29,4 +32,8 @@
   @media screen and (max-width: 515px) {
     grid-template-columns: repeat(1, minmax(160px, 1fr));
   }
+}
+
+.video-grid {
+  grid-template-columns: 1fr;
 }

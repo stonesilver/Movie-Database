@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { Link, withRouter } from 'react-router-dom';
 import ExpandableImage from '../expandableImage/expandableImage.component';
@@ -13,9 +13,11 @@ const IntroDetail = ({
   UserProgress,
   revenue,
   streamTunneled,
-  mediaQuery,
   backgroundColor,
 }) => {
+  const [mediaQuery] = useState(
+    window.matchMedia('(max-width: 768px)').matches
+  );
   const {
     title,
     name,
@@ -55,7 +57,12 @@ const IntroDetail = ({
     >
       <div
         className='left'
-        style={{ background: mediaQuery ? backgroundColor[0] : 'transparent' }}
+        style={{
+          backgroundImage: mediaQuery
+            ? `linear-gradient(${backgroundColor[0]}, ${backgroundColor[0]}),
+        url("https://image.tmdb.org/t/p/w780${backdrop_path}")`
+            : 'transparent',
+        }}
       >
         <ExpandableImage
           posterPath={poster_path}
@@ -65,7 +72,12 @@ const IntroDetail = ({
         />
       </div>
       <div className='right'>
-        <div className='title' style={{ background: mediaQuery ? backgroundColor[0] : 'transparent' }}>
+        <div
+          className='title'
+          style={{
+            background: mediaQuery ? backgroundColor[2] : 'transparent',
+          }}
+        >
           <h2 className='movie-name'>
             {title ? title : name}{' '}
             {release_date || first_air_date ? (
@@ -79,7 +91,12 @@ const IntroDetail = ({
             )}
           </h2>
         </div>
-        <div className='release-detail' style={{ background: mediaQuery ? backgroundColor[0] : 'transparent' }}>
+        <div
+          className='release-detail'
+          style={{
+            background: mediaQuery ? backgroundColor[2] : 'transparent',
+          }}
+        >
           {showRating ? <p className='rating padded filter'>R</p> : ''}
           {release_date || first_air_date ? (
             <p className='release-date padded'>
@@ -121,7 +138,12 @@ const IntroDetail = ({
             )}
           </ul>
         </div>
-        <div className='movie-rating' style={{ background: mediaQuery ? backgroundColor[0] : 'transparent' }}>
+        <div
+          className='movie-rating'
+          style={{
+            background: mediaQuery ? backgroundColor[2] : 'transparent',
+          }}
+        >
           <div className='movie-score'>
             <div className='circular-progressbar'>
               <CircularProgressbar
@@ -181,18 +203,33 @@ const IntroDetail = ({
           )}
         </div>
         {tagline ? (
-          <div className='tagline'>
+          <div
+            className='tagline'
+            style={{
+              background: mediaQuery ? backgroundColor[2] : 'transparent',
+            }}
+          >
             <p className='tagline-text filter'>{tagline}</p>
           </div>
         ) : (
           ''
         )}
-        <div className='overview'>
+        <div
+          className='overview'
+          style={{
+            background: mediaQuery ? backgroundColor[2] : 'transparent',
+          }}
+        >
           <h4 className='overview-header'>Overview</h4>
           <p className='overview-text'>{overview}</p>
         </div>
         {created_by || crewMembers ? (
-          <div className='mini-cast'>
+          <div
+            className='mini-cast'
+            style={{
+              background: mediaQuery ? backgroundColor[2] : 'transparent',
+            }}
+          >
             {created_by
               ? created_by.map(({ id, job, name }) => (
                   <div className='cast' key={id}>
@@ -211,7 +248,12 @@ const IntroDetail = ({
           ''
         )}
         {parts ? (
-          <div className='number-of-movies'>
+          <div
+            className='number-of-movies'
+            style={{
+              background: mediaQuery ? backgroundColor[2] : 'transparent',
+            }}
+          >
             <h6>
               Number of Movies: <span>{parts ? parts.length : ''}</span>
             </h6>

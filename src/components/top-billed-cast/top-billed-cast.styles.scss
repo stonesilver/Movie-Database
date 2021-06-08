@@ -12,7 +12,7 @@
   .cast-card-scroll {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     justify-content: flex-start;
     width: 100%;
@@ -34,7 +34,7 @@
 
       .cast-card-img {
         width: 100%;
-        min-height: 20vh;
+        min-height: 26vh;
 
         .cast-image {
           width: 100%;

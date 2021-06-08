@@ -15,7 +15,11 @@ const KnownForCard = ({ name, title, poster_path, id }) => (
     >
       <LazyLoad className='known-for-card-img-container' offset={100}>
         <img
-          src={`https://image.tmdb.org/t/p/w185${poster_path}`}
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w185${poster_path}`
+              : `https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg`
+          }
           alt={title ? title : name}
           className='known-for-card-img'
         />

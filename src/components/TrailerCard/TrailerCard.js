@@ -1,35 +1,30 @@
 import React from 'react';
-import { Col, Card } from 'react-bootstrap';
 import LazyLoad from 'react-lazy-load';
 import './trailer-card.styles.scss';
 
 const TrailerCard = ({ src, title, overview, getMouseEvent }) => {
   return (
-    <Col className='trailer-col'>
-      <Card className='trailer-card'>
+    <div className='trailer-col'>
+      <div className='trailer-card'>
         <div className='img-container'>
           <LazyLoad offset={120} className='trailer-card-img-lazy'>
-            {src ? (
-              <Card.Img
+              <img
                 className='trailer-card-img'
-                variant='top'
-                src={src}
-                onMouseOver={getMouseEvent}
+                alt={title}
+                src={`https://image.tmdb.org/t/p/w780${src}`}
+                onMouseOver={() => getMouseEvent(src)}
               />
-            ) : (
-              ''
-            )}
           </LazyLoad>
           <div className='play'></div>
         </div>
-        <Card.Body className='trailer-card-body'>
-          <Card.Title className='trailer-card-title'>{title}</Card.Title>
-          <Card.Text className='trailer-card-text text-justify rounded'>
+        <div className='trailer-card-body'>
+          <div className='trailer-card-title'>{title}</div>
+          <div className='trailer-card-text '>
             {overview}
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    </Col>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

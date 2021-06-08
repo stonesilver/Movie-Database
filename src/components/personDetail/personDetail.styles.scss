@@ -37,30 +37,6 @@
           display: none;
         }
 
-        // .social-media-handles {
-        //   width: 100%;
-
-        //   a {
-        //     font-size: 1.5rem;
-        //     margin-right: 1rem;
-        //     text-decoration: none;
-        //   }
-
-        //   .fa-facebook-square {
-        //     color: rgb(74, 74, 221);
-        //   }
-        //   .fa-twitter {
-        //     color: rgb(99, 185, 211);
-        //   }
-        //   .fa-instagram {
-        //     color: rgb(221, 74, 214);
-        //   }
-        //   .fa-link {
-        //     color: rgb(47, 27, 158);
-        //     transform: rotate(45deg);
-        //   }
-        // }
-
         .personal-info-header {
           margin-top: 2rem;
         }
@@ -173,7 +149,7 @@
             display: grid;
             grid-auto-flow: column;
             grid-auto-columns: minmax(auto, 1fr);
-            overflow: scroll hidden;
+            overflow: auto;
             padding-bottom: 1rem;
           }
         }

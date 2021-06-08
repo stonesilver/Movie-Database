@@ -5,7 +5,7 @@ import './top-billed-cast.styles.scss';
 
 const TopBilledCast = ({ cast, type, match }) => {
   const filteredCast = cast.filter(
-    ({ profile_path }, index) => profile_path && index <= 9
+    ({ profile_path }, index) => index <= 9
   );
   return (
     <div className='top-billed-cast'>

@@ -4,22 +4,26 @@ import IntroDetail from '../intro-movie-detail/intro-movie-detail.component';
 import BlanketElement from '../blanket-element/blanket-element.component';
 import CollectionCard from '../collectionCard/collection-card.component';
 import { withRouter } from 'react-router-dom';
+import { getImageColors } from '../../assets/Clarifai';
 import './collection-page.styles.scss';
 
 const CollectionDetails = ({ match }) => {
   const [collectionData, setCollectionData] = useState([]);
   const [collectionCast, setCollectionCast] = useState([]);
   const [collectionPart, setCollectionPart] = useState([]);
+  const [backgroundColor, setBackgroundColor] = useState([]);
   const [isLoading, setisLoading] = useState(true);
 
   const fetchData = useCallback(() => {
-    setisLoading(true)
+    setisLoading(true);
     fetch(
       `https://api.themoviedb.org/3/collection/${match.params.collectionID}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
         setCollectionData(data);
+        // getImageColors(data.backdrop_path).then((colors) =>
+        //   setBackgroundColor(colors))
         (async () => {
           setCollectionPart(
             await Promise.all(
@@ -49,6 +53,10 @@ const CollectionDetails = ({ match }) => {
                   })
               )
             )
+          );
+
+          await getImageColors(data.backdrop_path).then((colors) =>
+            setBackgroundColor(colors)
           );
         })();
       })
@@ -122,6 +130,7 @@ const CollectionDetails = ({ match }) => {
     cast,
     crew,
     revenue,
+    backgroundColor,
   });
 
   return collectionData.id ? (
@@ -133,6 +142,7 @@ const CollectionDetails = ({ match }) => {
         UserProgress={userScore}
         revenue={revenue}
         streamTunneled={false}
+        backgroundColor={backgroundColor}
       />
       <div className='featured-cast'>
         <h4 className='header'>Featured Cast</h4>

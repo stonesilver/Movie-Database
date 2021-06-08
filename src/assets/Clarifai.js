@@ -1,11 +1,11 @@
 import Clarifai from 'clarifai';
 
 const app = new Clarifai.App({
-  apiKey: '01eb4e384a4440269521ec2fc28521e0',
+  apiKey: process.env.REACT_APP_CLARIFAI_KEY
 });
 
-export const getImageColors = (imgURL) => {
-  return app.models
+export const getImageColors = (imgURL) =>
+  app.models
     .predict(Clarifai.COLOR_MODEL, `https://image.tmdb.org/t/p/w92${imgURL}`)
     .then((response) => {
       let color = response.outputs[0].data.colors.sort(
@@ -19,8 +19,6 @@ export const getImageColors = (imgURL) => {
       return [newColor.join(''), color, color1];
     })
     .catch((err) => {
-      console.log(err)
-      return ['#212121e7', '#212121', '#ffc107']
-      // return ['Failed Request', 'Failed Request'];
+      console.log(err);
+      return ['#212121e7', '#212121', '#ffc107'];
     });
-};

@@ -26,8 +26,7 @@ const MovieDetails = () => {
     externalID: {},
     isLoading: true,
     backgroundColor: [],
-    mediaQuery: window.matchMedia("(max-width: 768px)").matches
-  }
+  };
   const [movieDetailsData, setMovieDetailsData] = useState(initialState);
   const { path } = useRouteMatch();
   const { movieDetail } = useParams();
@@ -158,9 +157,9 @@ const MovieDetails = () => {
     window.scrollTo(0, 0);
     fetchData();
 
-    return setMovieDetailsData(prevState => ({
+    return setMovieDetailsData((prevState) => ({
       ...prevState,
-      backgroundColor: []
+      backgroundColor: [],
     }));
   }, [fetchData]);
 
@@ -201,14 +200,12 @@ const MovieDetails = () => {
           ) : (
             ''
           )}
-          <Social reviews={reviews} />
+          <Social reviews={reviews} movieData={movieData} />
           <Media videos={videos} images={images} />
-          {movieData.belongs_to_collection ? (
+          {movieData.belongs_to_collection && (
             <Collection collection={movieData} />
-          ) : (
-            ''
           )}
-          <Recommendation recommendations={recommendations} />
+          <Recommendation recommendations={recommendations} movieData={movieData} />
         </div>
         <div className='right-section'>
           <RightSection

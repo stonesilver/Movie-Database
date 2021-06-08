@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
 import HomepageCategoryLink from '../homepageCategoryLinks/homepageCategoryLinks.component';
 import TrailerCard from '../TrailerCard/TrailerCard';
 import './LatestTrailer.styles.scss';
@@ -56,13 +55,12 @@ const LatestTrailer = () => {
 
   const trailersToDisplay = trailers.length ? trailers : [...Array(15).keys()];
   return (
-    <Container
-      fluid
+    <div
       className='mt-3 p-2 latest-trailer'
       style={{
         backgroundImage: `linear-gradient(rgba(39, 39, 41, 0.8), rgba(36, 36, 39, 0.8)),
           url("https://image.tmdb.org/t/p/w780${trailerBackgroundUrl}")`,
-        backgroundSize: 'cover',
+        
       }}
     >
       <HomepageCategoryLink
@@ -72,48 +70,18 @@ const LatestTrailer = () => {
         categoryName={categoryName}
         handleStreamChange={handleStreamChange}
       />
-      {/* <Row className='mx-0'>
-        <Col sm=''>
-          <h3 className='text-white ml-2 d-flex'>Latest Trailers</h3>
-        </Col>
-        
-        <Col className='d-flex justify-content-end px-0'>
-          <ButtonGroup toggle>
-            <ToggleButton
-              type='radio'
-              name='radio'
-              defaultChecked
-              value='1'
-              className='mr-2'
-            >
-              Streaming
-            </ToggleButton>
-            <ToggleButton
-              type='radio'
-              name='radio'
-              value='2'
-              className='rounded-top mr-2'
-            >
-              In Theater
-            </ToggleButton>
-            <ToggleButton type='radio' name='radio' value='3' className='mr-2'>
-              On TV
-            </ToggleButton>
-          </ButtonGroup>
-        </Col>
-      </Row> */}
       <div className='trailer-row'>
-        {trailersToDisplay.map(({ backdrop_path, id, name }) => (
+        {trailersToDisplay.map(({ backdrop_path, id, name, title }, index) => (
           <TrailerCard
-            src={`https://image.tmdb.org/t/p/w780${backdrop_path}`}
-            title={name}
-            key={id}
-            overview={name}
-            getMouseEvent={() => getMouse(backdrop_path)}
+            src={backdrop_path}
+            title={name || title}
+            key={id || index}
+            overview={name || title}
+            getMouseEvent={getMouse}
           />
         ))}
       </div>
-    </Container>
+    </div>
   );
 };
 

@@ -11,7 +11,7 @@
   .recommendations-container-scroll {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     .recommendation-card {
       min-width: 20vw;

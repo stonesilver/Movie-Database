@@ -42,7 +42,7 @@
 
       @media all and (max-width: 768px) {
         flex-direction: row;
-        overflow-x: scroll;
+        overflow-x: auto;
         margin: 0;
         padding: 0.25rem 0;
       }

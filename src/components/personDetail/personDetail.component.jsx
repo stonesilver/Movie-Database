@@ -132,10 +132,8 @@ const PersonDetail = () => {
     crew,
     personDetail,
     externalID,
-    
+    formattedData,
   });
-
-  console.log({ formattedData });
 
   return personData.personDetail.status_message ? (
     <Redirect to='/404-page_not_found' />
@@ -150,7 +148,6 @@ const PersonDetail = () => {
             ...prevState,
             showLabel: { title: '', character: '' },
           }))
-        // this.setState({ showLabel: { title: '', character: '' } })
       }
     >
       <DetailNav />

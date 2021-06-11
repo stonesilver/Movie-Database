@@ -1,23 +1,15 @@
 import React from 'react';
-import CarouselDisplay from '../../components/Carousel/Carousel';
-import Popular from '../../components/Popular/Popular';
-import FreeToWatch from '../../components/kids/kids';
-import LatestTrailer from '../../components/LatestTrailer/LatestTrailer';
-import Trending from '../../components/Trending/Trending';
-import JoinUs from '../../components/JoinUs/JoinUs';
-
+import { Route, Switch } from 'react-router-dom';
+import Homepage from '../../components/homepage/homepages.component';
 
 import './homepage.styles.css';
 
-const Homepage = () => (
-   <div className='homepage'>
-      <CarouselDisplay />
-      <Popular />
-      <FreeToWatch />
-      <LatestTrailer />
-      <Trending />
-      <JoinUs />
-   </div>
+const HomepagePages = ({ match: { path } }) => (
+  <div className='homepage'>
+    <Switch>
+      <Route exact path={path} component={Homepage} />
+    </Switch>
+  </div>
 );
 
-export default Homepage;
+export default HomepagePages;

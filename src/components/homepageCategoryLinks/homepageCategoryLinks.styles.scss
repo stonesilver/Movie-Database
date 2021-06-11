@@ -1,36 +1,41 @@
 @import '../../assets/sass-variables';
 
 .homepageCategory-row {
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
 
-    .homepageCategory-header {
-      color: $primaryYellow;
+  .homepageCategory-header {
+    color: $primaryYellow;
+  }
+
+  .homepageCategory-type {
+    display: flex;
+    padding: 0;
+    border: $shadowBoxBorder;
+    box-shadow: inset 0px 3px 4px rgb(7, 7, 7);
+    border-radius: 15px;
+
+    .options {
+      padding: 0.3rem 1rem;
+      border-radius: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      @media all and (max-width: 768px) {
+        font-weight: 400;
+      }
     }
 
-    .homepageCategory-type {
-      display: flex;
-      padding: 0;
-      border: $shadowBoxBorder;
-      box-shadow: inset 0px 3px 4px rgb(7, 7, 7);
-      border-radius: 15px;
-
-      .options {
-        padding: 0.3rem 1rem;
-        border-radius: inherit;
-        font-size: 0.95rem;
-        border: none;
-        outline: none;
-        cursor: pointer;
-      }
-
-      .active {
-        background: $primaryYellow;
-        border: $primaryYellow;
-        box-shadow: $shadowBox;
-      }
+    .active {
+      background: $primaryYellow;
+      border: $primaryYellow;
+      box-shadow: $shadowBox;
     }
   }
+}

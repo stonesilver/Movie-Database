@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1fr;
   overflow: hidden;
-  width: 11.2vw;
+  width: 100%;
   height: 100%;
   margin: 0 0.6rem 0.6rem 0;
   border: $shadowBoxBorder;
@@ -12,11 +12,11 @@
   border-radius: 7px;
 
   @media all and (max-width: 768px) {
-    width: 26vw;
+    width: 100%;
   }
 
   @media all and (max-width: 540px) {
-    width: 38vw;
+    width: 100%;
   }
 
   .known-for-card-link {
@@ -33,7 +33,7 @@
       background: $blankImagecontainer;
 
       @media all and (max-width: 768px) {
-        min-height: 25vh;
+        min-height: 35vh;
       }
 
       .known-for-card-img {
@@ -45,8 +45,8 @@
     .known-for-card-body {
       display: flex;
       width: 100%;
-      margin-top: .2rem;
-      height: fit-content;
+      margin-top: 0.2rem;
+      // height: 20%;
       color: #f3f1f1;
 
       p {

@@ -73,7 +73,7 @@ const Recommendation = ({ recommendations, movieData }) => {
           )}
         </div>
       ) : (
-        <div>{`No recommendation for ${
+        <div className='no-recommendation'>{`No recommendation for ${
           movieData.title || movieData.name
         }`}</div>
       )}

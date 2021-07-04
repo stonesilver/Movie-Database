@@ -10,15 +10,15 @@ import './season-episodes.styles.scss';
 const SeasonsEpisodes = ({ match: { params } }) => {
   const [episodes, setEpisodes] = useState([]);
   const [seasons, setSeasons] = useState([]);
-  const [pageMounted, setPageMounted] = useState(false);
+  // const [pageMounted, setPageMounted] = useState(false);
   const [hover, setHover] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = useCallback(() => {
     setIsLoading(true);
-    if (pageMounted) {
-      window.location.reload();
-    }
+    // if (pageMounted) {
+    //   window.location.reload();
+    // }
 
     Promise.all([
       fetch(
@@ -50,7 +50,7 @@ const SeasonsEpisodes = ({ match: { params } }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchData();
-    return setPageMounted(true);
+    // return setPageMounted(true);
   }, [fetchData]);
 
   const onHover = () => {

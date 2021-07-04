@@ -2,7 +2,6 @@ import React from 'react';
 import './youtube.styles.scss';
 
 const YoutubeIframe = ({ history, match }) => {
-  console.log('path', match);
   const closeModal = () => {
     history.goBack();
   };

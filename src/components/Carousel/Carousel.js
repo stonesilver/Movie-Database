@@ -16,7 +16,6 @@ const CarouselDisplay = () => {
       })
       .catch((err) => console.log(err));
   }, [posterPath.length]);
-  console.log({ posterPath });
 
   return (
     <section className='body-container'>

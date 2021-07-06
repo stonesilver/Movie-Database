@@ -5,7 +5,7 @@ import './footer.styles.scss';
 const Footer = () => {
    return (
       <Container fluid className='footer'>
-         <Row>
+         <Row className='footer-row'>
             <Col className='footer-column'>
                <h5 className='column-header'>THE BASICS</h5>
                <div>

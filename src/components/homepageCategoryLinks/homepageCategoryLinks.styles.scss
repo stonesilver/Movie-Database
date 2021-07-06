@@ -9,13 +9,17 @@
 
   .homepageCategory-header {
     color: $primaryYellow;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.25rem;
+    }
   }
 
   .homepageCategory-type {
     display: flex;
     padding: 0;
     border: $shadowBoxBorder;
-    box-shadow: inset 0px 3px 4px rgb(7, 7, 7);
+    box-shadow: inset 0px 3px 4px rgba(247, 220, 162, 0.363);
     border-radius: 15px;
 
     .options {
@@ -28,7 +32,10 @@
       cursor: pointer;
 
       @media all and (max-width: 768px) {
+        width: max-content;
         font-weight: 400;
+        font-size: 0.75rem;
+        padding: 0.3rem .5rem;
       }
     }
 

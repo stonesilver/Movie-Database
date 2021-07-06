@@ -4,7 +4,6 @@ import './homepageCategoryLinks.styles.scss';
 const HomepageCategoryLink = ({
   categoryArray,
   side,
-  setSide,
   handleStreamChange,
   categoryName
 }) => {

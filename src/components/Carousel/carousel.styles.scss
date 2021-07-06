@@ -1,32 +1,5 @@
 @import '../../assets/sass-variables';
 
-// .carousel {
-//   min-height: 100vh;
-// }
-
-// .carousel-overview {
-// overflow: hidden;
-// text-overflow: ellipsis;
-// white-space: nowrap;
-
-// }
-
-// .carousel-control-next-icon, .carousel-control-prev-icon {
-//   width: 4rem;
-//   height: 4rem;
-//   border: 1px solid rgb(35, 2, 73);
-// }
-
-// .body-container {
-//   widows: 100%;
-//   background: red;
-// }
-
-// .body-container .nine {
-//   widows: 100%;
-//   // background: green;
-// }
-
 .body-container {
   border-bottom: 2px solid $lightBorderColor;
 }
@@ -44,7 +17,7 @@
   }
 
   @media all and (max-width: 480px) {
-    height: 340px;
+    height: 310px;
   }
 }
 
@@ -65,7 +38,7 @@
 
   @media all and (max-width: 480px) {
     width: 80%;
-    height: 280px;
+    height: 250px;
   }
 
 }

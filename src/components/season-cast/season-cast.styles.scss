@@ -1,6 +1,7 @@
 @mixin gridGap {
   display: flex;
   flex-direction: column;
+  -o-grid-gap: 1rem;
   grid-gap: 1rem;
 }
 
@@ -20,17 +21,11 @@
 
     .season-cast-left-side {
       @include gridGap;
-      display: flex;
-      flex-direction: column;
-      grid-gap: 1rem;
     }
 
     .season-cast-right-side {
       .guest-stars {
         @include gridGap;
-        display: flex;
-        flex-direction: column;
-        grid-gap: 1rem;
       }
       .crew {
         .header {
@@ -38,9 +33,6 @@
         }
         .crew-section {
           @include gridGap;
-          display: flex;
-          flex-direction: column;
-          grid-gap: 1rem;
 
           .crew-section-header {
             margin-top: 1.5rem;

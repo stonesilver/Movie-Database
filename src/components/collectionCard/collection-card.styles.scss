@@ -4,19 +4,27 @@
   width: 100%;
 
   .featured-collection-card {
-    display: flex;
-    min-width: 22.3vw;
-    margin: 0 0rem 0rem 0;
+    display: grid;
+    grid-template-columns: 0.14fr 1fr;
+    margin: 0;
     border-radius: 5px;
     box-shadow: $shadowBox;
     border: $shadowBoxBorder;
     color: #ffffff;
     overflow: hidden;
 
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 0.15fr 1fr;
+    }
+
     .collection-card-img {
-      width: 4.2rem;
-      height: 4.2rem;
+      min-height: 4.5rem;
       background: $blankImagecontainer;
+      border-radius: 5px;
+
+      @media screen and (max-width: 768px) {
+        min-height: 3.9rem;
+      }
 
       img {
         width: 100%;
@@ -39,6 +47,11 @@
         font-weight: 900;
         font-size: 0.85rem;
 
+        @media screen and (max-width: 768px) {
+          font-weight: 600;
+          font-size: 0.75rem;
+        }
+
         &:hover {
           color: rgb(245, 222, 179);
         }
@@ -46,6 +59,7 @@
 
       .character-name {
         font-size: 0.75rem;
+        font-style: italic;
 
         .episodes {
           color: #f7f6ba;
@@ -71,7 +85,7 @@
         display: grid;
         width: 100%;
         grid-template-columns: 0.13fr 1fr;
-        grid-gap: .5rem;
+        grid-gap: 0.5rem;
         height: 100%;
         border-radius: 5px;
         box-shadow: $shadowBox;
@@ -106,7 +120,7 @@
           padding-right: 2rem;
 
           @media all and (max-width: 768px) {
-            padding-right: .5rem;
+            padding-right: 0.5rem;
           }
 
           p {

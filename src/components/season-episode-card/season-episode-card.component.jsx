@@ -136,12 +136,13 @@ const SeasonEpisodeCard = ({
                 : ''}
             </div>
           </div>
-          <div className='full-cast-and-crew'>
-            <Link to={`${url}/episode/${episode_number}/cast`}>
-              <p>Full Cast & Crew</p>
+          
+        </div>
+        <div className='full-cast-and-crew'>
+            <Link to={`${url}/episode/${episode_number}/cast`} className='cast-and-crew'>
+              Full Cast & Crew
             </Link>
           </div>
-        </div>
         <div className='episode-images'>
           <div className='episode-images-headers'>
             <div className='episode-images-count'>

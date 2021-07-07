@@ -15,13 +15,15 @@ const SeasonCast = ({ match: { params } }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = useCallback(() => {
-    setIsLoading(true)
+    setIsLoading(true);
     fetch(
       `https://api.themoviedb.org/3/tv/${params.movieDetail.match(
         /\d{1,}/
       )}/season/${params.seasonNumber}/episode/${
         params.episodeNumber
-      }?api_key=${process.env.REACT_APP_API_URL}&language=en-US&append_to_response=credits`
+      }?api_key=${
+        process.env.REACT_APP_API_URL
+      }&language=en-US&append_to_response=credits`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -29,11 +31,12 @@ const SeasonCast = ({ match: { params } }) => {
         setCast(data.credits.cast);
         setCrew(data.credits.crew);
         setGuestStars(data.credits.guest_stars);
-      }).catch(err => {
-        console.log(err)
-        setIsLoading(false)
       })
-  }, [params.movieDetail, params.seasonNumber, params.episodeNumber])
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  }, [params.movieDetail, params.seasonNumber, params.episodeNumber]);
 
   useEffect(() => {
     fetchData();
@@ -55,7 +58,7 @@ const SeasonCast = ({ match: { params } }) => {
     );
   }
 
-  console.log({filteredCrew});
+  console.log({ filteredCrew });
   return data.id ? (
     <div className='season-cast'>
       <DetailNav />
@@ -69,17 +72,20 @@ const SeasonCast = ({ match: { params } }) => {
         <div className='season-cast-left-side'>
           <p className='header'>Series Regulars</p>
           {cast.map(
-            ({
-              id,
-              profile_path,
-              name,
-              character,
-              gender,
-              roles,
-              total_episode_count,
-            }) => (
+            (
+              {
+                id,
+                profile_path,
+                name,
+                character,
+                gender,
+                roles,
+                total_episode_count,
+              },
+              index
+            ) => (
               <CollectionCard
-                key={id}
+                key={index}
                 type={true}
                 id={id}
                 name={name}
@@ -103,9 +109,9 @@ const SeasonCast = ({ match: { params } }) => {
                 gender,
                 roles,
                 total_episode_count,
-              }) => (
+              }, index) => (
                 <CollectionCard
-                  key={id}
+                  key={index}
                   type={true}
                   id={id}
                   name={name}
@@ -138,7 +144,7 @@ const SeasonCast = ({ match: { params } }) => {
                     index
                   ) => (
                     <CollectionCard
-                      key={id + index}
+                      key={index}
                       type={true}
                       id={id}
                       name={name}

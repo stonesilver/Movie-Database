@@ -139,6 +139,10 @@
       width: 100%;
       padding: 0.3rem 1rem;
 
+      @media screen and (max-width: 768px) {
+        padding: 0.3rem 0.5rem;
+      }
+
       .view-links {
         &:hover {
           color: rgb(231, 174, 16);
@@ -151,7 +155,10 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
       padding: 0 1rem;
-      border-bottom: 1px solid rgb(76, 72, 72);
+
+      @media screen and (max-width: 768px) {
+        padding: 0 0.5rem;
+      }
 
       .crew {
         width: 25vw;
@@ -187,27 +194,44 @@
         .guest-stars-container {
           display: grid;
           grid-template-columns: repeat(2, minmax(150px, 1fr));
-          grid-gap: 1rem 2rem;
+          grid-gap: 1rem 5rem;
 
           @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr;
             grid-gap: 1rem;
           }
         }
       }
+    }
 
-      .full-cast-and-crew {
-        display: flex;
-        justify-content: flex-end;
+    .full-cast-and-crew {
+      display: flex;
+      justify-content: flex-end;
+      margin: .7rem 0;
+      border-bottom: 1px solid rgb(76, 72, 72);
 
-        p {
-          margin: 0;
-          padding: 0;
-          font-size: 0.8rem;
-          width: fit-content;
+      .cast-and-crew {
+        display: block;
+        width: fit-content;
+        padding: .5rem;
 
-          &:hover {
-            color: rgb(231, 174, 16);
-          }
+        &:hover {
+          color: rgb(231, 174, 16);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 0.75rem;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+        width: fit-content;
+
+        &:hover {
+          color: rgb(231, 174, 16);
         }
       }
     }
@@ -216,6 +240,10 @@
       width: 100%;
       padding: 0.5rem 1rem;
       border-bottom: 1px solid rgb(76, 72, 72);
+
+      @media screen and (max-width: 768px) {
+        padding: 0.5rem .5rem;
+      }
 
       .episode-images-headers {
         display: flex;

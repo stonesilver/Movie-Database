@@ -6,6 +6,12 @@
   z-index: 8;
 }
 
+.brandName {
+  @media screen and (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+}
+
 .nav-link {
   font-weight: 600;
 }

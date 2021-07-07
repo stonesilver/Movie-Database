@@ -56,7 +56,7 @@ const NavigationBar = () => {
     // bg='dark' variant='dark'
     <Navbar collapseOnSelect expand='lg' variant='dark' className='bg-colour'>
       <LinkContainer to='/'>
-        <Navbar.Brand className='text-warning font-weight-bold'>
+        <Navbar.Brand className='text-warning font-weight-bold brandName'>
           Movie Database
         </Navbar.Brand>
       </LinkContainer>

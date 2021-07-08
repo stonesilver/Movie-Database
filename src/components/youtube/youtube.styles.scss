@@ -44,6 +44,10 @@
       color: #ff0000;
       cursor: pointer;
 
+      @media screen and (max-width: 768px) {
+        display: block;
+      }
+
       &:hover {
         opacity: 0.6;
       }

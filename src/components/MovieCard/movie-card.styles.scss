@@ -42,8 +42,13 @@
   }
 
   .movie-and-tv-card-link-homepage {
-    height: 33vh;
-    min-height: 33vh;
+    height: 30vh;
+    min-height: 30vh;
+
+    @media screen and (max-width: 768px) {
+      height: 25vh;
+      min-height: 25vh;
+    }
   }
 
   .movie-and-tv-card-body {
@@ -64,7 +69,7 @@
 
     .movie-and-tv-card-text {
       padding: 0rem;
-      margin-top: 0.5rem;
+      margin-top: 0.3rem;
       font-size: 0.7rem;
     }
 
@@ -73,9 +78,9 @@
     }
   }
 
-  .movie-and-tv-card-body-homepage {
-    height: 100%;
-  }
+  // .movie-and-tv-card-body-homepage {
+  //   height: 100%;
+  // }
 }
 
 .mobile-for-tv-movies-category {

@@ -40,26 +40,6 @@ const HomepageCategory = ({
           categoryName={categoryName}
           handleStreamChange={handleStreamChange}
         />
-      {/* <div className='homepageCategory-row'>
-        <div sm=''>
-          <h4 className='homepageCategory-header'>{categoryName}</h4>
-        </div>
-        <div className='homepageCategory-type'>
-          {categoryArray.map(({ name, categoryLink }, i) => (
-            <div
-              key={i}
-              className={`options ${
-                side[categoryName] === name ? 'active' : ''
-              }`}
-              onClick={() => {
-                handleStreamChange(categoryLink, name);
-              }}
-            >
-              {name}
-            </div>
-          ))}
-        </div>
-      </div> */}
       <div className='main-row'>
         {homepageCategoryData.length
           ? homepageCategoryData.map(

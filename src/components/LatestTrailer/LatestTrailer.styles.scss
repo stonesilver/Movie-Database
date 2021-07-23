@@ -4,6 +4,10 @@
   background-size: cover;
   background-position: 50% 10%;
 
+  @media screen and (max-width: 540px) {
+    min-height: 25vh;
+  }
+
   .trailer-row {
     display: grid;
     grid-auto-flow: column;
@@ -11,5 +15,9 @@
     grid-gap: 1rem;
     overflow: auto hidden;
     margin-top: 1rem;
+
+    @media screen and (max-width: 540px) {
+      grid-auto-columns: 200px;
+    }
   }
 }

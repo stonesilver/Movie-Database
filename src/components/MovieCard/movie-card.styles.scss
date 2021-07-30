@@ -68,12 +68,20 @@
       font-weight: 500;
       padding: 0;
       text-align: center;
+
+      @media screen and (max-width: 768px) {
+        font-size: 0.63rem;
+      }
     }
 
     .movie-and-tv-card-text {
       padding: 0rem;
       margin-top: 0.3rem;
       font-size: 0.7rem;
+
+      @media screen and (max-width: 768px) {
+        font-size: 0.6rem;
+      }
     }
 
     .movie-and-tv-card-overview {

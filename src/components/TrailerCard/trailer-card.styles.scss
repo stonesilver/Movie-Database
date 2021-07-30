@@ -89,12 +89,12 @@
       }
 
       .trailer-card-text {
-        text-align: justify;
+        text-align: center;
         font-weight: 500;
         font-size: 0.85rem;
 
         @media screen and (max-width: 540px) {
-          font-size: 0.7rem;
+          font-size: 0.6rem;
         }
       }
     }

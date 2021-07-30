@@ -35,8 +35,8 @@
     }
 
     .circular-progressbar {
-      width: 2rem;
-      height: 2rem;
+      width: calc(1.3rem + 0.5vw);
+      height: calc(1.3rem + 0.5vw);
       position: absolute;
       right: 0.2rem;
       top: 0.2rem;
@@ -50,7 +50,7 @@
 
     @media screen and (max-width: 768px) {
       // height: 25vh;
-      // min-height: 25vh;
+      min-height: 27.5vh;
     }
   }
 

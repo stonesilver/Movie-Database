@@ -24,13 +24,8 @@
     background:$blankImagecontainer;
 
     @media all and (max-width: 768px) {
-      height: 35vh;
-      min-height: 35vh;
-    }
-
-    @media all and (max-width: 540px) {
-      height: 25vh;
-      min-height: 25vh;
+      height: auto;
+      min-height: auto;
     }
 
     .LazyLoad {

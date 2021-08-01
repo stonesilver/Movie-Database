@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './nextAndPrevious.styles.scss';
 
 const NextPrevious = ({ previousSeason, nextSeason }) => {
-  console.log(previousSeason, nextSeason);
+  // console.log(previousSeason, nextSeason);
   return (
     <div className='previous-next-episodes-link'>
       <Link

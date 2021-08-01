@@ -21,7 +21,7 @@ const MovieImagesCarousel = ({
   imageOnLoad,
   imgLoaded,
 }) => {
-  console.log('images', images);
+  // console.log('images', images);
   const arrow = useRef(null);
   const location = useLocation();
   const locationCheck = /((^|, )(\/movies|\/people|\/tv|\/collection)\/[0-9])/.test(

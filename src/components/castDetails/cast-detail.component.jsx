@@ -38,7 +38,7 @@ const CastDetail = ({ match: { params: {movieDetail}, url } }) => {
       .catch((err) => {
         setIsLoading(false);
         setMovieData(err);
-        console.log(err);
+        // console.log(err);
       });
   }, [movieDetail, url])
 
@@ -63,7 +63,7 @@ const CastDetail = ({ match: { params: {movieDetail}, url } }) => {
     );
   }
 
-  console.log({cast, crew, filteredCrew, movieData});
+  // console.log({cast, crew, filteredCrew, movieData});
 
   return movieData.status_code ? (
     <Redirect to='/404_page_not_found' />

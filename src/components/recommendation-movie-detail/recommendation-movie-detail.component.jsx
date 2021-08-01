@@ -7,7 +7,7 @@ const Recommendation = ({ recommendations, movieData }) => {
   const filteredRecommendations = recommendations.filter(
     (rec, index) => index <= 9
   );
-  console.log(filteredRecommendations);
+  // console.log(filteredRecommendations);
 
   return (
     <div className='recommendations'>

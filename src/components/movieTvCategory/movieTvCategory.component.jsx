@@ -185,7 +185,7 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
       .catch((err) => {
         setIsLoading(false);
         setError(true);
-        console.log(err);
+        // console.log(err);
       });
   }, [movieType, movieCategory]);
 
@@ -224,12 +224,12 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setMovieData([...data.results]);
         setTotalPage(data.total_pages);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
 
     return setMovieData([]);
@@ -300,7 +300,7 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
           setCurrentPage(currentPage + 1);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           setIsClicked(false);
           // if (currentPage > 0) {
           setCurrentPage(currentPage);

@@ -31,7 +31,9 @@ const SeasonEpisodeCard = ({
     )
       .then((res) => res.json())
       .then((data) => setEpisodeImages(data.stills))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
   }, [params.movieDetail, params.seasonNumber, episode_number]);
 
   const expandOnClick = () => {
@@ -136,13 +138,15 @@ const SeasonEpisodeCard = ({
                 : ''}
             </div>
           </div>
-          
         </div>
         <div className='full-cast-and-crew'>
-            <Link to={`${url}/episode/${episode_number}/cast`} className='cast-and-crew'>
-              Full Cast & Crew
-            </Link>
-          </div>
+          <Link
+            to={`${url}/episode/${episode_number}/cast`}
+            className='cast-and-crew'
+          >
+            Full Cast & Crew
+          </Link>
+        </div>
         <div className='episode-images'>
           <div className='episode-images-headers'>
             <div className='episode-images-count'>

@@ -19,6 +19,6 @@ export const getImageColors = (imgURL) =>
       return [newColor.join(''), color, color1];
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       return ['#212121e7', '#212121', '#ffc107'];
     });

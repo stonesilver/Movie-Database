@@ -14,7 +14,7 @@ const CarouselDisplay = () => {
         setPosterPath(data.results);
         carousel();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => []);
   }, [posterPath.length]);
 
   return (

@@ -5,7 +5,7 @@ import {
 } from './actions';
 
 const fetchImages = (url) => {
-  console.log('url', url)
+  // console.log('url', url)
   return (dispatch) => {
     dispatch(fetchImagePending());
     fetch(url)

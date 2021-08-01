@@ -28,7 +28,7 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
     return posters.length ? setMedia('posters') : '';
   };
 
-  console.log('videos', videos);
+  // console.log('videos', videos);
   const filteredVideos = videos.filter((video, index) => index <= 5);
   const filteredBackdrops = backdrops.filter((video, index) => index <= 9);
   const filteredPosters = posters.filter((video, index) => index <= 9);

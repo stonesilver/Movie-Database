@@ -104,7 +104,7 @@ const PersonDetail = () => {
           isLoading: false,
           personDetail: err,
         }));
-        console.log(err);
+        // console.log(err);
       });
   }, [personData.personID]);
 
@@ -116,7 +116,7 @@ const PersonDetail = () => {
   const checkboxOnClick = (event) => {
     const { value } = event.target;
     const formattedValue = value.split(',');
-    console.log({ formattedValue });
+    // console.log({ formattedValue });
     setPersondata((prevState) => ({
       ...prevState,
       showLabel: {
@@ -126,14 +126,14 @@ const PersonDetail = () => {
     }));
   };
 
-  console.log({
-    combinedCredits,
-    cast,
-    crew,
-    personDetail,
-    externalID,
-    formattedData,
-  });
+  // console.log({
+  //   combinedCredits,
+  //   cast,
+  //   crew,
+  //   personDetail,
+  //   externalID,
+  //   formattedData,
+  // });
 
   return personData.personDetail.status_message ? (
     <Redirect to='/404-page_not_found' />

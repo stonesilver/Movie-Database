@@ -48,7 +48,7 @@ const PopularPeople = () => {
         setPagedata((prevState) => ({ ...prevState, isClicked: false }));
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         setPagedata((prevState) => ({ ...prevState, isClicked: false }));
         if (pageData.currentPage > 0) {
           setPagedata((prevState) => ({

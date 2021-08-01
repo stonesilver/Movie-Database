@@ -23,7 +23,9 @@ const TvSeasons = ({ match: { params } }) => {
         await setMovieData(data);
         await setseason(data.seasons);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
   }, [params.movieDetail]);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ const TvSeasons = ({ match: { params } }) => {
     fetchData();
   }, [fetchData]);
 
-  console.log(movieData);
+  // console.log(movieData);
   return movieData.id ? (
     <div className='tv-seasons'>
       {window.scrollTo(0, 0)}

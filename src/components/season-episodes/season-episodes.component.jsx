@@ -43,7 +43,7 @@ const SeasonsEpisodes = ({ match: { params } }) => {
       })
       .catch((err) => {
         setIsLoading(false);
-        console.log(err);
+        // console.log(err);
       });
   }, [params.movieDetail, params.seasonNumber])
 
@@ -59,7 +59,7 @@ const SeasonsEpisodes = ({ match: { params } }) => {
   const onHoverLeave = () => {
     setHover(false);
   };
-  console.log({episodes, seasons});
+  // console.log({episodes, seasons});
   return episodes.id ? (
     <div className='season-episodes'>
       <DetailNav />

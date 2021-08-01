@@ -54,7 +54,7 @@ const BackdropsPostersVideos = ({
           setData(data);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           setIsLoading(false);
         });
     } else {
@@ -82,7 +82,7 @@ const BackdropsPostersVideos = ({
           setData(data);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           setIsLoading(false);
         });
     }

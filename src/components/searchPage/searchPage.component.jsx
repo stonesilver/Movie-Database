@@ -103,7 +103,7 @@ const SearchPage = () => {
         );
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         setIsLoading(false);
       });
   }, [searchQuery]);
@@ -170,12 +170,14 @@ const SearchPage = () => {
           dataFetched: true,
         }));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
     return setSearchResultOnDisplay({ results: [] });
   };
 
-  console.log('searchResultOnDisplay', searchResultOnDisplay);
-  console.log('searchData', searchData);
+  // console.log('searchResultOnDisplay', searchResultOnDisplay);
+  // console.log('searchData', searchData);
 
   return (
     <div className='search-page'>

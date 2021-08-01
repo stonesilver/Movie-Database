@@ -34,7 +34,7 @@ const CollectionDetails = ({ match }) => {
                   .then((res) => res.json())
                   .then((data) => data)
                   .catch((err) => {
-                    console.log(err);
+                    // console.log(err);
                   })
               )
             )
@@ -49,7 +49,7 @@ const CollectionDetails = ({ match }) => {
                   .then((res) => res.json())
                   .then((data) => data)
                   .catch((err) => {
-                    console.log(err);
+                    // console.log(err);
                   })
               )
             )
@@ -62,7 +62,7 @@ const CollectionDetails = ({ match }) => {
       })
       .catch((err) => {
         setisLoading(false);
-        console.log(err);
+        // console.log(err);
       });
   }, [match.params.collectionID]);
 
@@ -123,15 +123,15 @@ const CollectionDetails = ({ match }) => {
       .toLocaleString();
   }
 
-  console.log({
-    collectionData,
-    collectionCast,
-    collectionPart,
-    cast,
-    crew,
-    revenue,
-    backgroundColor,
-  });
+  // console.log({
+  //   collectionData,
+  //   collectionCast,
+  //   collectionPart,
+  //   cast,
+  //   crew,
+  //   revenue,
+  //   backgroundColor,
+  // });
 
   return collectionData.id ? (
     <div className='collection-page'>

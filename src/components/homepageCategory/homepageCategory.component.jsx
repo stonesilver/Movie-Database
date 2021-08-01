@@ -18,7 +18,9 @@ const HomepageCategory = ({
     fetch(apiLink)
       .then((res) => res.json())
       .then((data) => setHomepageCategoryData(data.results))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
     return setHomepageCategoryData([]);
   }, [apiLink]);
 
@@ -27,19 +29,21 @@ const HomepageCategory = ({
     fetch(url)
       .then((res) => res.json())
       .then((data) => setHomepageCategoryData(data.results))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
     return setHomepageCategoryData([]);
   };
 
   return (
     <div className='homepageCategory-container'>
       <HomepageCategoryLink
-          categoryArray={categoryArray}
-          side={side}
-          setSide={setSide}
-          categoryName={categoryName}
-          handleStreamChange={handleStreamChange}
-        />
+        categoryArray={categoryArray}
+        side={side}
+        setSide={setSide}
+        categoryName={categoryName}
+        handleStreamChange={handleStreamChange}
+      />
       <div className='main-row'>
         {homepageCategoryData.length
           ? homepageCategoryData.map(

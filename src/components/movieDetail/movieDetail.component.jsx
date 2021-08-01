@@ -134,7 +134,7 @@ const MovieDetails = () => {
         }
       )
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         setMovieDetailsData((prevState) => ({
           ...prevState,
           movieData: err,
@@ -163,7 +163,7 @@ const MovieDetails = () => {
     }));
   }, [fetchData]);
 
-  console.log({ movieDetailsData });
+  // console.log({ movieDetailsData });
   const {
     movieData,
     credits,

@@ -10,7 +10,7 @@ const Collection = ({ collection }) => {
     )
       .then((res) => res.json())
       .then((data) => setcollectionData(data))
-      .catch((err) => console.log(err));
+      .catch((err) => setcollectionData([]));
   }, [collection.belongs_to_collection.id]);
 
   let filteredCollection = [];
@@ -19,7 +19,7 @@ const Collection = ({ collection }) => {
       (item) => item.id !== collection.id
     );
   }
-  console.log(filteredCollection);
+  // console.log(filteredCollection);
   return filteredCollection.length ? (
     <div className='collection'>
       <div

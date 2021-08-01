@@ -41,7 +41,9 @@ const LatestTrailer = () => {
           )
             .then((res) => res.json())
             .then((data) => data)
-            .catch((err) => console.log(err));
+            .catch((err) => {
+              // console.log(err);
+            });
         })
       )
     );
@@ -56,8 +58,10 @@ const LatestTrailer = () => {
         setTrailerBackgroundUrl(data.results[0].backdrop_path);
         setTrailerVideo(data);
       })
-      .catch((err) => console.log(err));
-      return setTrailersVideo([])
+      .catch((err) => {
+        // console.log(err);
+      });
+    return setTrailersVideo([]);
   }, []);
 
   const handleStreamChange = (url, name) => {
@@ -68,7 +72,9 @@ const LatestTrailer = () => {
         setTrailerBackgroundUrl(data.results[0].backdrop_path);
         setTrailerVideo(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
     return setTrailersVideo([]);
   };
 

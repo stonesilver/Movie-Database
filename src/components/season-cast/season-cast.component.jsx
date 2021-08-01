@@ -33,7 +33,7 @@ const SeasonCast = ({ match: { params } }) => {
         setGuestStars(data.credits.guest_stars);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         setIsLoading(false);
       });
   }, [params.movieDetail, params.seasonNumber, params.episodeNumber]);
@@ -58,7 +58,7 @@ const SeasonCast = ({ match: { params } }) => {
     );
   }
 
-  console.log({ filteredCrew });
+  // console.log({ filteredCrew });
   return data.id ? (
     <div className='season-cast'>
       <DetailNav />

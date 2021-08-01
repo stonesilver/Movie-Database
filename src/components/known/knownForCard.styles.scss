@@ -6,7 +6,8 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  margin: 0 0.6rem 0.6rem 0;
+  margin: 0;
+  padding: 0;
   border: $shadowBoxBorder;
   box-shadow: $shadowBox;
   border-radius: 7px;
@@ -23,17 +24,19 @@
     display: block;
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
 
     .known-for-card-img-container {
       width: 100%;
       margin: 0;
       padding: 0;
-      height: 80%;
+      // height: 80%;
       min-height: 30vh;
       background: $blankImagecontainer;
 
       @media all and (max-width: 768px) {
-        min-height: 35vh;
+        min-height: 27vh;
       }
 
       .known-for-card-img {
@@ -46,15 +49,21 @@
       display: flex;
       width: 100%;
       margin-top: 0.2rem;
-      // height: 20%;
+      height: 20%;
       color: #f3f1f1;
+      border: 1px solid red;
 
       p {
         font-size: 0.75rem;
         margin: 0;
+        padding: 0;
         width: 100%;
         padding: 0.1rem 0.2rem;
         text-align: center;
+
+        @media all and (max-width: 768px) {
+          font-size: 0.65rem;
+        }
       }
     }
   }

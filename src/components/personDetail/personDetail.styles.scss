@@ -142,16 +142,20 @@
         .known-for-scroll {
           display: grid;
           width: 100%;
-          min-height: 40vh;
+          // min-height: 40vh;
           overflow: hidden;
 
           .known-for-scroll-container {
             display: grid;
             grid-auto-flow: column;
-            grid-auto-columns: 160px;
+            grid-auto-columns: 140px;
             grid-gap: .5rem;
             overflow: auto;
             padding-bottom: 1rem;
+
+            @media screen and (max-width: 768px) {
+              grid-auto-columns: 115px;
+            }
           }
         }
 

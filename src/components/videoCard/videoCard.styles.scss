@@ -12,6 +12,10 @@
   border: $shadowBoxBorder;
   box-shadow: $shadowBox;
 
+  @media screen and (max-width: 768px) {
+    height: calc(150px + 1vw);
+  }
+
   .image-container {
     position: relative;
     grid-area: image-container;

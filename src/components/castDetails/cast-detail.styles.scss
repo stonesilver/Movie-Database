@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   grid-gap: 1rem;
+
+  @media screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .8rem;
+  }
 }
 
 .display-cast-and-crew {

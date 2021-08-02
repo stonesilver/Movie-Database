@@ -93,7 +93,8 @@
       grid-area: search-page-right-column;
       box-shadow: $shadowBox;
       border: $shadowBoxBorder;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr;
       flex-direction: column;
       row-gap: 1rem;
       padding-bottom: 1.5rem;

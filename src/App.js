@@ -22,12 +22,10 @@ const App = () => {
   return (
     // bg-dark bg-colour
     <div className='App'>
-      <MovieImagesCarousel />
+      {/* <MovieImagesCarousel /> */}
       <NavigationBar />
       <Switch location={background || location}>
-      {/* <Switch> */}
         <Route exact path='/' component={Homepage} />
-
          <Route path='/movies' component={MoviePage} />
         <Route path='/tv' component={TvShowPage} />
         <Route path='/people' component={PeoplePage} />

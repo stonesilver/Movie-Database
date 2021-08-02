@@ -9,7 +9,7 @@ import RightSection from '../right-section/right-section.component';
 import BlanketElement from '../blanket-element/blanket-element.component';
 import CurrentSeason from '../current-season/current-season.component';
 import Collection from '../collection/collection.component';
-// import MovieImagesCarousel from '../movieImagesCarousel/movieImagesCarousel.component';
+import MovieImagesCarousel from '../movieImagesCarousel/movieImagesCarousel.component';
 import { Redirect } from 'react-router-dom';
 import { useParams, useRouteMatch } from 'react-router-dom';
 import { getImageColors } from '../../assets/Clarifai';
@@ -183,7 +183,7 @@ const MovieDetails = () => {
     <Redirect to='/404_page_not_found' />
   ) : movieData.id && backgroundColor.length ? (
     <div className='movie-details'>
-      {/* <MovieImagesCarousel /> */}
+      <MovieImagesCarousel />
       <DetailNav />
       <IntroDetail
         movieData={movieData}

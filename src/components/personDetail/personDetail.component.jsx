@@ -23,6 +23,16 @@ const PersonDetail = () => {
   });
 
   const {
+    personDetail,
+    personID,
+    externalID,
+    combinedCredits,
+    isLoading,
+    showLabel,
+    
+  } = personData;
+
+  const {
     birthday,
     known_for_department,
     deathday,
@@ -32,19 +42,13 @@ const PersonDetail = () => {
     biography,
     place_of_birth,
     profile_path,
-  } = personData.personDetail;
+  } = personDetail;
 
-  const {
-    personDetail,
-    externalID,
-    combinedCredits,
-    isLoading,
-    
-  } = personData;
+  
 
-  const { cast, crew } = personData.combinedCredits;
+  const { cast, crew } = combinedCredits;
 
-  const { facebook_id, instagram_id, twitter_id } = personData.externalID;
+  const { facebook_id, instagram_id, twitter_id } = externalID;
 
   const [formattedData, setFormattedData] = useState({
     sortedCastYear: [],
@@ -61,13 +65,13 @@ const PersonDetail = () => {
     }));
     Promise.all([
       fetch(
-        `https://api.themoviedb.org/3/person/${personData.personID}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
+        `https://api.themoviedb.org/3/person/${personID}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
       ),
       fetch(
-        `https://api.themoviedb.org/3/person/${personData.personID}/combined_credits?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
+        `https://api.themoviedb.org/3/person/${personID}/combined_credits?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
       ),
       fetch(
-        `https://api.themoviedb.org/3/person/${personData.personID}/external_ids?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
+        `https://api.themoviedb.org/3/person/${personID}/external_ids?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
       ),
     ])
       .then(([personDetail, combinedCredits, externalID]) =>
@@ -106,7 +110,7 @@ const PersonDetail = () => {
         }));
         // console.log(err);
       });
-  }, [personData.personID]);
+  }, [personID]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -135,7 +139,7 @@ const PersonDetail = () => {
   //   formattedData,
   // });
 
-  return personData.personDetail.status_message ? (
+  return personDetail.status_message ? (
     <Redirect to='/404-page_not_found' />
   ) : !cast ? (
     <BlanketElement isLoading={isLoading} refetchData={fetchData} />
@@ -273,28 +277,28 @@ const PersonDetail = () => {
               <PersonCreditCategory
                 year={formattedData.sortedCastYear}
                 checkboxOnClick={checkboxOnClick}
-                showLabel={personData.showLabel}
+                showLabel={showLabel}
                 dropdwon={true}
                 category={'Acting'}
               />
               <PersonCreditCategory
                 year={formattedData.productionListYear}
                 checkboxOnClick={checkboxOnClick}
-                showLabel={personData.showLabel}
+                showLabel={showLabel}
                 dropdwon={false}
                 category={'Production'}
               />
               <PersonCreditCategory
                 year={formattedData.crewListYear}
                 checkboxOnClick={checkboxOnClick}
-                showLabel={personData.showLabel}
+                showLabel={showLabel}
                 dropdwon={false}
                 category={'Crew'}
               />
               <PersonCreditCategory
                 year={formattedData.directingListYear}
                 checkboxOnClick={checkboxOnClick}
-                showLabel={personData.showLabel}
+                showLabel={showLabel}
                 dropdwon={false}
                 category={'Directing'}
               />

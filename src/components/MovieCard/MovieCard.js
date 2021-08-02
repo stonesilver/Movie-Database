@@ -2,7 +2,7 @@ import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
-import { CSSTransitionGroup } from 'react-transition-group';
+// import { CSSTransitionGroup } from 'react-transition-group';
 import 'react-circular-progressbar/dist/styles.css';
 import './movie-card.styles.scss';
 
@@ -39,13 +39,13 @@ const MovieCard = ({
     ? removeSpecialCharacters.replace(/\s/g, '-')
     : '';
   return (
-    <CSSTransitionGroup
-      transitionName='fade'
-      transitionAppear={true}
-      transitionAppearTimeout={500}
-      transitionEnter={false}
-      transitionLeave={false}
-    >
+    // <CSSTransitionGroup
+    //   transitionName='fade'
+    //   transitionAppear={true}
+    //   transitionAppearTimeout={500}
+    //   transitionEnter={false}
+    //   transitionLeave={false}
+    // >
       <div
         className={`movie-and-tv-card ${
           movieTv ? 'mobile-for-tv-movies-category' : ''
@@ -107,7 +107,7 @@ const MovieCard = ({
           </div>
         </div>
       </div>
-    </CSSTransitionGroup>
+    // </CSSTransitionGroup>
   );
 };
 

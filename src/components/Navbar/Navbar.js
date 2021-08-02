@@ -102,7 +102,7 @@ const NavigationBar = () => {
             <NavDropdown.Item href='#'>Support</NavDropdown.Item>
           </NavDropdown>
         </Nav>
-        <Form>
+        <Form inline>
           <FormControl
             type='text'
             placeholder='Search'

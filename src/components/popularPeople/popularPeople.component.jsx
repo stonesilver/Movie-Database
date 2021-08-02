@@ -67,7 +67,7 @@ const PopularPeople = () => {
           <PeopleCard
             src={
               profile_path
-                ? `http://image.tmdb.org/t/p/w185${profile_path}`
+                ? `http://image.tmdb.org/t/p/w780${profile_path}`
                 : 'https://tjszkxabrz-flywheel.netdna-ssl.com/wp-content/uploads/2016/05/No-Image.jpg'
             }
             name={name}

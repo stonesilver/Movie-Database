@@ -31,7 +31,7 @@
       width: 100%;
       margin: 0;
       padding: 0;
-      // height: 80%;
+      height: 80%;
       min-height: 30vh;
       background: $blankImagecontainer;
 
@@ -49,9 +49,8 @@
       display: flex;
       width: 100%;
       margin-top: 0.2rem;
-      height: 20%;
+      height: auto;
       color: #f3f1f1;
-      border: 1px solid red;
 
       p {
         font-size: 0.75rem;

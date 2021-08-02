@@ -1,7 +1,7 @@
 import React from 'react';
 import CarouselDisplay from '../Carousel/Carousel';
 import Popular from '../Popular/Popular';
-import FreeToWatch from '../kids/kids';
+import KidsMovies from '../kids/kids';
 import LatestTrailer from '../LatestTrailer/LatestTrailer';
 import Trending from '../Trending/Trending';
 import JoinUs from '../JoinUs/JoinUs';
@@ -11,7 +11,7 @@ const Homepage = () => {
     <div>
       <CarouselDisplay />
       <Popular />
-      <FreeToWatch />
+      <KidsMovies />
       <LatestTrailer />
       <Trending />
       <JoinUs />

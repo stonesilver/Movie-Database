@@ -21,7 +21,7 @@
       .person-detail-left-section-img {
         @media all and (max-width: 768px) {
           display: grid;
-          grid-template-columns: 0.32fr;
+          grid-template-columns: 0.35fr;
           justify-content: center;
           align-items: center;
         }
@@ -80,7 +80,7 @@
             font-size: 1rem;
 
             @media all and (max-width: 768px) {
-              font-size: .85rem;
+              font-size: .9rem;
             }
           }
           p {

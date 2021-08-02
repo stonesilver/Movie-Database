@@ -10,7 +10,7 @@ import PageNotFound from './components/404Page/404Page.component';
 import Footer from './components/Footer/Footer';
 import collectionDetails from './components/collection-page/collection-page.component';
 import MyComponent from './components/lazy-load/lazy-load.component';
-// import MovieImagesCarousel from './components/movieImagesCarousel/movieImagesCarousel.component';
+import MovieImagesCarousel from './components/movieImagesCarousel/movieImagesCarousel.component';
 import SearchPage from './components/searchPage/searchPage.component';
 import YoutubeIframe from './components/youtube/youtube.component';
 import { useLocation } from 'react-router-dom';
@@ -22,7 +22,7 @@ const App = () => {
   return (
     // bg-dark bg-colour
     <div className='App'>
-      {/* <MovieImagesCarousel /> */}
+      <MovieImagesCarousel />
       <NavigationBar />
       <Switch location={background || location}>
       {/* <Switch> */}

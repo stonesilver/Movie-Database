@@ -1,11 +1,9 @@
 @import '../../assets/sass-variables';
 
-
 .season-details {
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid #867f7f;
-  // min-height: 32vh;
   width: 100%;
 
   .season-card {
@@ -19,6 +17,7 @@
 
     @media screen and (max-width: 768px) {
       grid-template-columns: 0.25fr 1fr;
+      grid-gap: .7rem;
     }
 
     .image-container {
@@ -26,6 +25,10 @@
       overflow: hidden;
       border-radius: 6px;
       background: $blankImagecontainer;
+
+      @media screen and (max-width: 768px) {
+        min-height: 16vh;
+      }
 
       img {
         width: 100%;
@@ -52,6 +55,11 @@
           margin: 0;
           margin-right: 0.8rem;
 
+          @media screen and (max-width: 768px) {
+            font-size: calc(1.1rem + 0.5vw);
+            font-weight: 600;
+          }
+
           &:hover {
             color: rgb(235, 176, 16);
           }
@@ -66,6 +74,10 @@
       .season-premiered {
         font-size: 0.9rem;
         padding-right: 0.7rem;
+
+        @media screen and (max-width: 768px) {
+          font-size: calc(0.7rem + 0.5vw);
+        }
       }
 
       .overview {
@@ -75,6 +87,9 @@
 
         @media screen and (max-width: 768px) {
           padding-right: 0.7rem;
+          height: 2rem;
+          overflow: hidden;
+          font-size: 0.75rem;
         }
 
         p {

@@ -144,6 +144,10 @@
       }
 
       .view-links {
+
+        @media screen and (max-width: 768px) {
+          font-size: .85rem
+        }
         &:hover {
           color: rgb(231, 174, 16);
           cursor: pointer;
@@ -163,6 +167,11 @@
       .crew {
         width: 25vw;
 
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          margin-bottom: 1rem;
+        }
+
         .header {
           margin-bottom: 0.8rem;
 
@@ -179,6 +188,8 @@
       }
 
       .guest-stars {
+        width: 100%;
+        
         .header {
           font-size: 0.9rem;
 
@@ -194,11 +205,11 @@
         .guest-stars-container {
           display: grid;
           grid-template-columns: repeat(2, minmax(150px, 1fr));
-          grid-gap: 1rem 5rem;
+          gap: 1rem 5rem;
 
           @media screen and (max-width: 768px) {
             grid-template-columns: 1fr;
-            grid-gap: 1rem;
+            gap: 1rem;
           }
         }
       }

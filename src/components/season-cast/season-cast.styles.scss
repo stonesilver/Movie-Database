@@ -1,8 +1,8 @@
 @mixin gridGap {
-  display: flex;
-  flex-direction: column;
-  -o-grid-gap: 1rem;
-  grid-gap: 1rem;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1rem;
+  // flex-direction: column;
 }
 
 .season-cast {

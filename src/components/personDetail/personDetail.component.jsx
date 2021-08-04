@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import DetailNav from '../detail-nav/detail-nav.component';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import ExpandableImage from '../expandableImage/expandableImage.component';
 import { Redirect } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import PersonCreditCategory from '../personCreditCategory/personCreditCategory.component';
 import KnownForCard from '../known/knownForCard.component';
 import SocialMediaHandles from '../socialMediaHandles/socialMediaHandles.component';
-import { sortedCastYearNew, productionCrewDirecting } from '../../assets/personDataFormatted';
+import {
+  sortedCastYearNew,
+  productionCrewDirecting,
+} from '../../assets/personDataFormatted';
 import './personDetail.styles.scss';
 
 const PersonDetail = () => {
@@ -29,7 +32,6 @@ const PersonDetail = () => {
     combinedCredits,
     isLoading,
     showLabel,
-    
   } = personData;
 
   const {
@@ -43,8 +45,6 @@ const PersonDetail = () => {
     place_of_birth,
     profile_path,
   } = personDetail;
-
-  
 
   const { cast, crew } = combinedCredits;
 
@@ -81,27 +81,31 @@ const PersonDetail = () => {
           externalID.json(),
         ])
       )
-      .then(
-        async ([personDetail, combinedCredits, externalID]) => {
-          setPersondata((prevState) => ({
-            ...prevState,
-            personDetail,
-            combinedCredits,
-            externalID,
-          }));
+      .then(async ([personDetail, combinedCredits, externalID]) => {
+        setPersondata((prevState) => ({
+          ...prevState,
+          personDetail,
+          combinedCredits,
+          externalID,
+        }));
 
-          await setFormattedData(prevState => ({
-            ...prevState,
-            moviesKnownFor: combinedCredits.cast
+        await setFormattedData((prevState) => ({
+          ...prevState,
+          moviesKnownFor: combinedCredits.cast
             .sort((a, b) => b.vote_count - a.vote_count)
             .filter((cast, index) => index <= 8),
-            sortedCastYear: sortedCastYearNew(combinedCredits.cast),
-            productionListYear: productionCrewDirecting(combinedCredits.crew, 'Production'),
-            crewListYear: productionCrewDirecting(combinedCredits.crew, 'Crew'),
-            directingListYear: productionCrewDirecting(combinedCredits.crew, 'Directing'),
-          }))
-        }
-      )
+          sortedCastYear: sortedCastYearNew(combinedCredits.cast),
+          productionListYear: productionCrewDirecting(
+            combinedCredits.crew,
+            'Production'
+          ),
+          crewListYear: productionCrewDirecting(combinedCredits.crew, 'Crew'),
+          directingListYear: productionCrewDirecting(
+            combinedCredits.crew,
+            'Directing'
+          ),
+        }));
+      })
       .catch((err) => {
         setPersondata((prevState) => ({
           ...prevState,
@@ -142,16 +146,15 @@ const PersonDetail = () => {
   return personDetail.status_message ? (
     <Redirect to='/404-page_not_found' />
   ) : !cast ? (
-    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+    <PageLoader isLoading={isLoading} refetchData={fetchData} />
   ) : (
     <div
       className='person-detail'
-      onClick={
-        () =>
-          setPersondata((prevState) => ({
-            ...prevState,
-            showLabel: { title: '', character: '' },
-          }))
+      onClick={() =>
+        setPersondata((prevState) => ({
+          ...prevState,
+          showLabel: { title: '', character: '' },
+        }))
       }
     >
       <DetailNav />

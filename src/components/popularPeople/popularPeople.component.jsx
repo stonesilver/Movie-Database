@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PeopleCard from '../peopleCard/peopleCard.component';
-import BlanketElement from '../../components/blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import ShowMore from '../showMore/show-more.component';
 import './popularPeople.styles.scss';
 
@@ -81,7 +81,7 @@ const PopularPeople = () => {
       <ShowMore showMorePage={showMorePage} isClicked={isClicked} />
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+    <PageLoader isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

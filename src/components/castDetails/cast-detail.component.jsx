@@ -2,11 +2,16 @@ import React, { useState, useEffect, useCallback } from 'react';
 import DetailNav from '../detail-nav/detail-nav.component';
 import CollectionCard from '../collectionCard/collection-card.component';
 import { withRouter, Redirect } from 'react-router-dom';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import LinkHeader from '../link-header/link-header.component';
 import './cast-detail.styles.scss';
 
-const CastDetail = ({ match: { params: {movieDetail}, url } }) => {
+const CastDetail = ({
+  match: {
+    params: { movieDetail },
+    url,
+  },
+}) => {
   const [cast, setCast] = useState([]);
   const [crew, setCrew] = useState([]);
   const [movieData, setMovieData] = useState([]);
@@ -17,9 +22,7 @@ const CastDetail = ({ match: { params: {movieDetail}, url } }) => {
     setIsLoading(true);
     Promise.all([
       fetch(
-        `https://api.themoviedb.org/3/${type}/${movieDetail.match(
-          /\d{1,}/
-        )}/${
+        `https://api.themoviedb.org/3/${type}/${movieDetail.match(/\d{1,}/)}/${
           type === 'tv' ? 'aggregate_credits' : 'credits'
         }?api_key=${process.env.REACT_APP_API_URL}`
       ),
@@ -40,11 +43,11 @@ const CastDetail = ({ match: { params: {movieDetail}, url } }) => {
         setMovieData(err);
         // console.log(err);
       });
-  }, [movieDetail, url])
+  }, [movieDetail, url]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchData()
+    fetchData();
   }, [fetchData]);
 
   let filteredCrew = [];
@@ -94,7 +97,9 @@ const CastDetail = ({ match: { params: {movieDetail}, url } }) => {
                   id={id}
                   name={name}
                   gender={gender}
-                  characterName={character ? character : roles ? roles[0].character : ''}
+                  characterName={
+                    character ? character : roles ? roles[0].character : ''
+                  }
                   posterPath={profile_path}
                   totalEpisodeCount={total_episode_count}
                 />
@@ -143,7 +148,7 @@ const CastDetail = ({ match: { params: {movieDetail}, url } }) => {
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+    <PageLoader isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

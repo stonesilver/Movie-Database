@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './blanket-element.styles.scss';
+import './pageLoader.styles.scss';
 
-const BlanketElement = ({ isLoading, hideInternetNotActive, refetchData }) => (
+const PageLoader = ({ isLoading, hideInternetNotActive, refetchData }) => (
   <div className='blanket-element'>
     <section style={{ display: isLoading ? 'flex' : 'none' }}>
       <span className='loader'></span>
@@ -15,4 +15,4 @@ const BlanketElement = ({ isLoading, hideInternetNotActive, refetchData }) => (
   </div>
 );
 
-export default BlanketElement;
+export default PageLoader;

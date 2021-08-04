@@ -6,7 +6,7 @@ import Social from '../social-movie-detail/social-movie-detail.component';
 import Media from '../media-movie-detail/media-movie-detail.component';
 import Recommendation from '../recommendation-movie-detail/recommendation-movie-detail.component';
 import RightSection from '../right-section/right-section.component';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import CurrentSeason from '../current-season/current-season.component';
 import Collection from '../collection/collection.component';
 // import MovieImagesCarousel from '../movieImagesCarousel/movieImagesCarousel.component';
@@ -228,7 +228,7 @@ const MovieDetails = () => {
       </section>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+    <PageLoader isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import LinkHeader from '../../components/link-header/link-header.component';
 import DetailNav from '../../components/detail-nav/detail-nav.component';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import SeasonEpisodeCard from '../season-episode-card/season-episode-card.component';
 import NextPrevious from '../nextAndPrevious/nextAndPrevious.component';
 import './season-episodes.styles.scss';
@@ -24,9 +24,9 @@ const SeasonsEpisodes = ({ match: { params } }) => {
       fetch(
         `https://api.themoviedb.org/3/tv/${params.movieDetail.match(
           /\d{1,}/
-        )}/season/${
-          params.seasonNumber
-        }?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
+        )}/season/${params.seasonNumber}?api_key=${
+          process.env.REACT_APP_API_URL
+        }&language=en-US`
       ),
       fetch(
         `https://api.themoviedb.org/3/tv/${params.movieDetail.match(
@@ -45,7 +45,7 @@ const SeasonsEpisodes = ({ match: { params } }) => {
         setIsLoading(false);
         // console.log(err);
       });
-  }, [params.movieDetail, params.seasonNumber])
+  }, [params.movieDetail, params.seasonNumber]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -138,7 +138,7 @@ const SeasonsEpisodes = ({ match: { params } }) => {
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+    <PageLoader isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

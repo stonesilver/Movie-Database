@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import DetailNav from '../detail-nav/detail-nav.component';
 import IntroDetail from '../intro-movie-detail/intro-movie-detail.component';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import CollectionCard from '../collectionCard/collection-card.component';
 import { withRouter } from 'react-router-dom';
 import { getImageColors } from '../../assets/Clarifai';
@@ -202,7 +202,7 @@ const CollectionDetails = ({ match }) => {
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+    <PageLoader isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

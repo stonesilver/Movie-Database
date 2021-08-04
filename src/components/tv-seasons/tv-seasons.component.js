@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import LinkHeader from '../../components/link-header/link-header.component';
 import DetailNav from '../../components/detail-nav/detail-nav.component';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import SeasonsCard from '../../components/seasons-card/seasons-card.component';
 import './tv-seasons.styles.scss';
 
@@ -54,7 +54,7 @@ const TvSeasons = ({ match: { params } }) => {
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} />
+    <PageLoader isLoading={isLoading} />
   );
 };
 

@@ -4,7 +4,7 @@ import DetailNav from '../detail-nav/detail-nav.component';
 import LinkHeader from '../link-header/link-header.component';
 import NextPrevious from '../nextAndPrevious/nextAndPrevious.component';
 import CollectionCard from '../collectionCard/collection-card.component';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import './season-cast.styles.scss';
 
 const SeasonCast = ({ match: { params } }) => {
@@ -101,15 +101,18 @@ const SeasonCast = ({ match: { params } }) => {
           <div className='guest-stars'>
             <p className='header'>Guest Stars</p>
             {guestStars.map(
-              ({
-                id,
-                profile_path,
-                name,
-                character,
-                gender,
-                roles,
-                total_episode_count,
-              }, index) => (
+              (
+                {
+                  id,
+                  profile_path,
+                  name,
+                  character,
+                  gender,
+                  roles,
+                  total_episode_count,
+                },
+                index
+              ) => (
                 <CollectionCard
                   key={index}
                   type={true}
@@ -162,7 +165,7 @@ const SeasonCast = ({ match: { params } }) => {
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+    <PageLoader isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

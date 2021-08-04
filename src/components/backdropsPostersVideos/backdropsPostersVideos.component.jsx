@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import DetailNav from '../detail-nav/detail-nav.component';
 import LinkHeader from '../link-header/link-header.component';
 import NextPrevious from '../nextAndPrevious/nextAndPrevious.component';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import BackdropPageLeftColumn from '../backdropPageLeftColumn/backdropPageLeftColumn.component';
 import BackdropPageRightColumn from '../backdropPageRightColumn/backdropPageRightColumn.component';
 import './backdropsPostersVideos.styles.scss';
@@ -177,7 +177,7 @@ const BackdropsPostersVideos = ({
       </div>
     </div>
   ) : (
-    <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+    <PageLoader isLoading={isLoading} refetchData={fetchData} />
   );
 };
 

@@ -5,7 +5,7 @@ import CompanyCard from '../companyCard/companyCard.component';
 import KeywordCard from '../keywordCard/keywordCard.component';
 import SearchPageLeftColumn from '../searchPageLeftColumn/searchPageLeftColumn.component';
 import SearchPagePagination from '../searchPagePagination/searchPagePagination.component';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import './searchPage.styles.scss';
 
 const SearchPage = () => {
@@ -240,7 +240,7 @@ const SearchPage = () => {
               </div>
             )
           ) : (
-            <BlanketElement isLoading={isLoading} refetchData={fetchData} />
+            <PageLoader isLoading={isLoading} refetchData={fetchData} />
           )}
           <SearchPagePagination
             totalPages={

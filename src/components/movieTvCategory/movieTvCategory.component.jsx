@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import LeftColumn from '../leftColumn/leftColumn.component';
 import RightColumn from '../rightColumn/rightColumn.component';
-import BlanketElement from '../blanket-element/blanket-element.component';
+import PageLoader from '../PageLoader/PageLoader.component';
 import { Container } from 'react-bootstrap';
 import './movieTvCategory.styles.scss';
 
@@ -329,25 +329,23 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
           />
         </div>
         <div className='movie-tv-category-display-body'>
-          {
-            movieData.length ? (
-              <RightColumn
-                movieData={movieData}
-                showMorePage={showMorePage}
-                isClicked={isClicked}
-                loading={false}
-              />
-            ) : error ? (
-              <BlanketElement isLoading={isLoading} refetchData={fetchData} />
-            ) : (
-              <RightColumn
-                movieData={[...Array(19).keys()]}
-                showMorePage={showMorePage}
-                isClicked={isClicked}
-                loading={true}
-              />
-            )
-          }
+          {movieData.length ? (
+            <RightColumn
+              movieData={movieData}
+              showMorePage={showMorePage}
+              isClicked={isClicked}
+              loading={false}
+            />
+          ) : error ? (
+            <PageLoader isLoading={isLoading} refetchData={fetchData} />
+          ) : (
+            <RightColumn
+              movieData={[...Array(19).keys()]}
+              showMorePage={showMorePage}
+              isClicked={isClicked}
+              loading={true}
+            />
+          )}
         </div>
       </div>
     </Container>

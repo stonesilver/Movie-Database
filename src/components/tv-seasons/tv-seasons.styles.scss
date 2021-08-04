@@ -4,6 +4,9 @@
     padding: 0 0 0 2.5rem;
     
     @media screen and (max-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: .5rem;
         padding: 0 0 0 .5rem;
     }
 }

@@ -98,7 +98,7 @@
         justify-content: center;
         align-items: center;
         padding: .5rem 0;
-        border-top: 1px solid $blankImagecontainer;
+        border-top: 1px solid #423f3f;
 
         .rating {
           grid-area: rating;
@@ -171,7 +171,7 @@
         position: relative;
         padding: 2.2rem 0;
         margin: 0;
-        border-top: 1px solid $blankImagecontainer;
+        border-top: 1px solid #423f3f;
       }
 
       .movie-score {

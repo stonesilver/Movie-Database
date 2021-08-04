@@ -59,8 +59,7 @@ const IntroDetail = ({
         className='left'
         style={{
           backgroundImage: mediaQuery
-            ? `linear-gradient(${backgroundColor[0]}, ${backgroundColor[0]}),
-        url("https://image.tmdb.org/t/p/w780${backdrop_path}")`
+            ? `url("https://image.tmdb.org/t/p/w780${backdrop_path}")`
             : 'transparent',
         }}
       >

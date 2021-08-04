@@ -17,7 +17,7 @@
 
     @media screen and (max-width: 768px) {
       grid-template-columns: 0.25fr 1fr;
-      grid-gap: .7rem;
+      grid-gap: 0.7rem;
     }
 
     .image-container {
@@ -28,6 +28,7 @@
 
       @media screen and (max-width: 768px) {
         min-height: 16vh;
+        height: 16vh;
       }
 
       img {

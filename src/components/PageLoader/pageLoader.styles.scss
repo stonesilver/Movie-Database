@@ -48,7 +48,6 @@ $size: 78px;
       @media all and (max-width: 480px) {
         width: $size / 10;
         height: 20px;
-        border: 1px solid red;
       }
 
       &::after,
@@ -67,7 +66,6 @@ $size: 78px;
         @media all and (max-width: 480px) {
           width: $size / 10;
           height: 20px;
-          border: 1px solid red;
         }
       }
       &::before {

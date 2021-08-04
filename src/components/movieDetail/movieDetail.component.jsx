@@ -111,7 +111,7 @@ const MovieDetails = () => {
           ])
       )
       .then(
-        ([
+        async([
           movieData,
           credits,
           keywords,
@@ -121,7 +121,7 @@ const MovieDetails = () => {
           reviews,
           externalID,
         ]) => {
-          setMovieDetailsData((prevState) => ({
+          await setMovieDetailsData((prevState) => ({
             ...prevState,
             movieData,
             credits,
@@ -132,6 +132,14 @@ const MovieDetails = () => {
             reviews: reviews.results,
             externalID,
           }));
+
+          await getImageColors(movieData.backdrop_path).then((colors) =>
+      setMovieDetailsData((prevState) => ({
+        ...prevState,
+        backgroundColor: colors,
+      }))
+    );
+          console.log({movieData})
         }
       )
       .catch((err) => {
@@ -146,13 +154,14 @@ const MovieDetails = () => {
         }));
       });
 
-    getImageColors(movieDetailsData.movieData.backdrop_path).then((colors) =>
-      setMovieDetailsData((prevState) => ({
-        ...prevState,
-        backgroundColor: colors,
-      }))
-    );
-  }, [movieDetail, path, movieDetailsData.movieData.backdrop_path]);
+    // getImageColors(movieDetailsData.movieData.backdrop_path).then((colors) =>
+    //   setMovieDetailsData((prevState) => ({
+    //     ...prevState,
+    //     backgroundColor: colors,
+    //   }))
+    // );
+  }, [movieDetail, path]);
+  // , movieDetailsData.movieData.backdrop_path
 
   useEffect(() => {
     window.scrollTo(0, 0);

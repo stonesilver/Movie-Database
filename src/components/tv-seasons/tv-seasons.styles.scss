@@ -1,12 +1,19 @@
-.season-container {
-    width: 100%;
+.tv-seasons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .season-container {
+    // width: 100%;
     margin: 0;
     padding: 0 0 0 2.5rem;
-    
+
     @media screen and (max-width: 768px) {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: .5rem;
-        padding: 0 0 0 .5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 0 0.5rem;
     }
+  }
 }

@@ -139,7 +139,6 @@ const MovieDetails = () => {
         backgroundColor: colors,
       }))
     );
-          console.log({movieData})
         }
       )
       .catch((err) => {

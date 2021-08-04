@@ -5,6 +5,7 @@
   flex-direction: column;
   border-bottom: 1px solid #867f7f;
   width: 100%;
+  height: 100%;
 
   .season-card {
     display: grid;
@@ -18,17 +19,18 @@
     @media screen and (max-width: 768px) {
       grid-template-columns: 0.25fr 1fr;
       grid-gap: 0.7rem;
+      padding: 0.5rem 0;
     }
 
     .image-container {
       min-height: 25vh;
+      height: 100%;
       overflow: hidden;
       border-radius: 6px;
       background: $blankImagecontainer;
 
       @media screen and (max-width: 768px) {
         min-height: 16vh;
-        height: 16vh;
       }
 
       img {
@@ -43,59 +45,73 @@
     }
 
     .season-body {
-      margin: auto 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       width: 100%;
+      height: 100%;
 
-      .title {
-        display: flex;
-        align-items: baseline;
-        padding: 0;
-        margin: 0;
+      &-container {
 
-        h3 {
+        .title {
+          display: flex;
+          align-items: baseline;
+          padding: 0;
           margin: 0;
-          margin-right: 0.8rem;
+
+          h3 {
+            margin: 0;
+            margin-right: 0.8rem;
+
+            @media screen and (max-width: 768px) {
+              font-size: calc(1.1rem + 0.5vw);
+              font-weight: 600;
+            }
+
+            &:hover {
+              color: rgb(235, 176, 16);
+            }
+          }
+
+          span {
+            margin-right: 0.3rem;
+            font-size: 0.85rem;
+          }
+        }
+
+        .season-premiered {
+          font-size: 0.9rem;
+          padding-right: 0.7rem;
 
           @media screen and (max-width: 768px) {
-            font-size: calc(1.1rem + 0.5vw);
-            font-weight: 600;
-          }
-
-          &:hover {
-            color: rgb(235, 176, 16);
+            font-size: calc(0.7rem + 0.5vw);
           }
         }
 
-        span {
-          margin-right: 0.3rem;
+        .overview {
           font-size: 0.85rem;
-        }
-      }
+          line-height: 1.4;
+          padding-right: 2rem;
 
-      .season-premiered {
-        font-size: 0.9rem;
-        padding-right: 0.7rem;
+          @media screen and (max-width: 768px) {
+            padding-right: 0.7rem;
+            overflow: hidden;
+            font-size: 0.75rem;
+          }
 
-        @media screen and (max-width: 768px) {
-          font-size: calc(0.7rem + 0.5vw);
-        }
-      }
-
-      .overview {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        padding-right: 2rem;
-
-        @media screen and (max-width: 768px) {
-          padding-right: 0.7rem;
-          height: 2rem;
-          overflow: hidden;
-          font-size: 0.75rem;
+          p {
+            margin: 0;
+            padding: 0;
+          }
         }
 
-        p {
-          margin: 0;
-          padding: 0;
+        .overview-height-shortened {
+          @media screen and (max-width: 768px) {
+            padding-right: 0.7rem;
+            height: 2rem;
+            overflow: hidden;
+            font-size: 0.75rem;
+          }
         }
       }
     }

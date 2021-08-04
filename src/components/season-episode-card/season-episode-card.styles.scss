@@ -189,7 +189,7 @@
 
       .guest-stars {
         width: 100%;
-        
+
         .header {
           font-size: 0.9rem;
 
@@ -204,7 +204,7 @@
 
         .guest-stars-container {
           display: grid;
-          grid-template-columns: repeat(2, minmax(150px, 1fr));
+          grid-template-columns: repeat(2, 1fr);
           gap: 1rem 5rem;
 
           @media screen and (max-width: 768px) {

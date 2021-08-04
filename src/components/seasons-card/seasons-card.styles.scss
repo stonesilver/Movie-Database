@@ -5,10 +5,10 @@
   flex-direction: column;
   border-bottom: 1px solid #867f7f;
   width: 100%;
-  height: 100%;
+  // height: 100%;
 
   @media screen and (max-width: 768px) {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 
   .season-card {
@@ -16,7 +16,7 @@
     grid-template-columns: 0.11fr 1fr;
     grid-gap: 1rem;
     width: 100%;
-    height: 100%;
+    // height: 100%;
     padding: 1rem 0;
     color: #ffffff;
 
@@ -35,6 +35,7 @@
 
       @media screen and (max-width: 768px) {
         min-height: 16vh;
+        height: 16vh;
       }
 
       img {
@@ -56,7 +57,6 @@
       height: 100%;
 
       &-container {
-
         .title {
           display: flex;
           align-items: baseline;

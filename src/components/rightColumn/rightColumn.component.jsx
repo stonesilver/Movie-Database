@@ -23,7 +23,7 @@ const RightColumn = ({ movieData, showMorePage, isClicked, loading }) => (
           <MovieCard
             src={
               poster_path
-                ? `https://image.tmdb.org/t/p/w342${poster_path}`
+                ? `https://image.tmdb.org/t/p/w780${poster_path}`
                 : 'https://tjszkxabrz-flywheel.netdna-ssl.com/wp-content/uploads/2016/05/No-Image.jpg'
             }
             rating={vote_average}

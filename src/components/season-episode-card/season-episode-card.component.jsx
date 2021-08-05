@@ -34,6 +34,7 @@ const SeasonEpisodeCard = ({
       .catch((err) => {
         // console.log(err);
       });
+    return setEpisodeImages([]);
   }, [params.movieDetail, params.seasonNumber, episode_number]);
 
   const expandOnClick = () => {

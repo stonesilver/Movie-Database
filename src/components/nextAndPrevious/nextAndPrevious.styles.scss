@@ -5,9 +5,17 @@
     padding: 0 2.5rem;
     color: #ffffff;
 
+    @media screen and (max-width: 768px) {
+      padding: 0 0.5rem;
+    }
+
     p {
       margin: 0;
       padding: 0.5rem 0;
+
+      @media screen and (max-width: 768px) {
+        font-size: 0.88rem;
+      }
 
       .fa-arrow-left {
         padding-right: 0.5rem;

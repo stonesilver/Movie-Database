@@ -260,9 +260,9 @@ const PersonDetail = () => {
                 <div className='known-for-scroll'>
                   <div className='known-for-scroll-container'>
                     {formattedData.moviesKnownFor.map(
-                      ({ poster_path, title, name, id, movieType }) => (
+                      ({ poster_path, title, name, id, movieType }, index) => (
                         <KnownForCard
-                          key={id}
+                          key={index}
                           title={title}
                           name={name}
                           poster_path={poster_path}

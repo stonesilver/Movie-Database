@@ -45,6 +45,7 @@ const SeasonsEpisodes = ({ match: { params } }) => {
         setIsLoading(false);
         // console.log(err);
       });
+      return(setEpisodes([]))
   }, [params.movieDetail, params.seasonNumber]);
 
   useEffect(() => {

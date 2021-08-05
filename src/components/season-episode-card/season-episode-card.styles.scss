@@ -157,10 +157,11 @@
 
     .expanded-view-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+      grid-template-columns: max-content auto;
       padding: 0 1rem;
 
       @media screen and (max-width: 768px) {
+        grid-template-columns: auto;
         padding: 0 0.5rem;
       }
 

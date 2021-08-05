@@ -9,7 +9,7 @@ import PeoplePage from './pages/peoplePage/peoplePage.component';
 import PageNotFound from './components/404Page/404Page.component';
 import Footer from './components/Footer/Footer';
 import collectionDetails from './components/collection-page/collection-page.component';
-import MyComponent from './components/lazy-load/lazy-load.component';
+// import MyComponent from './components/lazy-load/lazy-load.component';
 // import MovieImagesCarousel from './components/movieImagesCarousel/movieImagesCarousel.component';
 import SearchPage from './components/searchPage/searchPage.component';
 import YoutubeIframe from './components/youtube/youtube.component';
@@ -35,7 +35,7 @@ const App = () => {
           component={collectionDetails}
         />
         <Route exact path={`/search`} component={SearchPage} />
-        <Route exact path='/lazy' component={MyComponent} />
+        {/* <Route exact path='/lazy' component={MyComponent} /> */}
         <Route component={PageNotFound} /> 
       </Switch>
       {background && (

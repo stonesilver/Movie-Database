@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import DetailNav from '../detail-nav/detail-nav.component';
 import LinkHeader from '../link-header/link-header.component';
 import NextPrevious from '../nextAndPrevious/nextAndPrevious.component';
@@ -8,18 +8,20 @@ import BackdropPageLeftColumn from '../backdropPageLeftColumn/backdropPageLeftCo
 import BackdropPageRightColumn from '../backdropPageRightColumn/backdropPageRightColumn.component';
 import './backdropsPostersVideos.styles.scss';
 
-const BackdropsPostersVideos = ({
-  match: {
-    params: {
-      movieDetail,
-      seasonNumber,
-      episodeNumber,
-      imageType,
-      episodeVideos,
-    },
-    path,
-  },
-}) => {
+// {
+//   match: {
+//     params: {
+//       movieDetail,
+//       seasonNumber,
+//       episodeNumber,
+//       imageType,
+//       episodeVideos,
+//     },
+//     path,
+//   },
+// }
+
+const BackdropsPostersVideos = () => {
   const [data, setData] = useState([]);
   const [images, setImages] = useState([]);
   const [videos, setVideos] = useState([]);
@@ -27,6 +29,15 @@ const BackdropsPostersVideos = ({
   const [mediaToDisplay, setMediaToDisplay] = useState([]);
   const [currentTab, setCurrentTab] = useState('Videos');
   const [isLoading, setIsLoading] = useState(true);
+  const {
+    movieDetail,
+    seasonNumber,
+    episodeNumber,
+    imageType,
+    episodeVideos,
+  } = useParams();
+  const { pathname } = useLocation();
+  // console.log(pathname)
 
   const fetchData = useCallback(() => {
     setIsLoading(true);
@@ -58,7 +69,7 @@ const BackdropsPostersVideos = ({
           setIsLoading(false);
         });
     } else {
-      const pathType = path.match(/tv/) ? 'tv' : 'movie';
+      const pathType = pathname.match(/tv/) ? 'tv' : 'movie';
       fetch(
         `https://api.themoviedb.org/3/${pathType}/${movieDetail.match(
           /\d{1,}/
@@ -89,7 +100,7 @@ const BackdropsPostersVideos = ({
   }, [
     episodeNumber,
     episodeVideos,
-    path,
+    pathname,
     seasonNumber,
     imageType,
     movieDetail,
@@ -181,4 +192,4 @@ const BackdropsPostersVideos = ({
   );
 };
 
-export default withRouter(BackdropsPostersVideos);
+export default BackdropsPostersVideos;

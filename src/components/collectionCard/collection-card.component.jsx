@@ -70,6 +70,8 @@ const CollectionCard = ({
                       : department
                       ? department
                       : known_for_department
+                      ? known_for_department
+                      : ''
                   }`}
                   {totalEpisodeCount ? (
                     <span className='episodes'>{`(${totalEpisodeCount} Episodes)`}</span>

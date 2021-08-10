@@ -20,45 +20,40 @@ const CollectionDetails = ({ match }) => {
       `https://api.themoviedb.org/3/collection/${match.params.collectionID}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
     )
       .then((res) => res.json())
-      .then((data) => {
-        setCollectionData(data);
-        // getImageColors(data.backdrop_path).then((colors) =>
-        //   setBackgroundColor(colors))
-        (async () => {
-          setCollectionPart(
-            await Promise.all(
-              data.parts.map((item) =>
-                fetch(
-                  `https://api.themoviedb.org/3/movie/${item.id}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
-                )
-                  .then((res) => res.json())
-                  .then((data) => data)
-                  .catch((err) => {
-                    // console.log(err);
-                  })
+      .then(async (data) => {
+        await getImageColors(data.backdrop_path).then((colors) =>
+          setBackgroundColor(colors)
+        );
+        await setCollectionData(data);
+        await setCollectionPart(
+          await Promise.all(
+            data.parts.map((item) =>
+              fetch(
+                `https://api.themoviedb.org/3/movie/${item.id}?api_key=${process.env.REACT_APP_API_URL}&language=en-US`
               )
+                .then((res) => res.json())
+                .then((data) => data)
+                .catch((err) => {
+                  // console.log(err);
+                })
             )
-          );
+          )
+        );
 
-          setCollectionCast(
-            await Promise.all(
-              data.parts.map((item) =>
-                fetch(
-                  `https://api.themoviedb.org/3/movie/${item.id}/credits?api_key=${process.env.REACT_APP_API_URL}`
-                )
-                  .then((res) => res.json())
-                  .then((data) => data)
-                  .catch((err) => {
-                    // console.log(err);
-                  })
+        await setCollectionCast(
+          await Promise.all(
+            data.parts.map((item) =>
+              fetch(
+                `https://api.themoviedb.org/3/movie/${item.id}/credits?api_key=${process.env.REACT_APP_API_URL}`
               )
+                .then((res) => res.json())
+                .then((data) => data)
+                .catch((err) => {
+                  // console.log(err);
+                })
             )
-          );
-
-          await getImageColors(data.backdrop_path).then((colors) =>
-            setBackgroundColor(colors)
-          );
-        })();
+          )
+        );
       })
       .catch((err) => {
         setisLoading(false);

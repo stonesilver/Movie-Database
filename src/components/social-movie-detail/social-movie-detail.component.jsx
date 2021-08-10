@@ -141,7 +141,7 @@ const Social = ({ reviews, movieData }) => {
             </div>
           </div>
         ) : (
-          <div>{`We don't have any reviews for ${
+          <div className='no-review'>{`We don't have any reviews for ${
             movieData.title || movieData.name
           }`}</div>
         )}

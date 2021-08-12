@@ -1,12 +1,10 @@
 import React from 'react';
-import LazyLoad from 'react-lazy-load';
+import TopBilledCastCard from '../TopBilledCastCard/TopBilledCastCard.component';
 import { Link, withRouter } from 'react-router-dom';
 import './top-billed-cast.styles.scss';
 
 const TopBilledCast = ({ cast, type, match }) => {
-  const filteredCast = cast.filter(
-    ({ profile_path }, index) => index <= 9
-  );
+  const filteredCast = cast.filter(({ profile_path }, index) => index <= 9);
   return (
     <div className='top-billed-cast'>
       <div className='second-grid-title'>
@@ -16,70 +14,39 @@ const TopBilledCast = ({ cast, type, match }) => {
       </div>
       {cast.length ? (
         <div>
-          <LazyLoad height={'100%'} offset={120}>
-            <div className='cast-card-scroll'>
-              {filteredCast.map(
-                ({
-                  id,
-                  name,
-                  character,
-                  profile_path,
-                  roles,
-                  total_episode_count,
-                }) => (
-                  <Link
-                    to={`/people/${id}-${(name.match(/\w|\s/g).join('') || name)
-                      .replace(/\s/g, '-')
-                      .toLowerCase()}`}
-                    key={id}
-                    className='cast-card'
-                  >
-                      <div className='cast-card-img'>
-                        <LazyLoad height={'100%'} offset={120}>
-                          <img
-                            src={
-                              profile_path
-                                ? `https://image.tmdb.org/t/p/w185${profile_path}`
-                                : `https://upload.wikimedia.org/wikipedia/commons/3/34/PICA.jpg`
-                            }
-                            alt={name}
-                            className='cast-image'
-                          />
-                        </LazyLoad>
-                      </div>
-                      <div className='cast-card-body'>
-                        <p className='original-name'>{name}</p>
-                        <p className='cast-name'>
-                          {character
-                            ? character
-                            : roles
-                            ? roles[0].character
-                            : ''}
-                        </p>
-                        {total_episode_count ? (
-                          <p className='total-episode-count'>
-                            {`${total_episode_count} Episodes`}
-                          </p>
-                        ) : (
-                          ''
-                        )}
-                      </div>
-                  </Link>
-                )
-              )}
-              {filteredCast.length > 8 ? (
-                <div className='view-more'>
-                  <Link to={`${match.url}/cast`}>
-                    <p className='view-more-text'>
-                      View More <i className='fas fa-arrow-right'></i>
-                    </p>
-                  </Link>
-                </div>
-              ) : (
-                ''
-              )}
-            </div>
-          </LazyLoad>
+          <div className='cast-card-scroll'>
+            {filteredCast.map(
+              ({
+                id,
+                name,
+                character,
+                profile_path,
+                roles,
+                total_episode_count,
+              }) => (
+                <TopBilledCastCard
+                  key={id}
+                  id={id}
+                  name={name}
+                  roles={roles}
+                  character={character}
+                  profile_path={profile_path}
+                  total_episode_count={total_episode_count}
+                />
+              )
+            )}
+            {filteredCast.length > 8 ? (
+              <div className='view-more'>
+                <Link to={`${match.url}/cast`}>
+                  <p className='view-more-text'>
+                    View More <i className='fas fa-arrow-right'></i>
+                  </p>
+                </Link>
+              </div>
+            ) : (
+              ''
+            )}
+          </div>
           <div className='full-cast'>
             <Link to={`${match.url}/cast`}>
               <p>Full Cast & Crew</p>
@@ -87,7 +54,9 @@ const TopBilledCast = ({ cast, type, match }) => {
           </div>
         </div>
       ) : (
-        <p style={{ color: 'white' }}>Cast not currently Available</p>
+        <p style={{ color: 'white', fontSize: '0.75rem' }}>
+          Cast not currently Available
+        </p>
       )}
       <hr />
     </div>

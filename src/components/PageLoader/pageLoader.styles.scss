@@ -16,6 +16,10 @@ $size: 78px;
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width: 768px) {
+    height: 75vh;
+  }
+
   section {
     min-width: 200px;
     width: 33.33%;

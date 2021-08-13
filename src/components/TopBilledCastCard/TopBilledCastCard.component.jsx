@@ -18,7 +18,7 @@ const TopBilledCastCard = ({
         .toLowerCase()}`}
       className='cast-card'
     >
-        <LazyLoad className='cast-card-img' height={'100%'} offset={120}>
+        <LazyLoad className='cast-card-img'  offset={120}>
           <img
             src={
               profile_path

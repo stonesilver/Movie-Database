@@ -18,8 +18,7 @@ const TopBilledCastCard = ({
         .toLowerCase()}`}
       className='cast-card'
     >
-      <div className='cast-card-img'>
-        <LazyLoad height={'100%'} offset={120}>
+        <LazyLoad className='cast-card-img' height={'100%'} offset={120}>
           <img
             src={
               profile_path
@@ -30,7 +29,6 @@ const TopBilledCastCard = ({
             className='cast-image'
           />
         </LazyLoad>
-      </div>
       <div className='cast-card-body'>
         <p className='original-name'>{name}</p>
         <p className='cast-name'>

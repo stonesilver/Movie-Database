@@ -3,6 +3,11 @@
 
   .second-grid-title {
     padding: 0 0.5rem;
+
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
+
     .top-cast-header {
       font-weight: 600;
       color: #ffffff;

@@ -34,6 +34,10 @@
         .media {
           font-size: 1.8rem;
           font-weight: 600;
+
+          @media screen and (max-width: 768px) {
+            font-size: 1.05rem;
+          }
         }
 
         .media-category-container {
@@ -74,6 +78,10 @@
                 font-size: 0.9rem;
                 font-weight: 500;
                 padding: 0.2rem 0.5rem;
+
+                &:hover {
+                  border-bottom: 2px solid rgba(165, 12, 152, 0.589);
+                }
               }
             }
           }

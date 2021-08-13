@@ -6,6 +6,10 @@
   .header {
     color: #f3f1f1;
     font-weight: 600;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.05rem;
+    }
   }
 
   .recommendations-container-scroll {

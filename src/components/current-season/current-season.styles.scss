@@ -4,6 +4,12 @@
   width: 100%;
   color: #ffffff;
 
+  .header {
+    @media screen and (max-width: 768px) {
+      font-size: 1.05rem;
+    }
+  }
+
   .season {
     display: grid;
     grid-template-columns: 0.18fr 1fr;

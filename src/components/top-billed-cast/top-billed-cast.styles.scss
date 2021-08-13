@@ -6,11 +6,16 @@
 
     @media screen and (max-width: 768px) {
       padding: 0;
+      font-size: 1rem;
     }
 
     .top-cast-header {
       font-weight: 600;
       color: #ffffff;
+
+      @media screen and (max-width: 768px) {
+        font-size: 1.05rem;
+      }
     }
   }
 

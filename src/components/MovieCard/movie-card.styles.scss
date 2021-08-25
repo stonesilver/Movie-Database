@@ -21,17 +21,16 @@
     min-height: 80%;
     background: $blankImagecontainer;
     border-radius: 7px;
+    overflow: hidden;
 
     .movie-and-tv-card-img-container {
       width: 100%;
       height: 100%;
-      border-radius: 7px;
 
       .movie-and-tv-card-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 7px;
       }
     }
 
@@ -52,13 +51,11 @@
     .movie-and-tv-card-img-container {
       width: 100%;
       height: 100%;
-      border-radius: 7px;
 
       .movie-and-tv-card-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 7px;
       }
     }
 

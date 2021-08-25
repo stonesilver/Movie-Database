@@ -47,11 +47,11 @@
 
   .movie-and-tv-card-link-homepage {
     // height: 30vh;
-    min-height: 30vh;
+    min-height: 31vh;
 
     @media screen and (max-width: 768px) {
-      // height: 25vh;
-      min-height: 25vh;
+      // height: 34vh;
+      min-height: calc(20vw + 8.45rem);
     }
   }
 

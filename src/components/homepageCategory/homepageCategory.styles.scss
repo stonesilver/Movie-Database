@@ -20,7 +20,7 @@
     margin-top: 0.5rem;
 
     @media all and (max-width: 768px) {
-      grid-auto-columns: minmax(115px, 1fr);
+      grid-auto-columns: minmax(150px, 1fr);
     }
   }
 }

@@ -60,7 +60,7 @@
     }
 
     @media screen and (max-width: 768px) {
-      // height: 34vh;
+      height: calc(20vw + 8.45rem);
       min-height: calc(20vw + 8.45rem);
     }
   }

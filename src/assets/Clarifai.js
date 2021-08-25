@@ -20,5 +20,5 @@ export const getImageColors = (imgURL) =>
     })
     .catch((err) => {
       // console.log(err);
-      return ['#212121e7', '#212121', '#ffc107'];
+      return ['#212121e7', '#212121', '#181717'];
     });

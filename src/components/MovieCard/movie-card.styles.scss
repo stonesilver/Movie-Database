@@ -108,9 +108,13 @@
 .mobile-for-tv-movies-category {
   @media screen and (max-width: 768px) {
     display: grid;
-    grid-template-columns: 0.35fr 1fr;
+    grid-template-columns: 0.36fr 1fr;
     grid-gap: 0.2rem;
     height: 22vh;
+
+    @media screen and (max-width: 768px) {
+      height: calc(30vw + 3.2rem);
+    }
 
     .movie-and-tv-card-link {
       display: block;

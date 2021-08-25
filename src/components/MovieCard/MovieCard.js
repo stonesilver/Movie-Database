@@ -59,7 +59,7 @@ const MovieCard = ({
             loading ? 'image-background' : ''
           } ${homepage ? 'movie-and-tv-card-link-homepage' : ''}`}
         >
-          {!loading ? (
+          {!loading && (
             <LazyLoad className='movie-and-tv-card-img-container' offset={120}>
               <img
                 src={src}
@@ -67,9 +67,7 @@ const MovieCard = ({
                 alt={movieTitle || tvTitle}
               />
             </LazyLoad>
-          ) : (
-            ''
-          )}
+          ) }
 
           <div className='circular-progressbar'>
             <CircularProgressbar

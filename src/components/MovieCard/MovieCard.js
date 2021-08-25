@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 import { CSSTransitionGroup } from 'react-transition-group';
 import 'react-circular-progressbar/dist/styles.css';
+import moment from 'moment'
 import './movie-card.styles.scss';
 
 const MovieCard = ({
@@ -29,6 +30,7 @@ const MovieCard = ({
           .toDateString()
           .slice(4)
       : '';
+      let momentDate = releaseDate || firstAirDate
   const movieType = movieTitle ? movieTitle : tvTitle;
   const removeSpecialCharacters = movieType
     ? movieType.match(/\w|\s/g)
@@ -96,7 +98,7 @@ const MovieCard = ({
             {`${movieType ? movieType : ''}`}
           </div>
           <div className={`movie-and-tv-card-text ${loading ? 'loading' : ''}`}>
-            {date ? date : ''}
+            {date ? moment(momentDate).format("MMM Do YYYY") : ''}
           </div>
           <div
             className={`movie-and-tv-card-overview ${loading ? 'loading' : ''}`}

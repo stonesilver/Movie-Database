@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 import { CSSTransitionGroup } from 'react-transition-group';
 import 'react-circular-progressbar/dist/styles.css';
-import moment from 'moment'
+import moment from 'moment';
 import './movie-card.styles.scss';
 
 const MovieCard = ({
@@ -21,16 +21,8 @@ const MovieCard = ({
   movieTv,
 }) => {
   const progress = rating * 10;
-  const movieOverview = overview ? overview  : ''
-  let date =
-    releaseDate || firstAirDate
-      ? new Date(
-          `${releaseDate ? releaseDate : firstAirDate}`.replace(/-/g, ',')
-        )
-          .toDateString()
-          .slice(4)
-      : '';
-      let momentDate = releaseDate || firstAirDate
+  const movieOverview = overview ? overview : '';
+  const momentDate = releaseDate || firstAirDate;
   const movieType = movieTitle ? movieTitle : tvTitle;
   const removeSpecialCharacters = movieType
     ? movieType.match(/\w|\s/g)
@@ -69,7 +61,7 @@ const MovieCard = ({
                 alt={movieTitle || tvTitle}
               />
             </LazyLoad>
-          ) }
+          )}
 
           <div className='circular-progressbar'>
             <CircularProgressbar
@@ -98,12 +90,14 @@ const MovieCard = ({
             {`${movieType ? movieType : ''}`}
           </div>
           <div className={`movie-and-tv-card-text ${loading ? 'loading' : ''}`}>
-            {date ? moment(momentDate).format("MMM Do YYYY") : ''}
+            {momentDate && moment(momentDate).format('MMM Do YYYY') }
           </div>
           <div
             className={`movie-and-tv-card-overview ${loading ? 'loading' : ''}`}
           >
-            {movieOverview.length > 120 ? `${movieOverview.slice(0, 115)}...` : movieOverview}
+            {movieOverview.length > 120
+              ? `${movieOverview.slice(0, 115)}...`
+              : movieOverview}
           </div>
         </div>
       </div>

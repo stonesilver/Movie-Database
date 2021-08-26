@@ -1,6 +1,11 @@
 .social-media-handles {
   width: 100%;
 
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+
   a {
     font-size: 1.5rem;
     margin-right: 1rem;

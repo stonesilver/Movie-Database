@@ -21,7 +21,7 @@
       .person-detail-left-section-img {
         @media all and (max-width: 768px) {
           display: grid;
-          grid-template-columns: 0.35fr;
+          grid-template-columns: 0.37fr;
           justify-content: center;
           align-items: center;
         }
@@ -56,10 +56,10 @@
             }
           }
 
-          .person-detail-left-section-social-media {
-            margin-top: 0.2rem;
-            text-align: center;
-          }
+          // .person-detail-left-section-social-media {
+          //   margin-top: 0.2rem;
+          //   text-align: center;
+          // }
 
           .personal-info-header {
             font-size: 1.2rem;

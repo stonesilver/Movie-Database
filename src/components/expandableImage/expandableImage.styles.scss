@@ -24,6 +24,8 @@
     background:$blankImagecontainer;
 
     @media all and (max-width: 768px) {
+      width: 45vw;
+      min-width: auto;
       height: calc(30vw + 6.9rem);
       min-height: calc(30vw + 6.9rem);
     }
@@ -35,7 +37,7 @@
         width: 100%;
         height: 100%;
         cursor: all-scroll;
-        object-fit: cover;
+        // object-fit: cover;
       }
 
       &:hover ~ .expand {

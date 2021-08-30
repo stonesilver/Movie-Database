@@ -172,6 +172,7 @@ const PersonDetail = () => {
               twitter_id={twitter_id}
               instagram_id={instagram_id}
               homepage={''}
+              center= {true}
             />
             <h4 className='personal-info-header'>Personal Info</h4>
             {known_for_department ? (

@@ -40,23 +40,21 @@ img {
   width: 100%;
   background: $blankImagecontainer;
   border-radius: 5px;
-  animation: background 6s cubic-bezier(0.77, 0.02, 0.05, 0.05) infinite;
+  animation: background 2s cubic-bezier(0.77, 0.02, 0.05, 0.05) infinite;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 .image-background {
   border-radius: inherit;
-  animation: background 6s cubic-bezier(0.77, 0.02, 0.05, 0.05) infinite;
+  animation: background 2s cubic-bezier(0.77, 0.02, 0.05, 0.05) infinite;
   transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 @keyframes background {
   0% {
-    // background: $blankImagecontainer;
-    opacity: 0.4;
+    opacity: 0.6;
   }
   100% {
-    // background: rgb(51, 50, 50);
     opacity: 1;
   }
 }

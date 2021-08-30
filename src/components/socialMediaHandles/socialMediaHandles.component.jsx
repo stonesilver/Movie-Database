@@ -1,8 +1,8 @@
 import React from 'react';
 import './socialMediaHandles.styles.scss';
 
-const SocialMediaHandles = ({ facebook_id, twitter_id, instagram_id, homepage }) => (
-  <div className='social-media-handles'>
+const SocialMediaHandles = ({ facebook_id, twitter_id, instagram_id, homepage, center }) => (
+  <div className={`social-media-handles ${center ? 'center' : ''}`}>
     {facebook_id ? (
       <a
         href={`https://facebook.com/${facebook_id}`}

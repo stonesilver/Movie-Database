@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
 import NavigationBar from './components/Navbar/Navbar';
@@ -14,11 +14,21 @@ import collectionDetails from './components/collection-page/collection-page.comp
 import SearchPage from './components/searchPage/searchPage.component';
 import YoutubeIframe from './components/youtube/youtube.component';
 import { useLocation } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './App.scss';
 
 const App = () => {
   const location = useLocation();
   const background = location.state && location.state.background;
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+      mirror: true,
+      offset: 120,
+      easing: 'ease-in-cubic'
+    });
+  }, [])
   return (
     // bg-dark bg-colour
     <div className='App'>

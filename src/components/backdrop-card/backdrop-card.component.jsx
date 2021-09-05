@@ -13,7 +13,6 @@ const BackdropCard = ({ file_path, width, height, iso_639_1 }) => {
         className={`img-container ${
           imageType === 'posters' ? 'poster-size' : ''
         }`}
-        offset={200}
       >
         <LazyLoadImage
           src={`https://image.tmdb.org/t/p/w342${file_path}`}

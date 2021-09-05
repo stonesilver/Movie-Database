@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-circular-progressbar/dist/styles.css';
 import './peopleCard.styles.scss';
 
 const PeopleCard = ({ name, src, knownFor, id, height }) => {
@@ -9,9 +10,14 @@ const PeopleCard = ({ name, src, knownFor, id, height }) => {
   return (
     <Link to={`/people/${id}-${formattedTitle.toLowerCase()}`}>
       <div className='person-card'>
-        <LazyLoad className='person-card-img' offset={100}>
-          <img src={src} alt={name} className='card-img' />
-        </LazyLoad>
+        <div className='person-card-img' offset={100}>
+          <LazyLoadImage
+            src={src}
+            alt={name}
+            className='card-img'
+            effect='blur'
+          />
+        </div>
         <div className='person-card-body'>
           <p className='person-name'>{name}</p>
           <div className='person-known-for'>

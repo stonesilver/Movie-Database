@@ -1,5 +1,6 @@
 import React from 'react';
-import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-circular-progressbar/dist/styles.css';
 import { useParams } from 'react-router-dom';
 import './backdrop-card.styles.scss';
 
@@ -8,17 +9,18 @@ const BackdropCard = ({ file_path, width, height, iso_639_1 }) => {
   const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
   return (
     <div className='backdropcard-container'>
-      <LazyLoad
+      <div
         className={`img-container ${
           imageType === 'posters' ? 'poster-size' : ''
         }`}
         offset={200}
       >
-        <img
+        <LazyLoadImage
           src={`https://image.tmdb.org/t/p/w342${file_path}`}
           alt='card'
+          effect='blur'
         />
-      </LazyLoad>
+      </div>
       <div className='info-and-icon backdropcard-category'>
         <p className='title'>Info</p>
         <span className='fa fa-lock'></span>

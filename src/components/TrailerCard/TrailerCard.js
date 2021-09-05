@@ -1,5 +1,6 @@
 import React from 'react';
-import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-circular-progressbar/dist/styles.css';
 import { Link, useLocation } from 'react-router-dom';
 import './trailer-card.styles.scss';
 
@@ -16,14 +17,15 @@ const TrailerCard = ({ src, title, overview, getMouseEvent, videoLink }) => {
           className='img-container'
         >
           {src && (
-            <LazyLoad offset={120} className='trailer-card-img-lazy'>
-              <img
+            <div className='trailer-card-img-lazy'>
+              <LazyLoadImage
                 className='trailer-card-img'
                 alt={title}
+                effect='blur'
                 src={`https://image.tmdb.org/t/p/w780${src}`}
                 onMouseOver={() => getMouseEvent(src)}
               />
-            </LazyLoad>
+            </div>
           )}
           <div className='play'></div>
         </Link>

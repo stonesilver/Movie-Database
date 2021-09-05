@@ -1,10 +1,11 @@
 import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { Link } from 'react-router-dom';
-import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-circular-progressbar/dist/styles.css';
 import moment from 'moment';
 import './movie-card.styles.scss';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const MovieCard = ({
   src,
@@ -47,13 +48,14 @@ const MovieCard = ({
         } ${homepage ? 'movie-and-tv-card-link-homepage' : ''}`}
       >
         {!loading && (
-          <LazyLoad className='movie-and-tv-card-img-container' offset={120}>
-            <img
+          <div className='movie-and-tv-card-img-container' offset={120}>
+            <LazyLoadImage
               src={src}
               className='movie-and-tv-card-image'
               alt={movieTitle || tvTitle}
+              effect='blur'
             />
-          </LazyLoad>
+          </div>
         )}
 
         <div className='circular-progressbar'>

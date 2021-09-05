@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-circular-progressbar/dist/styles.css';
 import './TopBilledCastCard.styles.scss';
 
 const TopBilledCastCard = ({
@@ -18,8 +19,8 @@ const TopBilledCastCard = ({
         .toLowerCase()}`}
       className='cast-card'
     >
-        <LazyLoad className='cast-card-img'  offset={120}>
-          <img
+        <div className='cast-card-img'  offset={120}>
+          <LazyLoadImage
             src={
               profile_path
                 ? `https://image.tmdb.org/t/p/w185${profile_path}`
@@ -27,8 +28,9 @@ const TopBilledCastCard = ({
             }
             alt={name}
             className='cast-image'
+            effect='blur'
           />
-        </LazyLoad>
+        </div>
       <div className='cast-card-body'>
         <p className='original-name'>{name}</p>
         <p className='cast-name'>

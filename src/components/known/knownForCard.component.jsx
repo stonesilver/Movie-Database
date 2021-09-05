@@ -1,5 +1,6 @@
 import React from 'react';
-import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-circular-progressbar/dist/styles.css';
 import { Link } from 'react-router-dom';
 import './knownForCard.styles.scss';
 
@@ -13,8 +14,8 @@ const KnownForCard = ({ name, title, poster_path, id }) => (
       }`}
       className='known-for-card-link'
     >
-      <LazyLoad className='known-for-card-img-container' offset={100}>
-        <img
+      <div className='known-for-card-img-container' offset={100}>
+        <LazyLoadImage
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w780${poster_path}`
@@ -22,8 +23,9 @@ const KnownForCard = ({ name, title, poster_path, id }) => (
           }
           alt={title ? title : name}
           className='known-for-card-img'
+          effect='blur'
         />
-      </LazyLoad>
+      </div>
       <div className='known-for-card-body'>
         <p className='movie-name'>{title ? title : name}</p>
       </div>

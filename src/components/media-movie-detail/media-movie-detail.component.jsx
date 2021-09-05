@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-circular-progressbar/dist/styles.css';
 import { Link, useRouteMatch } from 'react-router-dom';
 import './media-movie-detail.styles.scss';
 
@@ -122,8 +123,8 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                     }`}
                   >
                     <div className='official-trailer container'>
-                      <LazyLoad height={'100%'} offset={120}>
-                        <img
+                      <div>
+                        <LazyLoadImage
                           src={
                             videos[0]
                               ? `https://i.ytimg.com/vi/${videos[0].key}/0.jpg`
@@ -131,8 +132,9 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                           }
                           alt='official trailer'
                           className='most-popular-img'
+                          effect='blur'
                         />
-                      </LazyLoad>
+                      </div>
                     </div>
                   </Link>
                 ) : (
@@ -140,8 +142,8 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                 )}
 
                 <div className='official-poster container'>
-                  <LazyLoad height={'100%'} offset={120}>
-                    <img
+                  
+                    <LazyLoadImage
                       src={
                         backdrops[0]
                           ? `https://image.tmdb.org/t/p/w500${backdrops[0].file_path}`
@@ -149,19 +151,20 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                       }
                       alt='official poster'
                       className='most-popular-img'
+                      effect='blur'
                     />
-                  </LazyLoad>
                 </div>
 
                 {posters.length ? (
                   <div className='small-poster'>
-                    <LazyLoad height={'100%'} offset={120}>
-                      <img
+                    <div height={'100%'} offset={120}>
+                      <LazyLoadImage
                         src={`https://image.tmdb.org/t/p/w342${posters[0].file_path}`}
                         alt='small poster'
                         className='most-popular-img'
+                        effect='blur'
                       />
-                    </LazyLoad>
+                    </div>
                   </div>
                 ) : (
                   ''
@@ -184,13 +187,13 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                     key={id}
                   >
                     <div className='official-trailer container'>
-                      <LazyLoad height={'100%'} offset={120}>
-                        <img
+                      <div height={'100%'} offset={120}>
+                        <LazyLoadImage
                           src={`https://i.ytimg.com/vi/${key}/0.jpg`}
                           alt='official trailer'
                           className='most-popular-img'
                         />
-                      </LazyLoad>
+                      </div>
                     </div>
                   </Link>
                 ))}
@@ -206,13 +209,14 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
               <div className='scroll-container '>
                 {filteredBackdrops.map(({ file_path }, index) => (
                   <div className='official-poster container' key={index}>
-                    <LazyLoad height={'100%'} offset={120}>
-                      <img
+                    <div>
+                      <LazyLoadImage
                         src={`https://image.tmdb.org/t/p/w500${file_path}`}
                         alt={`official poster ${index + 1}`}
                         className='most-popular-img'
+                        effect='blur'
                       />
-                    </LazyLoad>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -227,13 +231,14 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
               <div className='scroll-container '>
                 {filteredPosters.map(({ file_path }, index) => (
                   <div className='small-poster' key={index}>
-                    <LazyLoad height={'100%'} offset={120}>
-                      <img
+                    <div>
+                      <LazyLoadImage
                         src={`https://image.tmdb.org/t/p/w342${file_path}`}
                         alt={`small poster ${index}`}
                         className='most-popular-img'
+                        effect='blur'
                       />
-                    </LazyLoad>
+                    </div>
                   </div>
                 ))}
               </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import LazyLoad from 'react-lazy-load';
 import './current-season.styles.scss';
 
 const CurrentSeason = ({ season, match: { url } }) => {
@@ -11,7 +10,6 @@ const CurrentSeason = ({ season, match: { url } }) => {
       <h5 className='header'>Current Season</h5>
       <div className='season'>
         <div className='img-container'>
-          <LazyLoad height={'100%'} offset={100}>
             <Link to={`${url}/seasons/${newSeason.season_number}`}>
               <img
                 src={
@@ -22,7 +20,6 @@ const CurrentSeason = ({ season, match: { url } }) => {
                 alt={newSeason.name}
               />
             </Link>
-          </LazyLoad>
         </div>
         <div className='season-detail'>
           <Link to={`${url}/seasons/${newSeason.season_number}`}>

@@ -145,10 +145,16 @@
             max-width: 45vw;
             padding: 0;
             margin: 0;
+            border: 5px solid red;
 
             @media all and (max-width: 768px) {
               min-width: 60vw;
               max-width: 60vw;
+            }
+
+            .image-container {
+              height: 100%;
+              width: 100%;
             }
 
             .most-popular-img {
@@ -176,6 +182,7 @@
             padding-left: 0.27rem;
             background: transparent;
             cursor: pointer;
+            z-index: 2;
 
             @media all and (max-width: 768px) {
               width: 2.6rem;
@@ -184,6 +191,7 @@
               top: calc(50% - 1.5rem);
               left: calc(50% - 1.5rem);
             }
+          
           }
 
           .small-poster {

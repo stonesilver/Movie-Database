@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import LazyLoad from 'react-lazy-load';
 import { setOpenTab } from '../../redux/movie-images/actions';
 import { useLocation } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -37,7 +36,7 @@ const ExpandableImage = ({
           await fetchImages(url);
         }}
       >
-        <LazyLoad height={'100%'} offset={120} className='image-container2'>
+        <div height={'100%'} offset={120} className='image-container2'>
           <img
             src={
               posterPath
@@ -47,7 +46,7 @@ const ExpandableImage = ({
             alt={title}
             className='movie-image'
           />
-        </LazyLoad>
+        </div>
         <div className='expand'>
           <div className='expand-content'>
             <p className='expand-text'>

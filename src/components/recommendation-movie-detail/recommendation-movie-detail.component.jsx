@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-circular-progressbar/dist/styles.css';
 import './recommendation-movie-detail.styles.scss';
 
 const Recommendation = ({ recommendations, movieData }) => {
@@ -46,8 +47,8 @@ const Recommendation = ({ recommendations, movieData }) => {
               >
                 <div className='recommendation-card'>
                   <div className='recommendations-card-img'>
-                    <LazyLoad height={'100%'} offset={120}>
-                      <img
+                    <div height={'100%'} offset={120}>
+                      <LazyLoadImage
                         src={
                           backdrop_path
                             ? `https://image.tmdb.org/t/p/w342${backdrop_path}`
@@ -55,8 +56,9 @@ const Recommendation = ({ recommendations, movieData }) => {
                         }
                         alt={name ? name : title}
                         className='card-img'
+                        effect='blur'
                       />
-                    </LazyLoad>
+                    </div>
                     <div className='release-date'>
                       <p>{release_date ? release_date : first_air_date}</p>
                     </div>

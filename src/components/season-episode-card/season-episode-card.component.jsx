@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import CollectionCard from '../collectionCard/collection-card.component';
 import { withRouter, Link } from 'react-router-dom';
-import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-circular-progressbar/dist/styles.css';
 import { airDateFormat } from '../../assets/airDateFormat';
 import './season-episode-card.styles.scss';
 
@@ -44,8 +45,8 @@ const SeasonEpisodeCard = ({
     <div className='episodes-card'>
       <div className='image-and-details'>
         <div className='img-container'>
-          <LazyLoad height={'100%'} offset={120}>
-            <img
+          <div>
+            <LazyLoadImage
               src={
                 still_path
                   ? `https://image.tmdb.org/t/p/original${still_path}`
@@ -53,7 +54,7 @@ const SeasonEpisodeCard = ({
               }
               alt={name}
             />
-          </LazyLoad>
+          </div>
         </div>
 
         <div className='episode-title-and-air-date'>
@@ -164,13 +165,14 @@ const SeasonEpisodeCard = ({
           </div>
           <div className='images-container'>
             {episodeImages.map(({ file_path }, index) => (
-              <LazyLoad offset={70} className='container' key={index}>
-                <img
+              <div className='container' key={index}>
+                <LazyLoadImage
                   src={`https://image.tmdb.org/t/p/w300${file_path}`}
                   alt={`${index + 1}`}
+                  effect='blur'
                   className='images-container-img'
                 />
-              </LazyLoad>
+              </div>
             ))}
           </div>
         </div>

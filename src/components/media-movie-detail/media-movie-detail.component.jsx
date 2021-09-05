@@ -123,18 +123,16 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                     }`}
                   >
                     <div className='official-trailer container'>
-                      <div>
-                        <LazyLoadImage
-                          src={
-                            videos[0]
-                              ? `https://i.ytimg.com/vi/${videos[0].key}/0.jpg`
-                              : ''
-                          }
-                          alt='official trailer'
-                          className='most-popular-img'
-                          effect='blur'
-                        />
-                      </div>
+                      <LazyLoadImage
+                        src={
+                          videos[0]
+                            ? `https://i.ytimg.com/vi/${videos[0].key}/0.jpg`
+                            : ''
+                        }
+                        alt='official trailer'
+                        className='most-popular-img'
+                        effect='blur'
+                      />
                     </div>
                   </Link>
                 ) : (
@@ -142,29 +140,26 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                 )}
 
                 <div className='official-poster container'>
-                  
-                    <LazyLoadImage
-                      src={
-                        backdrops[0]
-                          ? `https://image.tmdb.org/t/p/w500${backdrops[0].file_path}`
-                          : ''
-                      }
-                      alt='official poster'
-                      className='most-popular-img'
-                      effect='blur'
-                    />
+                  <LazyLoadImage
+                    src={
+                      backdrops[0]
+                        ? `https://image.tmdb.org/t/p/w500${backdrops[0].file_path}`
+                        : ''
+                    }
+                    alt='official poster'
+                    className='most-popular-img'
+                    effect='blur'
+                  />
                 </div>
 
                 {posters.length ? (
                   <div className='small-poster'>
-                    <div height={'100%'} offset={120}>
-                      <LazyLoadImage
-                        src={`https://image.tmdb.org/t/p/w342${posters[0].file_path}`}
-                        alt='small poster'
-                        className='most-popular-img'
-                        effect='blur'
-                      />
-                    </div>
+                    <LazyLoadImage
+                      src={`https://image.tmdb.org/t/p/w342${posters[0].file_path}`}
+                      alt='small poster'
+                      className='most-popular-img'
+                      effect='blur'
+                    />
                   </div>
                 ) : (
                   ''
@@ -187,13 +182,11 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
                     key={id}
                   >
                     <div className='official-trailer container'>
-                      <div height={'100%'} offset={120}>
-                        <LazyLoadImage
-                          src={`https://i.ytimg.com/vi/${key}/0.jpg`}
-                          alt='official trailer'
-                          className='most-popular-img'
-                        />
-                      </div>
+                      <LazyLoadImage
+                        src={`https://i.ytimg.com/vi/${key}/0.jpg`}
+                        alt='official trailer'
+                        className='most-popular-img'
+                      />
                     </div>
                   </Link>
                 ))}
@@ -209,14 +202,12 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
               <div className='scroll-container '>
                 {filteredBackdrops.map(({ file_path }, index) => (
                   <div className='official-poster container' key={index}>
-                    <div>
-                      <LazyLoadImage
-                        src={`https://image.tmdb.org/t/p/w500${file_path}`}
-                        alt={`official poster ${index + 1}`}
-                        className='most-popular-img'
-                        effect='blur'
-                      />
-                    </div>
+                    <LazyLoadImage
+                      src={`https://image.tmdb.org/t/p/w500${file_path}`}
+                      alt={`official poster ${index + 1}`}
+                      className='most-popular-img'
+                      effect='blur'
+                    />
                   </div>
                 ))}
               </div>
@@ -231,14 +222,12 @@ const Media = ({ videos, images: { backdrops, posters } }) => {
               <div className='scroll-container '>
                 {filteredPosters.map(({ file_path }, index) => (
                   <div className='small-poster' key={index}>
-                    <div>
-                      <LazyLoadImage
-                        src={`https://image.tmdb.org/t/p/w342${file_path}`}
-                        alt={`small poster ${index}`}
-                        className='most-popular-img'
-                        effect='blur'
-                      />
-                    </div>
+                    <LazyLoadImage
+                      src={`https://image.tmdb.org/t/p/w342${file_path}`}
+                      alt={`small poster ${index}`}
+                      className='most-popular-img'
+                      effect='blur'
+                    />
                   </div>
                 ))}
               </div>

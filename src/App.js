@@ -25,7 +25,7 @@ const App = () => {
     AOS.init({
       duration: 500,
       mirror: true,
-      offset: 120,
+      offset: 30,
       easing: 'ease-in-cubic'
     });
   }, [])

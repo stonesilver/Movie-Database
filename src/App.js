@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
 import NavigationBar from './components/Navbar/Navbar';
@@ -26,9 +26,9 @@ const App = () => {
       duration: 500,
       mirror: true,
       offset: 30,
-      easing: 'ease-in-cubic'
+      easing: 'ease-in-cubic',
     });
-  }, [])
+  }, []);
   return (
     // bg-dark bg-colour
     <div className='App'>
@@ -36,17 +36,18 @@ const App = () => {
       <NavigationBar />
       <Switch location={background || location}>
         <Route exact path='/' component={Homepage} />
-         <Route path='/movies' component={MoviePage} />
+        <Route path='/movies' component={MoviePage} />
         <Route path='/tv' component={TvShowPage} />
         <Route path='/people' component={PeoplePage} />
-        *<Route
+        *
+        <Route
           exact
           path='/collection/:collectionID'
           component={collectionDetails}
         />
         <Route exact path={`/search`} component={SearchPage} />
         {/* <Route exact path='/lazy' component={MyComponent} /> */}
-        <Route component={PageNotFound} /> 
+        <Route component={PageNotFound} />
       </Switch>
       {background && (
         <Route path={'/play/:youtubeID'} component={YoutubeIframe} />

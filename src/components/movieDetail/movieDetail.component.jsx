@@ -152,15 +152,7 @@ const MovieDetails = () => {
           isLoading: false,
         }));
       });
-
-    // getImageColors(movieDetailsData.movieData.backdrop_path).then((colors) =>
-    //   setMovieDetailsData((prevState) => ({
-    //     ...prevState,
-    //     backgroundColor: colors,
-    //   }))
-    // );
   }, [movieDetail, path]);
-  // , movieDetailsData.movieData.backdrop_path
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -172,7 +164,6 @@ const MovieDetails = () => {
     }));
   }, [fetchData]);
 
-  // console.log({ movieDetailsData });
   const {
     movieData,
     credits,

@@ -27,6 +27,7 @@ const PopularPeople = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetchData();
   }, []);
 

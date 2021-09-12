@@ -190,6 +190,7 @@ const MovieTvCategory = ({ title, movieType, movieCategory }) => {
   }, [movieType, movieCategory]);
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetchData();
 
     return setMovieData([]);

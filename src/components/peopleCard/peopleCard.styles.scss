@@ -1,10 +1,6 @@
 @import '../../assets/sass-variables';
 
 .person-card {
-  // display: grid;
-  // grid-template-rows: .9fr auto;
-  // grid-template-columns: 1fr;
-  // grid-gap: 0;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -36,7 +32,7 @@
       // height: auto;
     }
 
-    img {
+    span {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -46,7 +42,10 @@
   .person-card-body {
     display: grid;
     grid-template-rows: auto auto;
+    align-content: center;
+    height: 15%;
     color: #f3f1f1;
+    padding: 0.2rem 0;
 
     .person-name {
       text-align: center;
@@ -57,19 +56,19 @@
 
     .person-known-for {
       overflow: hidden;
-      padding: 0 .2rem;
+      padding: 0 0.2rem;
 
       p {
-      width: 100%;
-      font-size: 0.75rem;
-      font-weight: 400;
-      overflow: hidden;
-      text-align: center;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      margin: 0;
-      padding: 0;
-    }
+        width: 100%;
+        font-size: 0.75rem;
+        font-weight: 400;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0;
+        padding: 0;
+      }
     }
   }
 }

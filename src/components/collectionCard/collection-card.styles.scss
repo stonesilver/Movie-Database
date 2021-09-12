@@ -25,12 +25,16 @@
       @media screen and (max-width: 768px) {
         min-height: 3.9rem;
       }
-
-      img {
+      span {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        border-radius: 5px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 5px;
+        }
       }
     }
 

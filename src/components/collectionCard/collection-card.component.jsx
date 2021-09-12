@@ -35,7 +35,6 @@ const CollectionCard = ({
         >
           <div className='featured-collection-card'>
             <div className='collection-card-img'>
-              <div height={'100%'} offset={120}>
                 <LazyLoadImage
                   src={
                     posterPath || profile_path
@@ -49,7 +48,6 @@ const CollectionCard = ({
                   alt={name}
                   effect='blur'
                 />
-              </div>
             </div>
             <div className='collection-card-body'>
               <p className='name'>{name}</p>
@@ -77,7 +75,6 @@ const CollectionCard = ({
           <div className='movie-collection-container-link'>
             <div className='movie-collection-card'>
               <div className='collection-card-img'>
-                <div height={'100%'} offset={70}>
                   <Link
                     to={`/${
                       tabSelected === 'collection'
@@ -105,7 +102,6 @@ const CollectionCard = ({
                       effect='blur'
                     />
                   </Link>
-                </div>
               </div>
               <div className='collection-card-body'>
                 <Link

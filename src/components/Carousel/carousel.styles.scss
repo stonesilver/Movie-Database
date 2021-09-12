@@ -885,10 +885,10 @@
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: color 200ms, background 200ms;
-  transition: color 200ms, background 200ms;
+  transition: color 1s cubic-bezier(0.075, 0.82, 0.165, 1), background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   @media all and (max-width: 768px) {
-    padding: 0.5rem 0.5rem;
+    padding: 1rem 1.5rem;
     font-size: 2em;
     line-height: 3rem;
     border-radius: 0.3rem;

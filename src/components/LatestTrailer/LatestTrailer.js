@@ -85,7 +85,6 @@ const LatestTrailer = () => {
   const trailersToDisplay = trailersVideo.length
     ? trailersVideo.filter((item) => item.videos.results.length)
     : [...Array(15).keys()];
-  // console.log({ trailers, trailersToDisplay });
   return (
     <div
       className='mt-3 p-2 latest-trailer'

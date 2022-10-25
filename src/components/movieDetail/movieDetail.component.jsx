@@ -9,25 +9,25 @@ import RightSection from '../right-section/right-section.component';
 import PageLoader from '../PageLoader/PageLoader.component';
 import CurrentSeason from '../current-season/current-season.component';
 import Collection from '../collection/collection.component';
-// import MovieImagesCarousel from '../movieImagesCarousel/movieImagesCarousel.component';
 import { Redirect } from 'react-router-dom';
 import { useParams, useRouteMatch } from 'react-router-dom';
 import { getImageColors } from '../../assets/Clarifai';
 import './movieDetail.styles.scss';
 
+const initialState = {
+  movieData: {},
+  credits: null,
+  keywords: null,
+  videos: null,
+  images: null,
+  recommendations: null,
+  reviews: [],
+  externalID: {},
+  isLoading: true,
+  backgroundColor: [],
+};
+
 const MovieDetails = () => {
-  const initialState = {
-    movieData: {},
-    credits: null,
-    keywords: null,
-    videos: null,
-    images: null,
-    recommendations: null,
-    reviews: [],
-    externalID: {},
-    isLoading: true,
-    backgroundColor: [],
-  };
   const [movieDetailsData, setMovieDetailsData] = useState(initialState);
   const { path } = useRouteMatch();
   const { movieDetail } = useParams();
@@ -111,7 +111,7 @@ const MovieDetails = () => {
           ])
       )
       .then(
-        async([
+        async ([
           movieData,
           credits,
           keywords,
@@ -134,15 +134,14 @@ const MovieDetails = () => {
           }));
 
           await getImageColors(movieData.backdrop_path).then((colors) =>
-      setMovieDetailsData((prevState) => ({
-        ...prevState,
-        backgroundColor: colors,
-      }))
-    );
+            setMovieDetailsData((prevState) => ({
+              ...prevState,
+              backgroundColor: colors,
+            }))
+          );
         }
       )
       .catch((err) => {
-        // console.log(err);
         setMovieDetailsData((prevState) => ({
           ...prevState,
           movieData: err,
@@ -157,11 +156,6 @@ const MovieDetails = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchData();
-
-    return setMovieDetailsData((prevState) => ({
-      ...prevState,
-      backgroundColor: [],
-    }));
   }, [fetchData]);
 
   const {
@@ -178,11 +172,12 @@ const MovieDetails = () => {
     mediaQuery,
   } = movieDetailsData;
 
+  console.log(movieDetailsData);
+
   return movieData.status_code ? (
     <Redirect to='/404_page_not_found' />
   ) : movieData.id && backgroundColor.length ? (
     <div className='movie-details'>
-      {/* <MovieImagesCarousel /> */}
       <DetailNav />
       <IntroDetail
         movieData={movieData}

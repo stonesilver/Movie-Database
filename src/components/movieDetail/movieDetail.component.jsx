@@ -172,8 +172,6 @@ const MovieDetails = () => {
     mediaQuery,
   } = movieDetailsData;
 
-  console.log(movieDetailsData);
-
   return movieData.status_code ? (
     <Redirect to='/404_page_not_found' />
   ) : movieData.id && backgroundColor.length ? (

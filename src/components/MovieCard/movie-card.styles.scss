@@ -1,4 +1,5 @@
 @import '../../assets/sass-variables';
+@import '../../scss/_media-query-mixin';
 
 .movie-and-tv-card {
   margin: 0;
@@ -17,7 +18,6 @@
     display: block;
     position: relative;
     width: 100%;
-    // height: 80%;
     min-height: 80%;
     background: $blankImagecontainer;
     border-radius: 7px;
@@ -45,8 +45,9 @@
   }
 
   .movie-and-tv-card-link-homepage {
-    // height: 30vh;
-    min-height: 31vh;
+    width: 100%;
+    // height: 12rem;
+    min-height: 12rem;
 
     .movie-and-tv-card-img-container {
       width: 100%;
@@ -59,9 +60,14 @@
       }
     }
 
-    @media screen and (max-width: 768px) {
-      height: calc(20vw + 8.45rem);
-      min-height: calc(20vw + 8.45rem);
+    @include sm {
+      // height: 10rem;
+      min-height: 10rem;
+    }
+
+    @include md {
+      // height: 12rem;
+      min-height: 12rem;
     }
   }
 
@@ -99,10 +105,6 @@
       display: none;
     }
   }
-
-  // .movie-and-tv-card-body-homepage {
-  //   height: 100%;
-  // }
 }
 
 .mobile-for-tv-movies-category {
@@ -174,5 +176,6 @@
 }
 
 .lazy-load-image-background {
+  width: 100%;
   height: 100%;
 }
